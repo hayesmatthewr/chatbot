@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference-only material captured during reconnaissance (mirrored
+    // theme CSS/JS from the cloned site, research scripts) — not shipped
+    // app code, shouldn't be linted as such.
+    "docs/**",
+    "scripts/research-tools/**",
   ]),
 ]);
 
