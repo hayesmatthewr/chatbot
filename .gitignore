@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# generated local reconnaissance mirror (not part of the clone output)
+/scripts/research-tools/mirror-out/

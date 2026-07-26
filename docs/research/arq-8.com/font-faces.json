@@ -1,0 +1,122 @@
+[
+ {
+  "family": "\"Times New Roman\"",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/timesnewromanpsmt.ttf?v=1765208963\") format(\"truetype\")"
+ },
+ {
+  "family": "Roobert",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/Roobert-Regular.woff2?v=1765845879\") format(\"woff2\")"
+ },
+ {
+  "family": "Roobert",
+  "weight": "700",
+  "src": "url(\"/cdn/shop/files/Roobert-Bold.woff2?v=1765845879\") format(\"woff2\")"
+ },
+ {
+  "family": "Roobert",
+  "weight": "500",
+  "src": "url(\"/cdn/shop/files/RoobertPRO-Medium.woff2?v=1765208902\") format(\"woff2\")"
+ },
+ {
+  "family": "Roobert",
+  "weight": "300",
+  "src": "url(\"/cdn/shop/files/RoobertPRO-Light.woff2?v=1765208903\") format(\"woff2\")"
+ },
+ {
+  "family": "Roobert",
+  "weight": "300",
+  "src": "url(\"/cdn/shop/files/RoobertPRO-Light.woff2?v=1765208903\") format(\"woff2\")"
+ },
+ {
+  "family": "Inter",
+  "weight": "600",
+  "src": "url(\"/cdn/shop/files/Inter-SemiBold.woff2?v=1765209271\") format(\"woff2\")"
+ },
+ {
+  "family": "Inter",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/Inter-Regular.woff2?v=1765209272\") format(\"woff2\")"
+ },
+ {
+  "family": "Inter",
+  "weight": "700",
+  "src": "url(\"/cdn/shop/files/Inter-Bold.woff2?v=1765209272\") format(\"woff2\")"
+ },
+ {
+  "family": "Oswald",
+  "weight": "500",
+  "src": "url(\"/cdn/shop/files/Oswald-Medium.woff2?v=1765209117\") format(\"woff2\")"
+ },
+ {
+  "family": "Oswald",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/Oswald-Regular.woff2?v=1765209117\") format(\"woff2\")"
+ },
+ {
+  "family": "Cardinal",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/cardinalfruit-regular-TRIAL.otf?v=1768423953\") format(\"woff2\")"
+ },
+ {
+  "family": "Cardinal",
+  "weight": "500",
+  "src": "url(\"/cdn/shop/files/CardinalFruitWeb-Medium.woff2?v=1781683186\") format(\"woff2\")"
+ },
+ {
+  "family": "Cardinal",
+  "weight": "600",
+  "src": "url(\"/cdn/shop/files/cardinalfruit-semibold-TRIAL.otf?v=1768423953\") format(\"woff2\")"
+ },
+ {
+  "family": "Cardinal",
+  "weight": "700",
+  "src": "url(\"/cdn/shop/files/cardinalfruit-bold-TRIAL.otf?v=1768423953\") format(\"woff2\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "400",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n4.6e27f20c83b0a07405328f98ff3b0be957c5d6d5.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n4.492f36219dd328eb9d6fa578986db9fe6d514f67.woff\") format(\"woff\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "700",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n7.d1a55eaf394973a6f8fe773d87de2e2f51331d2a.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n7.69b158278bc5ac2dd4016704355834ad3509f9f6.woff\") format(\"woff\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "500",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n5.94fa89da1755608b366e51df60b72b900e50a5c1.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n5.534b61175b56b7696f09dc850ab14f4755fb8071.woff\") format(\"woff\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "700",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n7.d1a55eaf394973a6f8fe773d87de2e2f51331d2a.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n7.69b158278bc5ac2dd4016704355834ad3509f9f6.woff\") format(\"woff\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "600",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n6.3f5f79f8722829dcc4ffd7c38b07b803ded204ec.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n6.01a09b2610875bfe4af6ce4c7121e612292a33d1.woff\") format(\"woff\")"
+ },
+ {
+  "family": "Geist",
+  "weight": "700",
+  "src": "url(\"//arq-8.com/cdn/fonts/geist/geist_n7.d1a55eaf394973a6f8fe773d87de2e2f51331d2a.woff2\") format(\"woff2\"), url(\"//arq-8.com/cdn/fonts/geist/geist_n7.69b158278bc5ac2dd4016704355834ad3509f9f6.woff\") format(\"woff\")"
+ },
+ {
+  "family": "lg",
+  "weight": "400",
+  "src": "url(\"../fonts/lg.woff2?io9a6k\") format(\"woff2\"), url(\"../fonts/lg.ttf?io9a6k\") format(\"truetype\"), url(\"../fonts/lg.woff?io9a6k\") format(\"woff\")"
+ },
+ {
+  "family": "JudgemeStar",
+  "weight": "normal",
+  "src": "url(\"data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAScAA0AAAAABrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAEgAAAABoAAAAcbyQ+3kdERUYAAARgAAAAHgAAACAAMwAGT1MvMgAAAZgAAABGAAAAVi+vS9xjbWFwAAAB8AAAAEAAAAFKwBMjvmdhc3AAAARYAAAACAAAAAj//wADZ2x5ZgAAAkAAAAEJAAABdH33LXtoZWFkAAABMAAAAC0AAAA2BroQKWhoZWEAAAFgAAAAHAAAACQD5QHQaG10eAAAAeAAAAAPAAAAFAYAAABsb2NhAAACMAAAAA4AAAAOAO4AeG1heHAAAAF8AAAAHAAAACAASgAvbmFtZQAAA0wAAADeAAABkorWfVZwb3N0AAAELAAAACkAAABEp3ubLXgBY2BkYADhPPP4OfH8Nl8ZuJkYQODS2fRrCPr/aSYGxq1ALgcDWBoAO60LkwAAAHgBY2BkYGDc+v80gx4TAwgASaAICmABAFB+Arl4AWNgZGBgYGPQYWBiAAIwyQgWc2AAAwAHVQB6eAFjYGRiYJzAwMrAwejDmMbAwOAOpb8ySDK0MDAwMbByMsCBAAMCBKS5pjA4PGB4wMR44P8BBj3GrQymQGFGkBwAjtgK/gAAeAFjYoAAEA1jAwAAZAAHAHgB3crBCcAwDEPRZydkih567CDdf4ZskmLwFBV8xBfCaC4BXkOUmx4sU0h2ngNb9V0vQCxaRKIAevT7fGWuBrEAAAAAAAAAAAA0AHgAugAAeAF9z79Kw1AUx/FzTm7un6QmJtwmQ5Bg1abgEGr/BAqlU6Gju+Cgg1MkQ/sA7Vj7BOnmO/gUvo2Lo14NqIO6/IazfD8HEODtmQCfoANwNsyp2/GJt3WKQrd1NLiYYWx2PBqOsmJMEOznPOTzfSCrhAtbbLdmeFLJV9eKd63WLrZcIcuaEVdssWCKM6pLCfTVOYbz/0pNSMSZKLIZpvh78sAUH6PlMrreTCabP9r+Z/puPZ2ur/RqpQHgh+MIegCnXeM4MRAPjYN//5tj4ZtTjkFqEdmeMShlEJ7tVAly2TAkx6R68Fl4E/aVvn8JqHFQ4JS1434gXKcuL31dDhzs3YbsEOAd/IU88gAAAHgBfY4xTgMxEEVfkk0AgRCioKFxQYd2ZRtpixxgRU2RfhU5q5VWseQ4JdfgAJyBlmNwAM7ABRhZQ0ORwp7nr+eZAa54YwYg9zm3ynPOeFRe8MCrciXOh/KSS76UV5L/iDmrLiS5AeU519wrL3jmSbkS5115yR2fyivJv9kx0ZMZ2RLZw27q87iNQi8EBo5FSPIMw3HqBboi5lKTGAGDp8FKXWP+t9TU01Lj5His1Ba6uM9dTEMwvrFmbf5GC/q2drW3ruXUhhsCiQOjznFlCzYhHUZp4xp76vsvQh89CQAAeAFjYGJABowM6IANLMrEyMTIzMjCXpyRWJBqZshWXJJYBKOMAFHFBucAAAAAAAAB//8AAngBY2BkYGDgA2IJBhBgAvKZGViBJAuYxwAABJsAOgAAeAFjYGBgZACCk535hiD60tn0azAaAEqpB6wAAA==\") format(\"woff\")"
+ },
+ {
+  "family": "Bulbis",
+  "weight": "400",
+  "src": "url(\"/cdn/shop/files/Bulbis-Filled.woff2?v=1765399299\") format(\"woff2\")"
+ }
+]
