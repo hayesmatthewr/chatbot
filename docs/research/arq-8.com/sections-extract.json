@@ -1,0 +1,2093 @@
+{
+  "header-top-bar": {
+    "found": true,
+    "selector": "#shopify-section-sections--27726639923546__header_top_bar",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [],
+    "images": [],
+    "buttons": [],
+    "text": "Big Summer Sale: Up to 52% Off Subscriptions"
+  },
+  "header-nav": {
+    "found": true,
+    "selector": "#shopify-section-sections--27726639923546__header_2_FTbHzx",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/collection-gummies.png",
+        "alt": "Dropdown Menu Item",
+        "w": 285,
+        "h": 328
+      },
+      {
+        "src": "http://localhost:8123/public/images/collection-powder.png",
+        "alt": "Dropdown Menu Item",
+        "w": 358,
+        "h": 400
+      },
+      {
+        "src": "http://localhost:8123/public/images/Arq8_MGGO_Main_Image_no_bg.png",
+        "alt": "Dropdown Menu Item",
+        "w": 2000,
+        "h": 2000
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq8-logo.svg",
+        "alt": "Arq8 ",
+        "w": 95,
+        "h": 26
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-profile-icon-new.svg",
+        "alt": "Account",
+        "w": 25,
+        "h": 25
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-cart-icon-new.svg",
+        "alt": "Account",
+        "w": 25,
+        "h": 25
+      },
+      {
+        "src": "http://localhost:8123/public/images/faq-arrow.svg",
+        "alt": "Home",
+        "w": 22,
+        "h": 21
+      },
+      {
+        "src": "http://localhost:8123/public/images/faq-arrow.svg",
+        "alt": "Home",
+        "w": 22,
+        "h": 21
+      },
+      {
+        "src": "http://localhost:8123/public/images/collection-gummies.png",
+        "alt": "Dropdown Menu Item",
+        "w": 285,
+        "h": 328
+      },
+      {
+        "src": "http://localhost:8123/public/images/collection-powder.png",
+        "alt": "Dropdown Menu Item",
+        "w": 358,
+        "h": 400
+      },
+      {
+        "src": "http://localhost:8123/public/images/Arq8_MGGO_Main_Image_no_bg.png",
+        "alt": "Dropdown Menu Item",
+        "w": 2000,
+        "h": 2000
+      },
+      {
+        "src": "http://localhost:8123/public/images/faq-arrow.svg",
+        "alt": "Home",
+        "w": 22,
+        "h": 21
+      },
+      {
+        "src": "http://localhost:8123/public/images/faq-arrow.svg",
+        "alt": "Home",
+        "w": 22,
+        "h": 21
+      }
+    ],
+    "buttons": [],
+    "text": "HOME\nSHOP\nSCIENCE\nABOUT\n\nACCOUNT\n\nCART"
+  },
+  "product-info": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__product_info_mono_CMVPkP",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "FullDissolve™ Nano-Creatine Monohydrate Gummies"
+      },
+      {
+        "tag": "h4",
+        "text": "Tested by Swift Lab in FEB 2026"
+      },
+      {
+        "tag": "h3",
+        "text": "What makes Arq8™ different from other creatine gummies?"
+      },
+      {
+        "tag": "h3",
+        "text": "How do I take them?"
+      },
+      {
+        "tag": "h3",
+        "text": "What are the benefits of this formula?"
+      },
+      {
+        "tag": "h3",
+        "text": "Is it good for women?"
+      },
+      {
+        "tag": "h1",
+        "text": "The Arq8™ Dosing Guide"
+      },
+      {
+        "tag": "h2",
+        "text": "The Three Tiers"
+      },
+      {
+        "tag": "h2",
+        "text": "HOW TO CHOOSE YOUR TIER"
+      },
+      {
+        "tag": "h2",
+        "text": "WHAT DOESN'T CHANGE"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://arq-8.com/cdn/shop/files/strawberry-subs-1.webp?v=17068241971068424188",
+        "alt": "strawberry",
+        "w": 4320,
+        "h": 4320
+      },
+      {
+        "src": "http://localhost:8123/public/images/Arq8_Sup_Facts_-_CLP_added.png",
+        "alt": "strawberry",
+        "w": 902,
+        "h": 902
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.3.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.4.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.5.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.6.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.7.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.8.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.9a.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.10.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.11.webp",
+        "alt": "strawberry",
+        "w": 1440,
+        "h": 1440
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.12.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_1.13.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.9b.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.14.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://arq-8.com/cdn/shop/files/strawberry-subs-1.webp?v=17068241971068424188",
+        "alt": "strawberry",
+        "w": 4320,
+        "h": 4320
+      },
+      {
+        "src": "http://localhost:8123/public/images/Arq8_Sup_Facts_-_CLP_added.png",
+        "alt": "strawberry",
+        "w": 18057,
+        "h": 18057
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.3.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.4.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.5.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.6.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.7.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.8.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.9a.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.10.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.11.webp",
+        "alt": "strawberry",
+        "w": 28800,
+        "h": 28800
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.12.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_1.13.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.9b.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/gummies_listing_2.14.webp",
+        "alt": "strawberry",
+        "w": 0,
+        "h": 0
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/strawberry-v2.jpg",
+        "alt": "Strawberry",
+        "w": 283,
+        "h": 112
+      },
+      {
+        "src": "http://localhost:8123/public/images/mango-v2.png",
+        "alt": "Mango",
+        "w": 283,
+        "h": 112
+      },
+      {
+        "src": "http://localhost:8123/public/images/product-benefits-1.png",
+        "alt": "Free Shipping",
+        "w": 75,
+        "h": 75
+      },
+      {
+        "src": "http://localhost:8123/public/images/product-benefits-2.png",
+        "alt": "Free Shipping",
+        "w": 75,
+        "h": 75
+      },
+      {
+        "src": "http://localhost:8123/public/images/product-benefits-3.png",
+        "alt": "Free Shipping",
+        "w": 75,
+        "h": 75
+      },
+      {
+        "src": "http://localhost:8123/public/images/product-benefits-4.png",
+        "alt": "Free Shipping",
+        "w": 75,
+        "h": 75
+      },
+      {
+        "src": "http://localhost:8123/public/images/guarantee-icon.svg",
+        "alt": "Guarantee Icon",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/usa-flag.svg",
+        "alt": "Shipping Icon",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/tested-img.png",
+        "alt": "",
+        "w": 44,
+        "h": 50
+      },
+      {
+        "src": "http://localhost:8123/public/images/tested-arrow.svg",
+        "alt": "",
+        "w": 17,
+        "h": 8
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Rating",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/close-icon.svg",
+        "alt": "",
+        "w": 20,
+        "h": 20
+      }
+    ],
+    "buttons": [
+      "Add to cart",
+      "See  our dosing guide"
+    ],
+    "text": "SHOP\n/\nFullDissolve™ Nano-Creatine Monohydrate Gummies\n\n4.9\n\n|\nREVIEWS\nFullDissolve™ Nano-Creatine Monohydrate Gummies\n\nMost creatine gummies use old-generation creatine that causes bloating and hide chalky aftertaste behind a sugar coating. Arq8 uses FullDissolve™ Nano-Creatine Monohydrate —for 10x better absorption and a naturally smooth taste.\n\n\n5g clinical dose + 3 supporting ingredients\nNo chalk, no bloating, no sugar\nPatent-pending nano refinement Swiss tech\n\nSelect flavor:\n\nStrawberry\n\nMango\n\n1 PACK\nRECOMMENDED\n2 PACK\n3 PACK\nSubscribe & Save\n\nDelivery every 1 month\n\nFree gifts with your first order:\n\nFREE Water bottle (worth $15)\n\nFREE Longevity guide for men (worth $17)\n\nFREE Longevity guide for women (worth $17)\n\nFREE Shipping\n\nOne-time purchase\nNo FREE gifts\nNo FREE shipping\nADD TO CART\n\n30-day money-back guarantee.\n\nMade in USA\n\nTested by Swift Lab in FEB 2026\n\n1 substance tested for quality\n\nWhat makes Arq8™ different from other creatine gummies?\n\nMost creatine gummies use old-generation creatine that leaves a chalky aftertaste masked with sugar. Arq8 uses FullDissolve™ Nano-Creatine — a patent-pending Swiss technology that dissolves completely for 10x better absorption, zero chalk, zero bloating, and zero sugar coating. Plus Taurine, Succinic Acid, and Zinc for complete daily support — not just creatine alone.\n\nHow do I take them?\n\nTake 4 gummies daily, any time of day. Creatine works by maintaining consistent levels around the clock — not like a pre-workout. The only thing that matters is taking them every day.\n\nSEE  OUR DOSING GUIDE\nWhat are the benefits of this formula?\n\nSupports clean energy, sharper focus, faster recovery, better resilience under stress and poor sleep, and long-term muscle preservation. Creatine powers cells. Taurine steadies the system. Succinic Acid fuels mitochondria. Zinc supports recovery and hormones. No stimulants. No crashes.\n\nIs it good for women?\n\nYes. Women produce 70-80% less creatine than men, making supplementation especially important. Supports energy, mood, lean muscle, bone density, and hormonal resilience during PMS, perimenopause, and menopause. Creatine doesn't cause bulking — it supports how your body produces energy and preserves muscle.\n\nWhitney F.\n\"Tried other creatine gummies before and they all tasted chalky. These actually don't. Big difference.\"\n\nVerified Customer\n\nSarah K.\n\"No bloating, easy on digestion, and my energy feels more stable  throughout my cycle. This is the first creatine I've stuck with  long-term.\"\n\nVerified Customer\n\nDavis S.\n\"Clear focus without the caffeine crash. My brain stays sharp  through 12-hour work days. Game changer.\" \n\nVerified Customer\n\nRonnie A.\n\"I keep them in my gym bag, even on the flights. Way easier than bringing powder everywhere. Energy and endurance feel more consistent.\"\n\nVerified Customer"
+  },
+  "backed": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__backed_AYzy6D",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [],
+    "images": [],
+    "buttons": [],
+    "text": "THE MOST RESEARCHED PERFORMANCE NUTRIENT\nThe science is clear.\n\nMost people just never stay long enough to feel it.\n700+\nClinical studies\n30+\nYears of research"
+  },
+  "before-after": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__before_after_product_zYqA8q",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Creatine works. \n                    \n                    When it’s taken daily."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/ARQSTUDIO-19.jpg",
+        "alt": "Before After",
+        "w": 959,
+        "h": 774
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW",
+      "TRY Arq8™ NOW"
+    ],
+    "text": "Creatine works. \nWhen it’s taken daily.\n\nCreatine is one of the most studied nutrients in human physiology. But most people quit before the benefits arrive.\n\nThe reason is always the same. Powder is messy. The bloat, chalkiness and taste put people off. And when the habit breaks, the results never build.\n\nArq8™ gummies solve the biggest problem creatine ever had — friction. So nothing stands between you and the benefits.\n\nTRY Arq8™ NOW"
+  },
+  "scrolling-line": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__scrolling_line_CNhC7T",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [],
+    "images": [],
+    "buttons": [],
+    "text": "LEAN MUSCLE\nCLARITY\nNON GMO\nENDURANCE\nRECOVERY\nBONE DENSITY\nANTI-AGING\nLEAN MUSCLE\nCLARITY\nNON GMO\nENDURANCE\nRECOVERY\nBONE DENSITY\nANTI-AGING\nLEAN MUSCLE\nCLARITY\nNON GMO\nENDURANCE\nRECOVERY\nBONE DENSITY\nANTI-AGING\nLEAN MUSCLE\nCLARITY\nNON GMO\nENDURANCE\nRECOVERY\nBONE DENSITY\nANTI-AGING\nLEAN MUSCLE\nCLARITY\nNON GMO\nENDURANCE\nRECOVERY\nBONE DENSITY\nANTI-AGING"
+  },
+  "modern-redesign": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__modern_redesign_xcTig9",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Modern creatine system.Built for daily life."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/modern-redesign-mob.webp",
+        "alt": "",
+        "w": 2250,
+        "h": 1680
+      },
+      {
+        "src": "http://localhost:8123/public/images/modern-new-img.png",
+        "alt": "Gummies:",
+        "w": 540,
+        "h": 540
+      },
+      {
+        "src": "http://localhost:8123/public/images/modern-new-img-2.png",
+        "alt": "messy powder:",
+        "w": 540,
+        "h": 540
+      }
+    ],
+    "buttons": [],
+    "text": "Modern creatine system.\nBuilt for daily life.\n\nArq8™ gummies use FullDissolve™ Nano-Creatine Monohydrate — refined through a patent-pending particle reduction process developed in Switzerland for complete solubility and better cellular absorption. \n\nNo chalkiness, no sugar coating, no gritty texture. Just a smooth, delicious gummy with a full 5g clinical dose and 3 supporting ingredients. So nothing is standing between you and taking it every single day.\n\nGUMMIES:\nInstantly ready \nDelicious\nZero bloat\nMESSY POWDER:\nInconvenient\nChalky taste\nBloating"
+  },
+  "tastes-good": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__sicom_tastes_good_L4GY48",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Creatine gummies that actually taste good."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/tastes-gummies.png",
+        "alt": "",
+        "w": 38,
+        "h": 38
+      },
+      {
+        "src": "http://localhost:8123/public/images/Group_1410143134.jpg",
+        "alt": "",
+        "w": 1440,
+        "h": 1161
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW"
+    ],
+    "text": "MANGO & STRAWBERRY GUMMIES\n\nCreatine gummies that\nactually taste good.\nMost creatine gummies mask a chalky aftertaste with sugar coating. \n\nArq8™ tastes clean because the creatine fully dissolves. Nothing to hide. Nothing to mask. Just a smooth, delicious gummy you'll actually look forward to.\nTRY ARQ8™ NOW"
+  },
+  "four-ingredients": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__four_ingridients_epXaiG",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Four ingredients.Chosen with purpose."
+      },
+      {
+        "tag": "h4",
+        "text": "NANO-CREATINE MONOHYDRATE"
+      },
+      {
+        "tag": "h4",
+        "text": "TAURINE"
+      },
+      {
+        "tag": "h4",
+        "text": "ZINC (AS ZINC PICOLINATE)"
+      },
+      {
+        "tag": "h4",
+        "text": "SUCCINIC ACID (SUCCINATE)"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/ingredients-new-img-mob.png",
+        "alt": "",
+        "w": 503,
+        "h": 531
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/ingredients-new-img.webp",
+        "alt": "",
+        "w": 1360,
+        "h": 1478
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "supplement facts",
+      "supplement facts"
+    ],
+    "text": "Four ingredients.\nChosen with purpose.\n\nA complete daily formula that supports how your body produces energy, recovers from stress, and performs — physically and mentally — without stimulants or shortcuts.\n\nNANO-CREATINE MONOHYDRATE\nFoundation for strength, clarity, and rapid recovery. Creatine is stored in muscle and brain tissue, where it supports rapid ATP regeneration — the energy every cell uses to function. FullDissolve™ Nano-Creatine is refined for complete solubility and superior absorption, enabling consistent daily use that supports physical performance, cognitive function, and long-term cellular health.\nFaster muscle recovery*\nCognitive clarity*\nCellular hydration*\nSupports lean muscle development*\nEnhances training output*\nImproves mental resilience under stress*\nTAURINE\nCellular stability for calm energy and endurance. Taurine is highly concentrated in the heart, brain, and muscles. It regulates cellular hydration, electrolyte balance, and calcium signaling — essential for sustained performance. Unlike stimulants, it supports energy by stabilizing the nervous system and protecting cells from oxidative stress.\nSupports cardiovascular function*\nAids cellular hydration and electrolyte balance*\nReduces exercise-induced fatigue*\nSupports nervous system calm*\nHelps maintain steady energy during stress*\nZINC (AS ZINC PICOLINATE)\nEssential for recovery, immunity, and hormonal health. Zinc is required for over 300 enzymatic reactions, including DNA repair, immune defense, and protein synthesis. Zinc picolinate is a highly bioavailable form that supports tissue repair, hormonal balance, and antioxidant protection — all foundational for recovery and long-term health.\nSupports immune function*\nAids tissue repair and recovery*\nSupports healthy testosterone levels*\nContributes to antioxidant defense*\nSupports skin health and wound healing*\nSUCCINIC ACID (SUCCINATE)\nMitochondrial fuel for sustained cellular energy. Succinic acid is a key intermediate in the Krebs cycle — the energy-producing pathway inside mitochondria. Supplementing supports ATP generation, improving endurance, oxygen utilization, and metabolic efficiency during prolonged physical or mental demand.\nSupports ATP production in mitochondria*\nEnhances endurance and stamina*\nAids oxygen utilization during exercise*\nReduces fatigue under physical demand*\nSupports metabolic efficiency\nSUPPLEMENT FACTS"
+  },
+  "leave-out": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__sicom_leave_out_AYcUtz",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "What we leave out."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/leave-gummies-new.png",
+        "alt": "",
+        "w": 219,
+        "h": 218
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "SCIENCE behind"
+    ],
+    "text": "What we leave out.\n\nBecause not all gummies are created equal\n\nSCIENCE BEHIND\nHigh Fructose Corn Syrup\nGelatin\nSilicon Dioxide\nGluten & GMO\nArtificial sweeteners\nSynthetic colors\nDairy\nSugar"
+  },
+  "video-reviews": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__pdp_video_reviews_DBAbWc",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Hear from people who use it every day."
+      },
+      {
+        "tag": "h3",
+        "text": "Jarod Roy"
+      },
+      {
+        "tag": "h3",
+        "text": "Rachel K."
+      },
+      {
+        "tag": "h3",
+        "text": "Chaos schedule needs easy"
+      },
+      {
+        "tag": "h3",
+        "text": "Hannah M."
+      },
+      {
+        "tag": "h3",
+        "text": "Tyler K."
+      },
+      {
+        "tag": "h3",
+        "text": "Ski season game changer"
+      },
+      {
+        "tag": "h3",
+        "text": "Elizabeth Lee"
+      },
+      {
+        "tag": "h3",
+        "text": "Alicia M."
+      },
+      {
+        "tag": "h3",
+        "text": "My glutes look way better"
+      },
+      {
+        "tag": "h3",
+        "text": "Sean Martin"
+      },
+      {
+        "tag": "h3",
+        "text": "Sarah M."
+      },
+      {
+        "tag": "h3",
+        "text": "Way easier than powder"
+      },
+      {
+        "tag": "h3",
+        "text": "Nicole Wallace"
+      },
+      {
+        "tag": "h3",
+        "text": "Jake R."
+      },
+      {
+        "tag": "h3",
+        "text": "My running pace is better"
+      },
+      {
+        "tag": "h3",
+        "text": "Shelby"
+      },
+      {
+        "tag": "h3",
+        "text": "Liam T."
+      },
+      {
+        "tag": "h3",
+        "text": "First time I've stayed consistent"
+      },
+      {
+        "tag": "h3",
+        "text": "Brandon C."
+      },
+      {
+        "tag": "h3",
+        "text": "Like that they added other stuff"
+      },
+      {
+        "tag": "h3",
+        "text": "Olivia L."
+      },
+      {
+        "tag": "h3",
+        "text": "Lifesaver for busy moms"
+      },
+      {
+        "tag": "h3",
+        "text": "Melissa A."
+      },
+      {
+        "tag": "h3",
+        "text": "Mental clarity was unexpected"
+      },
+      {
+        "tag": "h3",
+        "text": "Emma T."
+      },
+      {
+        "tag": "h3",
+        "text": "Hiit classes are way better"
+      },
+      {
+        "tag": "h3",
+        "text": "Noah M."
+      },
+      {
+        "tag": "h3",
+        "text": "no weird texture"
+      },
+      {
+        "tag": "h3",
+        "text": "Sophia R."
+      },
+      {
+        "tag": "h3",
+        "text": "Got my dad on these"
+      },
+      {
+        "tag": "h3",
+        "text": "Derek W."
+      },
+      {
+        "tag": "h3",
+        "text": "Perfect for travel"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/34d2ecc1445f4e9c8c093c7ebafc67e2.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/rachel.png",
+        "alt": "Rachel K.",
+        "w": 64,
+        "h": 64
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/4520dcdbe882452d8c37c9417e477f7a.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/tyler.png",
+        "alt": "Tyler K.",
+        "w": 64,
+        "h": 64
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/50.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 1093,
+        "h": 1257
+      },
+      {
+        "src": "http://localhost:8123/public/images/c1372b2903bf48918962f25a19959723.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/alicia.png",
+        "alt": "Alicia M.",
+        "w": 64,
+        "h": 64
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/50b37cb8e54d43a1a48bf911be3e452d.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/50.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 1093,
+        "h": 1257
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/ee8e64d7c8d14751a621c6ca245a8f41.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/65438f50e18b425c8998cbd0d23c8181.thumbnail.0000000000_800x.jpg",
+        "alt": "",
+        "w": 800,
+        "h": 1422
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Arq8 FullDissolve™ Gummies",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      },
+      {
+        "src": "http://localhost:8123/public/images/verified-icon.svg",
+        "alt": "Verified",
+        "w": 20,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/stars-black-5.svg",
+        "alt": "Star",
+        "w": 108,
+        "h": 20
+      },
+      {
+        "src": "http://localhost:8123/public/images/aa15bae8d5e5175cdaaf5290dd4de74e916cfb326.png",
+        "alt": "Arq8 FullDissolve™ Nano-Creatine Gummies",
+        "w": 102,
+        "h": 117
+      }
+    ],
+    "buttons": [],
+    "text": "Hear from people who use it every day.\nAthletes, professionals, and everyday movers share what they noticed after making Arq8™ part of their routine — strength, clarity, recovery, and consistency.\n1-19\nJarod Roy\n\nVerified Buyer\n\nRachel K.\n\nVerified Buyer\n\nChaos schedule needs easy\n\nJuggling work kids gym everything. these fit into my day perfectly. pop 4 during the day when I want something sweet. Energy is better and I'm taking these daily as I heard that this is the main rule with creatine.\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nHannah M.\n\nVerified Buyer\n\nTyler K.\n\nVerified Buyer\n\nSki season game changer\n\nI live near Park City and I ski about 3-4 days a week and my leg endurance is noticeably better. can push through full days without my quads giving out. Recovery between ski days is way faster too. Keep them in my jacket pocket and eat with hot tea when I’m on the slope\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nElizabeth Lee\n\nVerified Buyer\n\nAlicia M.\n\nVerified Buyer\n\nMy glutes look way better\n\nGlute strength is up and they're more toned. Hip thrusts feel stronger. Strawberry flavor tastes like candy without being overly sweet.\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nSean Martin\n\nVerified Buyer\n\nSarah M.\n\nVerified Buyer\n\nWay easier than powder\n\nI keep these in my purse and gym bag. No mixing, no mess, just grab 4 and go. Mango flavor tastes like actual fruit candy. Been taking them for 2 months and recovery is noticeably faster.\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nNicole Wallace\n\nVerified Buyer\n\nJake R.\n\nVerified Buyer\n\nMy running pace is better\n\ni run like 4-5 times a week and can hold pace way longer now without feeling destroyed. recovery between runs is faster. way easier than dealing with powder\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nShelby\n\nVerified Buyer\n\nLiam T.\n\nVerified Buyer\n\nFirst time I've stayed consistent\n\nI've tried powder probably 5 times over the years and always quit. These are so easy I actually take them every day. Strength is up, endurance is better and I maily didn’t notice any bloating which was a no-go for me before.\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nBrandon C.\n\nVerified Buyer\n\nLike that they added other stuff\n\nmost gummies are just creatine. these have taurine zinc and succinic acid too. noticed the difference during longer workouts especially\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nOlivia L.\n\nVerified Buyer\n\nLifesaver for busy moms\n\ni have two kids under 5 and literally no time to deal with powder. keep these in my purse and take them between drop offs. energy is way more stable and im not dying by 3pm pickup anymore\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nMelissa A.\n\nVerified Buyer\n\nMental clarity was unexpected\n\nI work 12 hour shifts as a doctor and used to crash hard closer to the end of the day. Since starting these I'm way sharper during long days. Also my gym performance is more consistent.\n\nArq8 FullDissolve™ Nano-Creatine Gummies\nEmma T.\n\nVerified Buyer\n\nHiit classes are way better\n\n"
+  },
+  "myth-pdp": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__myth_pdp_bhdGWE",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Clinical facts \n                    over  common myths."
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine is only for men"
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine is only for the gym"
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine = bulky look"
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine makes you bloated"
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine damages your kidneys"
+      },
+      {
+        "tag": "h3",
+        "text": "Myth: creatine gummies are just candy"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW",
+      "TRY Arq8™ NOW"
+    ],
+    "text": "Clinical facts  over\ncommon myths.\nTRY Arq8™ NOW\nMyth: creatine is only for men\n\nWomen naturally produce 20–40% less creatine than men — and levels fluctuate further during menstrual cycles, perimenopause, and menopause. Creatine supports lean muscle, cognitive clarity, mood stability, and bone density. Women don't just benefit from creatine — they may need it more.\n\nMyth: creatine is only for the gym\n\nYour brain consumes creatine too. It supports mental energy, focus under stress, and resilience on low-sleep days.\n\nMyth: creatine = bulky look\n\nCreatine doesn't make you bulky. It supports strength, tone, and recovery by helping your muscles recycle energy faster. How you look depends on how you train and eat. Creatine just makes your effort go further.\n\nMyth: creatine makes you bloated\n\nOld-generation creatine doesn't dissolve fully — large particles sit outside the cell, pull water, and cause that puffy, bloated feeling. FullDissolve™ Nano-Creatine is engineered for complete solubility. It absorbs efficiently, gets into the cell, and doesn't cause water retention, bloating or GI discomfort.\n\nMyth: creatine damages your kidneys\n\nIt has been clinically proven that creatine does not damage kidneys. In healthy individuals, 5g daily of creatine monohydrate shows no adverse effects on kidney function — even in long-term use. This myth comes from confusing creatine with creatinine, a waste marker. They're not the same thing.\n\nMyth: creatine gummies are just candy\n\nMost are. Many contain less creatine than claimed, use cheap forms that don't absorb well, and coat with sugar. Every batch of Arq8 is third-party tested and provides a verified 5g clinical dose of FullDissolve™ Nano-Creatine — plus Taurine, Succinic Acid, and Zinc. This isn't candy. It's a scientifically formulated functional gummy."
+  },
+  "benefits": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__benefits_HeJwDi",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Different lives. One foundation."
+      },
+      {
+        "tag": "h3",
+        "text": "Gym & Strength Training"
+      },
+      {
+        "tag": "h3",
+        "text": "Endurance & Team Sports"
+      },
+      {
+        "tag": "h3",
+        "text": "Busy Professionals"
+      },
+      {
+        "tag": "h3",
+        "text": "Healthy aging"
+      },
+      {
+        "tag": "h3",
+        "text": "Women's Health"
+      },
+      {
+        "tag": "h3",
+        "text": "Former creatine users"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-1.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      },
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-2.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      },
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-3.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      },
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-4.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      },
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-5.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      },
+      {
+        "src": "http://localhost:8123/public/images/pdp-benefits-6.jpg",
+        "alt": "Benefits Item 1",
+        "w": 298,
+        "h": 298
+      }
+    ],
+    "buttons": [],
+    "text": "Different lives. One foundation.\n\nBuilt for different bodies, routines, and life stages, Arq8™ delivers steady, digestible support for strength, mental clarity, and recovery — without bloating, loading, or disruption.\n\nGym & Strength Training\n\nSupports stronger output, faster recovery, and lean muscle development — taken daily, not just on training days.*\n\nEndurance & Team Sports\n\nSupports repeat-effort capacity, sustained energy under physical demand, faster recovery between sessions, and mental sharpness when it matters most.\n\nBusy Professionals\n\nSteady mental clarity, sharper focus, and physical energy across long days — with greater resilience under stress and measurably less cognitive drop from poor sleep.\n\nHealthy aging\n\nHelps preserve muscle mass, brain health, strength, and cellular energy as the body changes with age.\n\nWomen's Health\n\nSupports energy, mood stability, and hormonal resilience — especially during PMS, perimenopause, and menopause.\n\nFormer creatine users\n\nBuilt for those who stopped due to bloating, chalkiness, or inconvenience — making daily consistency finally possible."
+  },
+  "tested": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__tested_KEWnQd",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Built with precision. \n                    Verified with care."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW",
+      "TRY Arq8™ NOW"
+    ],
+    "text": "Built with precision. Verified with care.\n\nArq8™ is proudly made in the USA, produced in a cGMP-certified facility and independently third-party tested to ensure purity, consistency, and quality.\n\ncGMP manufacturing\nThird-party tested\nMade in the USA\nScientifically formulated\nTRY Arq8™ NOW"
+  },
+  "scientist": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__scientist_mVQYKh",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Backed by longevity scientists."
+      },
+      {
+        "tag": "h2",
+        "text": "Backed by longevity scientists."
+      },
+      {
+        "tag": "h3",
+        "text": "Dr. Filippo Ongaro, MD"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/scientists-img.jpg",
+        "alt": "scientists",
+        "w": 961,
+        "h": 740
+      }
+    ],
+    "buttons": [],
+    "text": "Backed by longevity scientists.\n\n“Creatine is one of the most extensively studied compounds in human physiology, but its real-world efficacy depends on consistent intake. Poor solubility and gastrointestinal intolerance frequently limit adherence. \n\nWhen taken consistently, creatine’s benefits extend far beyond performance. It supports muscle preservation, neuromuscular function, recovery, bone health, and metabolic resilience—benefits that become increasingly relevant with aging, caloric restriction, and hormonal transitions.”\n\nDr. Filippo Ongaro, MD\n\nClinical Researcher · Anti-Aging & Functional Medicine · Longevity Science"
+  },
+  "comparisons": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__comparisons_new_nb69an",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "The difference is clear."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2-2.png",
+        "alt": "Comparisons",
+        "w": 102,
+        "h": 88
+      },
+      {
+        "src": "http://localhost:8123/public/images/Gummies_Jar_1-2.png",
+        "alt": "Other",
+        "w": 256,
+        "h": 330
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/arq-list-icon.svg",
+        "alt": "Yes",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "src": "http://localhost:8123/public/images/no-with-bg.svg",
+        "alt": "No",
+        "w": 24,
+        "h": 24
+      },
+      {
+        "src": "http://localhost:8123/public/images/btn-icon.svg",
+        "alt": "",
+        "w": 15,
+        "h": 14
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW",
+      "TRY Arq8™ NOW"
+    ],
+    "text": "The difference is clear.\n\nA creatine gummy that delivers the full 5g clinical dose and works without the bloat. FullDissolve™ Technology eliminates the chalky texture — so you get a smooth, delicious taste you'll actually enjoy taking every day.\n\nTRY Arq8™ NOW\n\t\n\t\n\nFullDissolve™ nano-creatine\t\n\t\n\nClinically dosed (5g) \t\n\t\n\nAdded functional ingredients \t\n\t\n\nDelicious, non-chalky taste\t\n\t\n\nNo bloating\t\n\t\n\nThird-party tested\t\n\t\n\nMade in USA\t\n\t\n\nVegan\t\n\t\n\nSugar-free\t\n\t\n\nNo artificial colors and flavors"
+  },
+  "design": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__design_9tecNX",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Simple by Design"
+      },
+      {
+        "tag": "h3",
+        "text": "AT HOME. AT WORK. ON THE GO."
+      },
+      {
+        "tag": "h3",
+        "text": "ONE SERVING. FULL FORMULA."
+      },
+      {
+        "tag": "h3",
+        "text": "BUILT FOR THE HABIT."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/ARQSTUDIO-32.jpg",
+        "alt": "",
+        "w": 573,
+        "h": 644
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2.png",
+        "alt": "",
+        "w": 173,
+        "h": 173
+      },
+      {
+        "src": "http://localhost:8123/public/images/Fits_anywhere_your_day_takes_you_no_prep_no_cleanup..jpg",
+        "alt": "",
+        "w": 573,
+        "h": 644
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2.png",
+        "alt": "",
+        "w": 173,
+        "h": 173
+      },
+      {
+        "src": "http://localhost:8123/public/images/ARQSTUDIO-4.jpg",
+        "alt": "",
+        "w": 573,
+        "h": 644
+      },
+      {
+        "src": "http://localhost:8123/public/images/1_2.png",
+        "alt": "",
+        "w": 173,
+        "h": 173
+      }
+    ],
+    "buttons": [],
+    "text": "Simple by Design\n\n4 gummies a day. No water, no mixing, no routine to build around. Just take them and go.\n\nAT HOME. AT WORK. ON THE GO.\n\nFits anywhere your day takes you — no prep, no cleanup.\n\nONE SERVING. FULL FORMULA.\n\n5g Nano-Creatine + Taurine, Succinic Acid, and Zinc in every dose.\n\nBUILT FOR THE HABIT.\n\nCreatine only works with consistency. This is the format that makes it effortless."
+  },
+  "certificate": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__certificate_J4tKpd",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Try Arq8™ risk-free for 30 days."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/arq-logo.svg",
+        "alt": "",
+        "w": 26,
+        "h": 26
+      },
+      {
+        "src": "http://localhost:8123/public/images/faq-arrow.svg",
+        "alt": "Arrow Right",
+        "w": 22,
+        "h": 21
+      }
+    ],
+    "buttons": [
+      "TRY Arq8™ NOW"
+    ],
+    "text": "Try Arq8™ risk-free for 30 days.\n\nNot satisfied? Full refund. No questions asked. If you're not feeling the difference within consistent 30 day use, we'll refund your first order. No hassle. Just results, or your money back. For full guarantee details and conditions, please visit Money-Back Guarantee.\n\nTRY Arq8™ NOW"
+  },
+  "faq": {
+    "found": true,
+    "selector": "#shopify-section-template--28123754135898__faq_bJH8tH",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "Questions? \n                    We've got answers."
+      },
+      {
+        "tag": "h3",
+        "text": "Is creatine safe for daily use?"
+      },
+      {
+        "tag": "h3",
+        "text": "When should I take creatine?"
+      },
+      {
+        "tag": "h3",
+        "text": "Will this cause bloating?"
+      },
+      {
+        "tag": "h3",
+        "text": "Is creatine only for athletes?"
+      },
+      {
+        "tag": "h3",
+        "text": "When will I start seeing results?"
+      },
+      {
+        "tag": "h3",
+        "text": "Does creatine have any side effects?"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/faq-gummies.png",
+        "alt": "FAQ",
+        "w": 410,
+        "h": 410
+      }
+    ],
+    "buttons": [],
+    "text": "Questions?\nWe've got answers.\nIs creatine safe for daily use?\n\nYes. Creatine is one of the most studied supplements in existence — with over 700 clinical studies and 30+ years of research confirming its safety for long-term daily use in healthy adults. No cycling required.\n\nWhen should I take creatine?\n\nAny time. Creatine doesn't work like a stimulant — it works by maintaining consistent levels in your muscle and brain tissue around the clock. Morning, evening, with food or without. The only thing that matters is taking it every day.\n\nWill this cause bloating?\n\nNot with Arq8™. Bloating from creatine is caused by undissolved particles sitting in the gut. FullDissolve™ Nano-Creatine dissolves completely — which means nothing sits unabsorbed, and your digestive system never has to deal with the residue that causes discomfort.\n\nIs creatine only for athletes?\n\nNo. Your brain uses creatine just as much as your muscles do. Creatine supports mental clarity, focus, stress resilience, and cognitive performance under fatigue — making it as relevant for professionals, parents, and anyone under daily demand as it is for athletes.\n\nWhen will I start seeing results?\n\nMost people notice subtle improvements in energy and focus within the first one to two weeks. Full muscle and brain saturation typically occurs around 30 days of consistent daily use — which is when the deeper benefits become most noticeable.\n\nDoes creatine have any side effects?\n\nCreatine is exceptionally well tolerated. The side effects most people associate with it — bloating, cramping, digestive discomfort — are caused by poor solubility in standard forms, not by creatine itself. FullDissolve™ eliminates those issues. No stimulants. No hormones. Nothing artificial."
+  },
+  "footer": {
+    "found": true,
+    "selector": "#shopify-section-sections--27726639890778__footer_2_ENU4dX",
+    "containerStyles": {
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontFamily": "Roobert, sans-serif",
+      "lineHeight": "15.4px",
+      "letterSpacing": "normal",
+      "color": "rgba(3, 3, 2, 0.76)",
+      "textTransform": "none",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "padding": "0px",
+      "display": "block",
+      "flexDirection": "row",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "gap": "normal",
+      "gridTemplateColumns": "none",
+      "borderRadius": "0px",
+      "border": "0px none rgba(3, 3, 2, 0.76)",
+      "boxShadow": "none",
+      "maxWidth": "none",
+      "width": "1440px"
+    },
+    "headings": [
+      {
+        "tag": "h4",
+        "text": "SHOP"
+      },
+      {
+        "tag": "h4",
+        "text": "LEARN MORE"
+      },
+      {
+        "tag": "h4",
+        "text": "SUPPORT"
+      },
+      {
+        "tag": "h4",
+        "text": "LEGAL"
+      }
+    ],
+    "images": [
+      {
+        "src": "http://localhost:8123/public/images/footer-logo.svg",
+        "alt": "Footer Logo",
+        "w": 95,
+        "h": 26
+      },
+      {
+        "src": "http://localhost:8123/public/images/inst-icon.svg",
+        "alt": "Instagram Arq8",
+        "w": 32,
+        "h": 32
+      },
+      {
+        "src": "http://localhost:8123/public/images/FB.svg",
+        "alt": "Facebook Arq8",
+        "w": 32,
+        "h": 32
+      },
+      {
+        "src": "http://localhost:8123/public/images/tik-tok-icon.svg",
+        "alt": "TikTok Arq8",
+        "w": 32,
+        "h": 32
+      }
+    ],
+    "buttons": [],
+    "text": "Supporting ATP renewal in 37 trillion cells — for strength, clarity, and resilience that lasts.\nSHOP\nPowder\nGummies\nLEARN MORE\nAbout Us\nScience Behind\nSUPPORT\nContact Us\nMy Subscription\nLEGAL\nMoney-Back Guarantee\nTerms and Conditions\nPrivacy Policy\nShipping Policy\nRefund Policy\n*Results may vary. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.\n\n© 2026 Arq8 Longevity™\n\nAll rights reserved"
+  }
+}
