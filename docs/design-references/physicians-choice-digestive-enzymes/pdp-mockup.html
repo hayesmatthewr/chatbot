@@ -308,15 +308,29 @@
 
   .cta{
     margin-top:20px; width:100%; background:var(--ink); color:#fff; border:none;
-    border-radius:7px; padding:18px; font-family:'Poppins',sans-serif; font-size:14px;
+    border-radius:999px; padding:19px; font-family:'Poppins',sans-serif; font-size:14.5px;
     font-weight:600; letter-spacing:.04em; cursor:pointer;
-    transition:background .18s, transform .08s, box-shadow .18s;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    box-shadow:0 6px 22px rgba(22,22,15,.22);
+    transition:background .18s, transform .12s, box-shadow .18s;
   }
-  .cta:hover{ background:#000; box-shadow:0 6px 20px rgba(22,22,15,.25); }
-  .cta:active{ transform:scale(.99); }
+  .cta .cta-save{ color:var(--red-light); font-weight:700; }
+  .cta:hover{ background:#000; box-shadow:0 10px 30px rgba(22,22,15,.32); transform:translateY(-1px); }
+  .cta:active{ transform:scale(.99) translateY(0); }
+  .urgency-bar{
+    margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--tint); border:1px solid var(--line-strong); border-radius:10px;
+    padding:10px 14px; font-size:12.5px; color:var(--ink-soft);
+  }
+  .urgency-bar svg{ flex:none; }
+  .urgency-bar b{ color:var(--red); font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:.02em; }
+  .reassure-row{
+    margin-top:16px; display:flex; align-items:center; justify-content:center; gap:16px;
+    flex-wrap:wrap;
+  }
   .reassure{
-    margin-top:14px; display:flex; align-items:center; justify-content:center; gap:7px;
-    font-size:12px; color:var(--gray);
+    display:flex; align-items:center; gap:6px;
+    font-size:11.5px; color:var(--gray); white-space:nowrap;
   }
   .reassure svg{ flex:none; }
   .onetime{
@@ -521,6 +535,17 @@
   .pud-cap{ font-size:13px; color:var(--gray); margin-top:10px; }
   .pud-note{ margin-top:16px; font-size:12px; color:var(--gray-light); line-height:1.5; }
 
+  /* ---------- Mid-page CTA ---------- */
+  .midcta{ margin-top:44px; text-align:center; }
+  .midcta-btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff;
+    border:none; border-radius:999px; padding:16px 30px; font-family:'Poppins',sans-serif;
+    font-size:14px; font-weight:600; letter-spacing:.03em; cursor:pointer;
+    box-shadow:0 6px 20px rgba(22,22,15,.2); transition:transform .15s, box-shadow .15s, background .15s;
+  }
+  .midcta-btn:hover{ background:#000; transform:translateY(-1px); box-shadow:0 10px 26px rgba(22,22,15,.3); }
+  .midcta-sub{ margin-top:10px; font-size:12px; color:var(--gray); }
+
   /* ---------- Comparison ---------- */
   .compare{ margin:50px -20px 0; background:var(--tint); padding:46px 20px 48px; }
   .cmp-label{
@@ -603,6 +628,20 @@
 
   /* ---------- Social proof strip ---------- */
   .proofstrip{ margin-top:36px; padding-top:26px; border-top:1px solid var(--line); }
+
+  /* ---------- Stats bar ---------- */
+  .statsbar{
+    margin:40px -20px 0; background:var(--ink); padding:34px 20px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:26px 14px;
+  }
+  .statsbar .stat{ text-align:center; }
+  .statsbar .stat-n{
+    font-family:'Poppins',sans-serif; font-size:32px; font-weight:700;
+    color:var(--red-light); letter-spacing:-.02em; line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .statsbar .stat-l{ margin-top:8px; font-size:12.5px; font-weight:600; color:#fff; line-height:1.3; }
+  .statsbar .stat-l span{ display:block; margin-top:3px; font-size:11px; font-weight:400; color:rgba(255,255,255,.68); }
   .ps-head{ display:flex; align-items:center; gap:9px; }
   .ps-stars{ display:inline-flex; gap:1px; }
   .ps-meta{ font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:.05em; color:var(--ink-soft); }
@@ -611,7 +650,9 @@
   .ps-card{ flex:0 0 78%; scroll-snap-align:start; border:1px solid var(--line); border-radius:10px; padding:16px; }
   .ps-cardstars{ display:inline-flex; gap:2px; }
   .ps-quote{ font-size:14px; line-height:1.5; color:var(--ink); margin-top:10px; }
-  .ps-name{ font-size:12px; color:var(--gray); margin-top:10px; }
+  .ps-who{ display:flex; align-items:center; gap:8px; margin-top:12px; }
+  .ps-avatar{ width:26px; height:26px; border-radius:50%; flex:none; background:linear-gradient(135deg,#c9c2b6,#b3a89a); }
+  .ps-name{ font-size:12px; color:var(--gray); }
 
   /* ---------- Reviews ---------- */
   .reviews{ margin-top:52px; }
@@ -622,7 +663,9 @@
   .rv-carousel{ margin-top:20px; }
   .rv-item{ padding:22px 0; border-bottom:1px solid var(--line); }
   .rv-item:first-child{ border-top:1px solid var(--line); }
-  .rv-top{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .rv-top{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .rv-who{ display:flex; align-items:center; gap:9px; }
+  .rv-avatar{ width:30px; height:30px; border-radius:50%; flex:none; background:linear-gradient(135deg,#c9c2b6,#b3a89a); }
   .rv-name{ font-size:15px; font-weight:600; color:var(--ink); }
   .rv-date{ font-size:13px; color:var(--gray); flex:none; }
   .rv-verified{ display:flex; align-items:center; gap:6px; margin-top:8px; font-size:13px; color:var(--ink-soft); }
@@ -659,7 +702,8 @@
   .finalcta h2{ font-size:26px; font-weight:600; letter-spacing:-.02em; line-height:1.15; color:#fff; }
   .finalcta p{ font-size:14.5px; color:rgba(255,255,255,.8); margin-top:12px; }
   .finalcta .fc-price{ margin-top:20px; font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:.05em; color:rgba(255,255,255,.85); }
-  .finalcta .fc-btn{ margin-top:14px; width:100%; max-width:320px; background:#fff; color:var(--ink); border:none; border-radius:7px; padding:18px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; letter-spacing:.04em; cursor:pointer; }
+  .finalcta .fc-btn{ margin-top:14px; width:100%; max-width:320px; background:#fff; color:var(--ink); border:none; border-radius:999px; padding:18px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:700; letter-spacing:.04em; cursor:pointer; box-shadow:0 8px 26px rgba(0,0,0,.28); transition:transform .15s, box-shadow .15s; }
+  .finalcta .fc-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(0,0,0,.36); }
   .finalcta .fc-rev{ margin-top:14px; font-size:12px; color:rgba(255,255,255,.7); }
 
   /* ---------- Footer ---------- */
@@ -731,7 +775,8 @@
   .bundle-price .now{ font-size:20px; font-weight:600; color:var(--ink); }
   .bundle-price .was{ font-size:14px; color:var(--gray-light); text-decoration:line-through; }
   .bundle-price .save{ font-size:12px; color:var(--red); font-weight:600; margin-top:3px; }
-  .bundle-cta{ flex:none; background:var(--ink); color:#fff; border:none; border-radius:7px; padding:14px 16px; font-family:'Poppins',sans-serif; font-size:12.5px; font-weight:600; letter-spacing:.03em; cursor:pointer; }
+  .bundle-cta{ flex:none; background:var(--ink); color:#fff; border:none; border-radius:999px; padding:14px 20px; font-family:'Poppins',sans-serif; font-size:12.5px; font-weight:600; letter-spacing:.03em; cursor:pointer; box-shadow:0 4px 16px rgba(22,22,15,.2); transition:transform .15s, box-shadow .15s; }
+  .bundle-cta:hover{ transform:translateY(-1px); box-shadow:0 8px 22px rgba(22,22,15,.28); }
 
   /* ---------- Bottom-sheet modal ---------- */
   .sheet-backdrop{
@@ -804,9 +849,9 @@
   .sticky-cta .sc-name{ font-size:13px; font-weight:600; color:var(--ink); }
   .sticky-cta .sc-price{ font-size:12px; color:var(--gray); margin-top:1px; }
   .sticky-cta button{
-    flex:none; background:var(--ink); color:#fff; border:none; border-radius:6px;
-    padding:13px 22px; font-family:'Poppins',sans-serif; font-size:13px; font-weight:600;
-    letter-spacing:.03em; cursor:pointer;
+    flex:none; background:var(--ink); color:#fff; border:none; border-radius:999px;
+    padding:13px 24px; font-family:'Poppins',sans-serif; font-size:13px; font-weight:600;
+    letter-spacing:.03em; cursor:pointer; box-shadow:0 4px 14px rgba(22,22,15,.22);
   }
   /* Tablet and up (768px): switch to 2-column PDP layout */
   @media (min-width: 768px){
@@ -820,6 +865,7 @@
     .pdp-info{ padding:0; }
     .content{ max-width:860px; margin:0 auto; }
     .sticky-cta{ display:none !important; }
+    .statsbar{ grid-template-columns:repeat(4,1fr); gap:24px; border-radius:16px; }
   }
 
   /* Large desktop (1280px+): extra breathing room and slightly larger type */
@@ -955,10 +1001,25 @@
       </div>
     </div>
 
-    <button class="cta">ADD TO CART</button>
-    <div class="reassure">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#6d6d65" stroke-width="1.4"><path d="M8 1.5l5 2v3.5c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5V3.5z"/><path d="M5.8 8l1.5 1.5L10.5 6"/></svg>
-      Backed by a 60-day money-back guarantee
+    <div class="urgency-bar" role="status">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#CA133D" stroke-width="1.5"><circle cx="8" cy="8.5" r="6"/><path d="M8 5.2V8.5l2.4 1.6"/><path d="M5.7 1.7h4.6"/></svg>
+      <span>Today's pricing ends in <b id="urgencyTimer" aria-live="off">04:00:00</b></span>
+    </div>
+
+    <button class="cta">ADD TO CART <span class="cta-save" id="ctaSave">· SAVE 40%</span></button>
+    <div class="reassure-row">
+      <div class="reassure">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#6d6d65" stroke-width="1.4"><path d="M8 1.5l5 2v3.5c0 3.2-2.1 5.4-5 6.5-2.9-1.1-5-3.3-5-6.5V3.5z"/><path d="M5.8 8l1.5 1.5L10.5 6"/></svg>
+        60-day guarantee
+      </div>
+      <div class="reassure">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#6d6d65" stroke-width="1.4"><path d="M1.5 5h9v6h-9z"/><path d="M10.5 7.5H13l2 2V11h-4.5z"/><circle cx="4.2" cy="12" r="1.3"/><circle cx="11.8" cy="12" r="1.3"/></svg>
+        Free shipping
+      </div>
+      <div class="reassure">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#6d6d65" stroke-width="1.4"><path d="M8 2v3.5M8 2l2 1.5M8 2 6 3.5"/><path d="M3 8a5 5 0 1 0 1.5-3.6"/></svg>
+        Cancel anytime
+      </div>
     </div>
     <div class="attach-label">Frequently bought together</div>
     <div class="attach-list">
@@ -1000,18 +1061,38 @@
         <div class="ps-card">
           <span class="ps-cardstars"></span>
           <p class="ps-quote">"I take one before dinner and the bloating I used to get is just gone."</p>
-          <div class="ps-name">Maria S. · Verified Buyer</div>
+          <div class="ps-who"><span class="ps-avatar" aria-hidden="true"></span><div class="ps-name">Maria S. · Verified Buyer</div></div>
         </div>
         <div class="ps-card">
           <span class="ps-cardstars"></span>
           <p class="ps-quote">"Dairy and beans don't wreck me anymore. I can finally eat what I want."</p>
-          <div class="ps-name">James W. · Verified Buyer</div>
+          <div class="ps-who"><span class="ps-avatar" aria-hidden="true"></span><div class="ps-name">James W. · Verified Buyer</div></div>
         </div>
         <div class="ps-card">
           <span class="ps-cardstars"></span>
           <p class="ps-quote">"Comfortable after big meals for the first time in years. So simple."</p>
-          <div class="ps-name">Priya N. · Verified Buyer</div>
+          <div class="ps-who"><span class="ps-avatar" aria-hidden="true"></span><div class="ps-name">Priya N. · Verified Buyer</div></div>
         </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="statsbar" aria-label="Key facts">
+      <div class="stat">
+        <div class="stat-n">16</div>
+        <div class="stat-l">Enzymes<span>across all 6 food groups</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">#1</div>
+        <div class="stat-l">Enzyme Brand<span>in the United States<sup class="dm">*</sup></span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">250k+</div>
+        <div class="stat-l">Five-star reviews<span>across Physician's Choice</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">60</div>
+        <div class="stat-l">Day Guarantee<span>risk-free trial</span></div>
       </div>
     </section>
 
@@ -1242,6 +1323,12 @@
       <p class="doc-foot"><sup class="dm">♢</sup>Developed with our team of Physician's Choice doctors. Please talk to your doctor before starting any new health routine.</p>
     </section>
 
+    <!-- Mid-page CTA -->
+    <section class="midcta">
+      <button class="midcta-btn" onclick="document.querySelector('.cta').scrollIntoView({behavior:'smooth',block:'center'})">Get Digestive Enzymes <span aria-hidden="true">→</span></button>
+      <div class="midcta-sub">60-day guarantee · Free shipping</div>
+    </section>
+
     <!-- Comparison -->
     <section class="compare">
       <div class="cmp-tabs" role="tablist" aria-label="Product comparison">
@@ -1362,19 +1449,19 @@
       </div>
       <div class="rv-carousel">
         <div class="rv-item">
-          <div class="rv-top"><span class="rv-name">Karen M.</span><span class="rv-date">05/02/26</span></div>
+          <div class="rv-top"><span class="rv-who"><span class="rv-avatar" aria-hidden="true"></span><span class="rv-name">Karen M.</span></span><span class="rv-date">05/02/26</span></div>
           <div class="rv-verified"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#16160f"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified Buyer</div>
           <span class="rv-cardstars"></span>
           <div class="rv-body">I take one before dinner and I'm not bloated by the end of the night anymore. Simple capsule, no aftertaste, and it just works for me.</div>
         </div>
         <div class="rv-item">
-          <div class="rv-top"><span class="rv-name">David R.</span><span class="rv-date">04/26/26</span></div>
+          <div class="rv-top"><span class="rv-who"><span class="rv-avatar" aria-hidden="true"></span><span class="rv-name">David R.</span></span><span class="rv-date">04/26/26</span></div>
           <div class="rv-verified"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#16160f"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified Buyer</div>
           <span class="rv-cardstars"></span>
           <div class="rv-body">Dairy and beans used to be a problem for me. With these I can eat what I want and feel fine after. Wish I'd found them sooner.</div>
         </div>
         <div class="rv-item">
-          <div class="rv-top"><span class="rv-name">Linda T.</span><span class="rv-date">04/19/26</span></div>
+          <div class="rv-top"><span class="rv-who"><span class="rv-avatar" aria-hidden="true"></span><span class="rv-name">Linda T.</span></span><span class="rv-date">04/19/26</span></div>
           <div class="rv-verified"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#16160f"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified Buyer</div>
           <span class="rv-cardstars"></span>
           <div class="rv-body">I appreciate that it's developed with doctors and tested. I feel comfortable after big meals now, which is exactly what I wanted.</div>
@@ -1576,6 +1663,7 @@
     const subNow=document.getElementById('subNow'), subWas=document.getElementById('subWas');
     const subPct=document.getElementById('subPct'), onceNow=document.getElementById('onceNow');
     const scName=document.getElementById('scName'), scPrice=document.getElementById('scPrice');
+    const ctaSave=document.getElementById('ctaSave');
     let was=64.95, disc=0.40, type='sub', qname='90 Count', fname='1 month';
     const money=n=>'$'+n.toFixed(2);
     function recalc(){
@@ -1586,6 +1674,7 @@
       onceNow.textContent=money(was);
       if(type==='sub'){ scName.textContent=qname+' · Subscribe'; scPrice.textContent=money(sub)+' · every '+fname; }
       else { scName.textContent=qname+' · One-time'; scPrice.textContent=money(was); }
+      if(ctaSave) ctaSave.textContent = type==='sub' ? '· SAVE '+Math.round(disc*100)+'%' : '';
     }
     function selectCard(c){
       cards.forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-checked','false'); });
@@ -1702,6 +1791,23 @@
       });
     });
   }
+
+  // Urgency countdown - resets nightly at local midnight
+  (function(){
+    const el=document.getElementById('urgencyTimer');
+    if(!el) return;
+    function tick(){
+      const now=new Date();
+      const midnight=new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 0);
+      let secs=Math.max(0, Math.floor((midnight-now)/1000));
+      const h=String(Math.floor(secs/3600)).padStart(2,'0');
+      const m=String(Math.floor((secs%3600)/60)).padStart(2,'0');
+      const s=String(secs%60).padStart(2,'0');
+      el.textContent=`${h}:${m}:${s}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
 
   // Sticky CTA visibility
   const sticky=document.getElementById('stickyCta');
