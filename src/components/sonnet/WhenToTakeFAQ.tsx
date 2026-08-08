@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { BarsIcon, ChevronDown } from "./icons";
 
 const FAQS = [
@@ -45,13 +44,6 @@ export function WhenToTakeFAQ() {
               </p>
             </div>
           </div>
-          <Image
-            src="/images/sonnet/Sonnet_Core_Sleep.png"
-            alt="Core Sleep capsules"
-            width={200}
-            height={200}
-            className="absolute right-8 top-16 w-40 h-auto"
-          />
         </div>
 
         <div className="bg-white rounded-2xl p-8 lg:p-12">
