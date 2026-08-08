@@ -1,0 +1,15 @@
+{
+  "stylesheets": {
+    "https://takesonnet.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css": "css/accelerated-checkout-backwards-compat.css",
+    "https://takesonnet.com/cdn/shop/t/58/compiled_assets/styles.css?v=88559782165821893241782991906": "css/styles.css",
+    "https://takesonnet.com/cdn/shop/t/58/assets/slick-theme.css?v=60653276270842344241782976135": "css/slick-theme.css",
+    "https://takesonnet.com/cdn/shop/t/58/assets/slick.css?v=105848270326492094871782976135": "css/slick.css",
+    "https://takesonnet.com/cdn/shop/t/58/assets/overflow-list.css?v=101911674359793798601782976135": "css/overflow-list.css",
+    "https://takesonnet.com/cdn/shop/t/58/assets/base.css?v=163594181978187341901782998615": "css/base.css"
+  },
+  "scripts": {},
+  "images": {},
+  "icons": {
+    "https://takesonnet.com/cdn/shop/files/SonnetLogoonBlue.png?crop=center&height=32&v=1724951310&width=32": null
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "images": [
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Logo.png?height=40&v=1766264014",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "parentClasses": "header-logo__image-container header-logo__image-container--original",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-core-sleep-bottle-capsules.jpg?v=1771275996&width=800",
+      "alt": "Core Sleep",
+      "width": 0,
+      "height": 0,
+      "parentClasses": "menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset menu-drawer__menu-item--active menu-drawer__menu-item--with-image",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-sleep-calm-bottle-capsules.jpg?v=1771893737&width=800",
+      "alt": "Sleep + Calm",
+      "width": 0,
+      "height": 0,
+      "parentClasses": "menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset menu-drawer__menu-item--with-image",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-sleep-restore-bottle-capsules.jpg?v=1771896713&width=800",
+      "alt": "Sleep + Restore",
+      "width": 0,
+      "height": 0,
+      "parentClasses": "menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset menu-drawer__menu-item--with-image",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-core-sleep-bottle-capsules.jpg?v=1771275996&width=832",
+      "alt": "Core Sleep",
+      "width": 624,
+      "height": 416,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Core_Sleep_Supplement_Facts.png?v=1771895161&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Core_Sleep.png?v=1771895161&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Customer_Reviews.png?v=1771896713&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Improvement_Over_Time.png?v=1771896713&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Core_Sleep_Timeline.png?v=1771895280&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_FAQ.png?v=1771895280&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-core-sleep-bottle-capsules.jpg?v=1771275996&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 960,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Core_Sleep_Supplement_Facts.png?v=1771895161&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Core_Sleep.png?v=1771895161&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Customer_Reviews.png?v=1771896713&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Improvement_Over_Time.png?v=1771896713&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Core_Sleep_Timeline.png?v=1771895280&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_FAQ.png?v=1771895280&width=144",
+      "alt": "Core Sleep",
+      "width": 1440,
+      "height": 1440,
+      "parentClasses": "slideshow-control button button-unstyled slideshow-controls__thumbnail",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/sonnet-core-sleep-bottle-capsules.jpg?v=1771275996&width=832",
+      "alt": "Core Sleep",
+      "width": 624,
+      "height": 416,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Core_Sleep_Supplement_Facts.png?v=1771895161&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Core_Sleep.png?v=1771895161&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Customer_Reviews.png?v=1771896713&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Improvement_Over_Time.png?v=1771896713&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_Core_Sleep_Timeline.png?v=1771895280&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Sonnet_Info_Card_-_FAQ.png?v=1771895280&width=352",
+      "alt": "Core Sleep",
+      "width": 304,
+      "height": 304,
+      "parentClasses": "product-media",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Icon.svg?v=1767551318&width=1200",
+      "alt": "",
+      "width": 13,
+      "height": 13,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Icon.svg?v=1767551318&width=1200",
+      "alt": "",
+      "width": 13,
+      "height": 13,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Icon.svg?v=1767551318&width=1200",
+      "alt": "",
+      "width": 13,
+      "height": 13,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/7046b7f18b59e63a6a47d80eff1e1daa9acf1309-400x400_1_823ceb2a-60aa-474a-ae0d-ddcf5256f6e2.png?v=1766756226&width=1200",
+      "alt": "",
+      "width": 256,
+      "height": 256,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/cec9b6aa4fc166cf19306699f177377b28f7a3a6-400x400_aa35d58f-c853-4e6d-bbc9-f3f0c346c26e.png?v=1766756261&width=1200",
+      "alt": "",
+      "width": 256,
+      "height": 256,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/785a9bcb1616952c519ada5c1691996693bb4685-400x400_41a0d80c-001c-494d-9c49-724795167d2c.png?v=1766756082&width=1200",
+      "alt": "",
+      "width": 256,
+      "height": 256,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/f6903d0a91e84000cbc38e45ff8b3c747e34dfd1-400x400_1_308edc30-5a6c-4225-a310-a0567bb490f6.png?v=1766756293&width=1200",
+      "alt": "",
+      "width": 256,
+      "height": 256,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/0d3db877794f7aff1edc9ec9de68674ffe17874a-105x105_svg.svg?v=1767015616&width=1200",
+      "alt": "",
+      "width": 71,
+      "height": 71,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/b56c54a5ad68584b48550964488b510a92914414-106x105.svg?v=1691644934&width=1200",
+      "alt": "",
+      "width": 90,
+      "height": 89,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/27e3951ca64798d7b409186afefcc30eb14debe3-106x105.svg?v=1691644935&width=1200",
+      "alt": "",
+      "width": 90,
+      "height": 89,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/707760b1155b2b23e848018f9e11965b46abb062-106x105.svg?v=1691644934&width=1200",
+      "alt": "",
+      "width": 90,
+      "height": 89,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Frame_4.svg?v=1766492552&width=1200",
+      "alt": "",
+      "width": 55,
+      "height": 55,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Frame_5.svg?v=1766492575&width=1200",
+      "alt": "",
+      "width": 55,
+      "height": 55,
+      "parentClasses": "shopify-block icon-block",
+      "position": "static",
+      "zIndex": "auto"
+    },
+    {
+      "src": "https://takesonnet.com/cdn/shop/files/Logo_1.png?v=1766506171&width=1600",
+      "alt": "",
+      "width": 998,
+      "height": 192,
+      "parentClasses": "\n  image-block image-block--AdTZkdnFHY2lzckpzd__image_6HYqcC image-block--height-fit spacing-style size-style\n",
+      "position": "static",
+      "zIndex": "auto"
+    }
+  ],
+  "videos": [],
+  "backgroundImages": [],
+  "svgCount": 38,
+  "fonts": [
+    "\"Times New Roman\"",
+    "Arial"
+  ],
+  "favicons": [
+    {
+      "href": "https://takesonnet.com/cdn/shop/files/SonnetLogoonBlue.png?crop=center&height=32&v=1724951310&width=32",
+      "sizes": ""
+    }
+  ],
+  "sections": [
+    {
+      "tag": "DIV",
+      "id": "header-group",
+      "classes": ""
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-sections--20571858043016__header_announcements_9jGBFp",
+      "classes": "shopify-section shopify-section-group-header-group"
+    },
+    {
+      "tag": "HEADER",
+      "id": "shopify-section-sections--20571858043016__header_section",
+      "classes": "shopify-section shopify-section-group-header-group header-section"
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "MAIN",
+      "id": "MainContent",
+      "classes": "content-for-layout"
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-template--20571864400008__main",
+      "classes": "shopify-section"
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-template--20571864400008__usp_table_LV3Xfw",
+      "classes": "shopify-section section-wrapper"
+    },
+    {
+      "tag": "SECTION",
+      "id": "shopify-section-template--20571864400008__product_ingredients_tffUth",
+      "classes": "shopify-section sonnet-product-ings"
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-template--20571864400008__1767468467a1a4155e",
+      "classes": "shopify-section section-wrapper"
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-sections--20571857846408__section_8pT3Rw",
+      "classes": "shopify-section shopify-section-group-footer-group section-wrapper"
+    },
+    {
+      "tag": "FOOTER",
+      "id": "shopify-section-sections--20571857846408__footer_m9NzUG",
+      "classes": "shopify-section shopify-section-group-footer-group section-wrapper"
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-section-sections--20571857846408__footer_utilities_jLGE8U",
+      "classes": "shopify-section shopify-section-group-footer-group footer-utilities"
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "DIALOG-COMPONENT",
+      "id": "search-modal",
+      "classes": "search-modal"
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "QUICK-ADD-DIALOG",
+      "id": "quick-add-dialog",
+      "classes": ""
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "TEMPLATE",
+      "id": "custom-footer",
+      "classes": ""
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    },
+    {
+      "tag": "DIV",
+      "id": "shopify-block-AVElYbHJnemxjbVVrN__10840395464443086010",
+      "classes": "shopify-block shopify-app-block"
+    },
+    {
+      "tag": "SCRIPT",
+      "id": "",
+      "classes": ""
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 export async function launch({ useProxy = true } = {}) {
   const browser = await chromium.launch({
     executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
-    proxy: useProxy ? { server: 'http://127.0.0.1:37377', bypass: 'localhost,127.0.0.1' } : undefined,
+    proxy: useProxy ? { server: process.env.HTTPS_PROXY || 'http://127.0.0.1:37377', bypass: 'localhost,127.0.0.1' } : undefined,
     args: [
       '--ignore-certificate-errors',
       '--disable-quic',
