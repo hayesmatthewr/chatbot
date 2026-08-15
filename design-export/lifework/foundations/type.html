@@ -1,0 +1,24 @@
+<!-- @dsCard group="Foundations" -->
+<title>Lifework — Typography</title>
+<style>
+  :root { --red: #B3392C; --ink: #262626; --ink-soft: #727272; --ink-faint: #949494; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  .note { font-size: 13px; color: var(--ink-soft); margin: 0 0 28px; max-width: 620px; line-height: 1.5; }
+  .row { display: flex; align-items: baseline; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .spec { width: 190px; flex-shrink: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--ink-faint); }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); }
+  .mono { font-family: ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+</style>
+<h1>Typography</h1>
+<p class="note">One family — Inter. Hierarchy comes from weight and a tight scale, not from switching typefaces (Seed-style restraint). Monospace with tabular numerals is reserved for prices, time markers, and study data to give a clinical feel.</p>
+
+<div class="row"><div class="spec">48px / 600 / -0.02em</div><div style="font-size:48px; font-weight:600; letter-spacing:-0.02em; line-height:1.1;">Display — Daily Cellular Protection</div></div>
+<div class="row"><div class="spec">32px / 600</div><div style="font-size:32px; font-weight:600; line-height:1.15;">H2 — Meet astaxanthin.</div></div>
+<div class="row"><div class="spec">24px / 600</div><div style="font-size:24px; font-weight:600;">H3 — Built by nature for stress.</div></div>
+<div class="row"><div class="spec">20px / 500</div><div style="font-size:20px; font-weight:500;">H4 — Accordion category name</div></div>
+<div class="row"><div class="spec">16px / 400 / 1.6</div><div style="font-size:16px; line-height:1.6; max-width:560px;">Body — 12 mg of natural astaxanthin to help protect your cells from the oxidative stress of everyday life.*</div></div>
+<div class="row"><div class="spec">14px / 400</div><div style="font-size:14px; color:var(--ink-soft);">Small body — secondary copy, card descriptions, meta text</div></div>
+<div class="row"><div class="spec">12px / 600 / caps / 0.14em</div><div class="eyebrow">Eyebrow label — Clinically Studied</div></div>
+<div class="row"><div class="spec">12px / 400 / faint</div><div style="font-size:12px; color:var(--ink-faint);">Disclaimer — final comparison wording must be substantiated before launch.</div></div>
+<div class="row"><div class="spec">mono / tabular-nums</div><div class="mono" style="font-size:16px;">Data — $6.17/week &nbsp;·&nbsp; WEEK 12+ &nbsp;·&nbsp; +11.8%</div></div>

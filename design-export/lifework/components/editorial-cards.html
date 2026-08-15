@@ -1,0 +1,45 @@
+<!-- @dsCard group="Components" -->
+<title>Lifework — Editorial &amp; Stressor Cards</title>
+<style>
+  :root { --red: #B3392C; --ink: #262626; --ink-soft: #727272; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0 0 12px; }
+  .section + .section { margin-top: 44px; }
+
+  /* Editorial benefit pillars — image-forward, no card border */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; }
+  .pillar .img { background: #EFEAE2; border-radius: 14px; aspect-ratio: 4/5; display: flex; align-items: flex-end; padding: 8px; }
+  .pillar .img span { background: rgba(0,0,0,.4); color: #fff; font-size: 10px; border-radius: 999px; padding: 2px 8px; }
+  .kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--red); margin: 14px 0 6px; }
+  .pillar h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+  .pillar p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+
+  /* Stressor cards — full-bleed photo with gradient scrim */
+  .stressors { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 6px; }
+  .stressor { position: relative; flex: 0 0 240px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; background: #EFEAE2; }
+  .scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.08) 55%, transparent); }
+  .copy { position: absolute; left: 16px; right: 16px; bottom: 16px; color: #fff; }
+  .copy h4 { font-size: 16px; font-weight: 600; margin: 0 0 5px; }
+  .copy p { font-size: 12.5px; line-height: 1.5; margin: 0; opacity: .9; }
+  @media (max-width: 760px) { .pillars { grid-template-columns: 1fr; } }
+</style>
+
+<div class="section">
+  <p class="label">Editorial benefit pillars — Look / Feel / Perform</p>
+  <div class="pillars">
+    <div class="pillar"><div class="img"><span>35+ woman in natural sunlight</span></div><div class="kicker">LOOK</div><h3>Skin Health</h3><p>Supports hydration, elasticity, and resilience to environmental stress.*</p></div>
+    <div class="pillar"><div class="img"><span>premium screen / eye lifestyle</span></div><div class="kicker">FEEL</div><h3>Eyes + Cognition</h3><p>Supports eye comfort, visual endurance, and healthy cognitive function.*</p></div>
+    <div class="pillar"><div class="img"><span>athlete post-training</span></div><div class="kicker">PERFORM</div><h3>Performance + Recovery</h3><p>Supports endurance, muscle recovery, and resilience after hard effort.*</p></div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="label">Stressor cards — full-bleed photo, gradient scrim, copy over image</p>
+  <div class="stressors">
+    <div class="stressor"><div class="scrim"></div><div class="copy"><h4>UV Exposure</h4><p>Daily sun exposure can increase oxidative stress in the skin.</p></div></div>
+    <div class="stressor"><div class="scrim"></div><div class="copy"><h4>Prolonged Blue Light</h4><p>Screen-heavy days can contribute to visual stress and eye fatigue.</p></div></div>
+    <div class="stressor"><div class="scrim"></div><div class="copy"><h4>Environmental Pollution</h4><p>Pollution adds another layer of oxidative stress your body has to manage.</p></div></div>
+    <div class="stressor"><div class="scrim"></div><div class="copy"><h4>Aging</h4><p>Your natural antioxidant defenses can decline over time.</p></div></div>
+    <div class="stressor"><div class="scrim"></div><div class="copy"><h4>Intense Exercise</h4><p>Hard training creates oxidative stress your body has to recover from.</p></div></div>
+  </div>
+</div>

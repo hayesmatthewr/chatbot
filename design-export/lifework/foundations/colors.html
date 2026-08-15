@@ -1,0 +1,34 @@
+<!-- @dsCard group="Foundations" -->
+<title>Lifework — Colors</title>
+<style>
+  :root {
+    --lifework-red: #B3392C; --lifework-red-dark: #8A2B21; --lifework-red-tint: #F2D9D4;
+    --lifework-ink: #262626; --lifework-ink-soft: #727272; --lifework-ink-faint: #949494;
+    --lifework-cream: #FAFAF8; --lifework-cream-deep: #F5F3EE; --lifework-surface: #F9F9F9;
+    --lifework-line: #E5E7EB;
+  }
+  body { margin: 0; padding: 32px; background: var(--lifework-cream); color: var(--lifework-ink); font-family: Inter, system-ui, sans-serif; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  .note { font-size: 13px; color: var(--lifework-ink-soft); margin: 0 0 24px; max-width: 560px; line-height: 1.5; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .swatch { border: 1px solid var(--lifework-line); border-radius: 12px; overflow: hidden; background: #fff; }
+  .chip { height: 72px; }
+  .meta { padding: 10px 12px; }
+  .name { font-size: 13px; font-weight: 600; }
+  .hex { font-size: 12px; color: var(--lifework-ink-soft); font-family: ui-monospace, monospace; }
+  .role { font-size: 11px; color: var(--lifework-ink-faint); margin-top: 2px; line-height: 1.4; }
+</style>
+<h1>Colors</h1>
+<p class="note">Brand red is used selectively — CTAs, proof numbers, active states, eyebrow labels. Everything else is warm neutrals with hairline borders instead of shadows.</p>
+<div class="grid">
+  <div class="swatch"><div class="chip" style="background:#B3392C"></div><div class="meta"><div class="name">Lifework Red</div><div class="hex">#B3392C</div><div class="role">CTAs, active states, proof numbers, eyebrows</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#8A2B21"></div><div class="meta"><div class="name">Red Dark</div><div class="hex">#8A2B21</div><div class="role">Hover/pressed state for red elements</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#F2D9D4"></div><div class="meta"><div class="name">Red Tint</div><div class="hex">#F2D9D4</div><div class="role">Selected-state glow ring, highlighted table column wash</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#262626"></div><div class="meta"><div class="name">Ink</div><div class="hex">#262626</div><div class="role">Primary text</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#727272"></div><div class="meta"><div class="name">Ink Soft</div><div class="hex">#727272</div><div class="role">Secondary/muted text</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#949494"></div><div class="meta"><div class="name">Ink Faint</div><div class="hex">#949494</div><div class="role">Tertiary text, disclaimers</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#FAFAF8; border-bottom:1px solid #E5E7EB"></div><div class="meta"><div class="name">Cream</div><div class="hex">#FAFAF8</div><div class="role">Page background</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#F5F3EE"></div><div class="meta"><div class="name">Cream Deep</div><div class="hex">#F5F3EE</div><div class="role">Alternate section background</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#F9F9F9; border-bottom:1px solid #E5E7EB"></div><div class="meta"><div class="name">Surface</div><div class="hex">#F9F9F9</div><div class="role">Card background</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#E5E7EB"></div><div class="meta"><div class="name">Line</div><div class="hex">#E5E7EB</div><div class="role">Hairline borders and dividers</div></div></div>
+</div>

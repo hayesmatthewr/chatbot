@@ -1,0 +1,31 @@
+<!-- @dsCard group="Components" -->
+<title>Lifework — Comparison Table</title>
+<style>
+  :root { --red: #B3392C; --tint: #F2D9D4; --ink: #262626; --ink-soft: #727272; --ink-faint: #949494; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  .tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; }
+  .tab { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 9px 20px; font: 400 13px Inter, system-ui, sans-serif; color: var(--ink-soft); }
+  .tab.active { background: var(--red); border-color: var(--red); color: #fff; font-weight: 500; }
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; min-width: 640px; width: 100%; max-width: 860px; margin: 0 auto; font-size: 14px; }
+  th { font-weight: 600; padding: 14px 16px; text-align: center; }
+  td { border-top: 1px solid var(--line); padding: 14px 16px; text-align: center; color: var(--ink-soft); }
+  td:first-child { text-align: left; color: var(--ink); }
+  .us { background: var(--tint); border-left: 1px solid var(--red); border-right: 1px solid var(--red); }
+  th.us { color: var(--red); border-top: 1px solid var(--red); border-radius: 10px 10px 0 0; }
+  tr:last-child .us { border-bottom: 1px solid var(--red); }
+  .check { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--red); color: var(--red); align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .disc { font-size: 11px; color: var(--ink-faint); max-width: 720px; margin: 14px auto 0; }
+</style>
+<div class="tabs"><span class="tab active">Astaxanthin vs. other antioxidants</span><span class="tab">Lifework vs. other astaxanthin</span></div>
+<div class="scroll">
+<table>
+  <tr><th></th><th class="us">Lifework Astaxanthin</th><th>Vitamin C</th><th>CoQ10</th><th>Vitamin E</th></tr>
+  <tr><td>Spans the cell membrane</td><td class="us"><span class="check">&#10003;</span></td><td>Varies / No</td><td>Varies</td><td>Partial</td></tr>
+  <tr><td>Works across lipid-rich cellular structures</td><td class="us"><span class="check">&#10003;</span></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+  <tr><td>Supports eye and brain tissues</td><td class="us"><span class="check">&#10003;</span></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+  <tr><td>Supports mitochondrial health</td><td class="us"><span class="check">&#10003;</span></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+  <tr><td>Studied across multiple whole-body outcomes</td><td class="us"><span class="check">&#10003;</span></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+</table>
+</div>
+<p class="disc">Final comparison wording must be substantiated before launch. Nuanced cells (Varies / Partial / &mdash;) are intentional — never giant green checks vs. red X marks.</p>

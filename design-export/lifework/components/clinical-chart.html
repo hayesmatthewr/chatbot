@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" -->
+<title>Lifework — Clinical Chart</title>
+<style>
+  :root { --red: #B3392C; --ink: #262626; --ink-soft: #727272; --ink-faint: #949494; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  .card { background: #F9F9F9; border: 1px solid var(--line); border-radius: 16px; padding: 28px; max-width: 720px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+  .cat { display: inline-block; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; }
+  h2 { font-size: 24px; font-weight: 600; margin: 12px 0 14px; }
+  .after { font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .meta { font-family: ui-monospace, monospace; font-size: 12px; color: var(--ink-faint); line-height: 1.8; margin: 10px 0 14px; }
+  .link { color: var(--red); font-size: 13px; font-weight: 600; text-decoration: none; }
+  text { font-family: Inter, system-ui, sans-serif; }
+  @media (max-width: 640px) { .card { grid-template-columns: 1fr; } }
+</style>
+<div class="card">
+  <div>
+    <span class="cat">SKIN RESILIENCE</span>
+    <h2>Built-in resilience to UV stress.</h2>
+    <div class="after">AFTER 9 WEEKS</div>
+    <div class="meta">[Study title / publication]<br>[Participants]<br>[Dosage]</div>
+    <a class="link" href="#">View Study &rarr;</a>
+  </div>
+  <svg viewBox="0 0 340 300" role="img" aria-label="Improvement in UV threshold: astaxanthin +11.8% vs placebo +3.0%">
+    <!-- delta bracket -->
+    <text x="210" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#B3392C">+8.8 pts higher</text>
+    <path d="M150 40 L150 34 L270 34 L270 170" fill="none" stroke="#262626" stroke-width="1"/>
+    <!-- gridlines -->
+    <g stroke="#C9CCD1" stroke-width="1" stroke-dasharray="2 5">
+      <line x1="60" y1="70" x2="330" y2="70"/><line x1="60" y1="130" x2="330" y2="130"/><line x1="60" y1="190" x2="330" y2="190"/>
+    </g>
+    <g font-size="10" fill="#949494" font-family="ui-monospace, monospace">
+      <text x="52" y="74" text-anchor="end">12%</text><text x="52" y="134" text-anchor="end">8%</text><text x="52" y="194" text-anchor="end">4%</text><text x="52" y="254" text-anchor="end">0%</text>
+    </g>
+    <text x="16" y="160" font-size="9" fill="#727272" letter-spacing="1.5" transform="rotate(-90 16 160)" text-anchor="middle">IMPROVEMENT IN UV THRESHOLD</text>
+    <!-- axis -->
+    <line x1="60" y1="250" x2="330" y2="250" stroke="#262626" stroke-width="1"/>
+    <!-- astaxanthin bar +11.8% -->
+    <rect x="110" y="73" width="80" height="177" fill="#B3392C"/>
+    <line x1="150" y1="62" x2="150" y2="84" stroke="#262626" stroke-width="1"/>
+    <line x1="140" y1="62" x2="160" y2="62" stroke="#262626" stroke-width="1"/>
+    <text x="150" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#B3392C">+11.8%</text>
+    <!-- placebo bar +3.0% -->
+    <rect x="230" y="205" width="80" height="45" fill="#E8E8E8" stroke="#C9CCD1"/>
+    <line x1="270" y1="196" x2="270" y2="214" stroke="#262626" stroke-width="1"/>
+    <line x1="260" y1="196" x2="280" y2="196" stroke="#262626" stroke-width="1"/>
+    <text x="270" y="188" text-anchor="middle" font-size="13" font-weight="600" fill="#262626">+3.0%</text>
+    <!-- labels -->
+    <text x="150" y="272" text-anchor="middle" font-size="12" font-weight="600" fill="#B3392C">Astaxanthin</text>
+    <text x="270" y="272" text-anchor="middle" font-size="12" fill="#727272">Placebo</text>
+  </svg>
+</div>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Components" -->
+<title>Lifework — Benefits Timeline</title>
+<style>
+  :root { --red: #B3392C; --ink: #262626; --ink-soft: #727272; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); margin: 0 0 8px; }
+  h1 { font-size: 28px; font-weight: 600; margin: 0 0 28px; }
+  .stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .stage { position: relative; padding-top: 18px; }
+  .stage::before { content: ""; position: absolute; top: 0; left: 0; right: -20px; height: 1px; background: var(--line); }
+  .stage:last-child::before { right: 0; }
+  .stage::after { content: ""; position: absolute; top: -4px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--red); }
+  .marker { font-family: ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 700; color: var(--red); letter-spacing: 0.06em; }
+  .img { background: #EFEAE2; border-radius: 12px; aspect-ratio: 3/4; margin: 10px 0; display: flex; align-items: flex-end; padding: 6px; }
+  .img span { background: rgba(0,0,0,.4); color: #fff; font-size: 9px; border-radius: 999px; padding: 2px 7px; }
+  h3 { font-size: 15px; font-weight: 600; margin: 0 0 6px; line-height: 1.3; }
+  p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  @media (max-width: 720px) { .stages { grid-template-columns: repeat(5, 240px); overflow-x: auto; } }
+</style>
+<p class="eyebrow">What to Expect</p>
+<h1>Your cells benefit before you notice.</h1>
+<div class="stages">
+  <div class="stage"><div class="marker">DAY 1</div><div class="img"><span>Softgel / circulation</span></div><h3>Astaxanthin enters circulation</h3><p>Your first softgel is absorbed and astaxanthin begins circulating through the body.</p></div>
+  <div class="stage"><div class="marker">WEEK 2</div><div class="img"><span>Cellular imagery</span></div><h3>Daily cellular defense builds</h3><p>Consistent use helps provide ongoing antioxidant support against everyday oxidative stress.*</p></div>
+  <div class="stage"><div class="marker">WEEK 4</div><div class="img"><span>Skin close-up</span></div><h3>Support starts becoming more noticeable</h3><p>Clinical research begins showing benefits across areas such as skin, eye comfort, and recovery.*</p></div>
+  <div class="stage"><div class="marker">WEEK 8</div><div class="img"><span>Exercise recovery</span></div><h3>Cellular protection compounds</h3><p>Consistent daily use continues supporting the cells behind your skin, eyes, muscles, and whole-body health.*</p></div>
+  <div class="stage"><div class="marker">WEEK 12+</div><div class="img"><span>Eyes / vitality</span></div><h3>The long game</h3><p>Lifework is designed for ongoing cellular protection. Consistency is where the benefit compounds.</p></div>
+</div>

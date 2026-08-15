@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" -->
+<title>Lifework — Buttons &amp; Chips</title>
+<style>
+  :root { --red: #B3392C; --red-dark: #8A2B21; --tint: #F2D9D4; --ink: #262626; --ink-soft: #727272; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 20px; }
+  .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin: 24px 0 10px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .cta { background: var(--red); color: #fff; border: 0; border-radius: 999px; padding: 16px 36px; font: 600 15px Inter, system-ui, sans-serif; cursor: pointer; }
+  .cta:hover { background: var(--red-dark); }
+  .cta-wide { width: 380px; max-width: 100%; }
+  .cta-inverse { background: #fff; color: var(--ink); border: 0; border-radius: 999px; padding: 16px 36px; font: 600 15px Inter, system-ui, sans-serif; cursor: pointer; }
+  .textlink { color: var(--red); font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .pill { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 18px; font: 400 13px Inter, system-ui, sans-serif; color: var(--ink); cursor: pointer; }
+  .pill.active { background: var(--red); border-color: var(--red); color: #fff; font-weight: 500; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 14px; font-size: 13px; }
+  .save { background: var(--tint); color: var(--red); border-radius: 999px; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+  .check { color: var(--red); font-weight: 700; }
+  .dark { background: #4a453d; padding: 20px; border-radius: 12px; display: inline-block; }
+</style>
+<h1>Buttons &amp; Chips</h1>
+
+<div class="label">Primary CTA (pill, full-width in buy box)</div>
+<div class="row"><button class="cta cta-wide">Start Your Lifework</button></div>
+
+<div class="label">CTA on dark imagery (brand close)</div>
+<div class="dark"><button class="cta-inverse">Start Your Lifework</button></div>
+
+<div class="label">Text link</div>
+<div class="row"><a class="textlink" href="#">View Study <span>&rarr;</span></a><a class="textlink" href="#">Explore the science <span>&rarr;</span></a></div>
+
+<div class="label">Filter / tab pills (active = red)</div>
+<div class="row">
+  <button class="pill active">Skin</button><button class="pill">Eyes</button><button class="pill">Performance</button><button class="pill">Cognition</button><button class="pill">Cellular Health</button>
+</div>
+
+<div class="label">Quick-link pills &amp; badges</div>
+<div class="row">
+  <span class="badge">12 mg Astaxanthin</span>
+  <span class="badge"><span class="check">&#10003;</span> 85+ Human Clinical Studies</span>
+  <span class="save">SAVE 40%</span>
+  <span class="save" style="background:#B3392C;color:#fff;">BEST VALUE</span>
+</div>

@@ -53,3 +53,6 @@ temp/
 
 # agent worktrees (transient, not part of the repo source)
 .claude/worktrees/
+
+# zipped export bundle (regenerable from design-export/lifework/)
+design-export/*.zip

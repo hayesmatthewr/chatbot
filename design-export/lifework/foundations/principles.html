@@ -1,0 +1,45 @@
+<!-- @dsCard group="Foundations" -->
+<title>Lifework — Principles &amp; Spacing</title>
+<style>
+  :root { --red: #B3392C; --ink: #262626; --ink-soft: #727272; --line: #E5E7EB; }
+  body { margin: 0; padding: 32px; background: #FAFAF8; color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  h2 { font-size: 14px; font-weight: 600; margin: 28px 0 10px; }
+  .note { font-size: 13px; color: var(--ink-soft); margin: 0 0 8px; max-width: 620px; line-height: 1.55; }
+  ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
+  .bars { display: flex; align-items: flex-end; gap: 10px; margin-top: 12px; }
+  .bar { background: #F2D9D4; border: 1px solid var(--red); border-radius: 3px; width: 34px; }
+  .bar span { display: block; text-align: center; font-family: ui-monospace, monospace; font-size: 10px; color: var(--ink-soft); margin-top: 4px; }
+  .radii { display: flex; gap: 16px; margin-top: 12px; }
+  .r { background: #fff; border: 1px solid var(--line); width: 90px; height: 60px; display: flex; align-items: center; justify-content: center; font-family: ui-monospace, monospace; font-size: 11px; color: var(--ink-soft); }
+</style>
+<h1>Principles &amp; Spacing</h1>
+<p class="note">Premium, minimal, clinical — but warm and human. Seed is the typographic reference, ARMRA the benefit-breadth reference, Timeline the clinical-data reference.</p>
+<ul>
+  <li>One primary message per viewport. Generous whitespace (80–112px) between major sections.</li>
+  <li>Hairline 1px borders instead of drop shadows for separation and elevation.</li>
+  <li>Red is earned, not decorative: CTAs, active states, proof numbers, eyebrows only.</li>
+  <li>Clinical charts look like real study data — dotted gridlines, error bars, one delta annotation. Never exaggerated marketing graphics.</li>
+  <li>Photography carries the editorial weight; avoid bordered-card overload.</li>
+  <li>Comparison cells are nuanced (check / “Varies” / “Partial” / —), never giant green checks vs red X marks.</li>
+  <li>Compliance: every structure/function claim carries a trailing *; review bodies stay as [verified customer review] until real ones exist.</li>
+</ul>
+<h2>Spacing scale (8px base)</h2>
+<div class="bars">
+  <div class="bar" style="height:8px"><span>8</span></div>
+  <div class="bar" style="height:12px"><span>12</span></div>
+  <div class="bar" style="height:16px"><span>16</span></div>
+  <div class="bar" style="height:24px"><span>24</span></div>
+  <div class="bar" style="height:32px"><span>32</span></div>
+  <div class="bar" style="height:48px"><span>48</span></div>
+  <div class="bar" style="height:64px"><span>64</span></div>
+  <div class="bar" style="height:80px"><span>80</span></div>
+  <div class="bar" style="height:112px"><span>112</span></div>
+</div>
+<h2>Radii</h2>
+<div class="radii">
+  <div class="r" style="border-radius:8px">8px — chips</div>
+  <div class="r" style="border-radius:12px">12px — cards</div>
+  <div class="r" style="border-radius:16px">16px — imagery</div>
+  <div class="r" style="border-radius:999px">pill — buttons</div>
+</div>
