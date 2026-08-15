@@ -50,3 +50,6 @@ temp/
 
 # generated local reconnaissance mirror (not part of the clone output)
 /scripts/research-tools/mirror-out/
+
+# agent worktrees (transient, not part of the repo source)
+.claude/worktrees/
