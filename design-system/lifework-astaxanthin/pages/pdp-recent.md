@@ -71,3 +71,19 @@ this system's tokens.
   marker and cart count.
 - No sidebar / job-list-item usage — those component tokens don't apply
   to a PDP and are intentionally unused.
+
+## Mobile-first touch targets
+
+The spec's controls (`button-primary`/`secondary`/`tertiary`, `chip`) are
+28px tall — sized for a mouse-driven browser app, not comfortable touch
+(below the ~36-44px mobile guideline; WCAG 2.5.8 AA's floor is 24px,
+which 28px clears, but AAA and platform guidance both point higher).
+Since mobile is the primary surface for a PDP, interactive pills, chips,
+tabs, and links use 36px as the *default* (mobile) height and only drop
+to the spec's literal 28px at the `sm:` breakpoint (640px+) — Tailwind's
+own mobile-first convention, applied deliberately rather than left at
+the spec's single fixed size. The mobile nav menu rows and header icon
+buttons go to 36-44px for the same reason. Static, non-interactive chips
+(stressor tags, quality badges, rating pills) stay at the spec's compact
+size since they carry no tap target. The standalone artifact mirrors this
+sizing exactly (media query at 640px, same breakpoint).
