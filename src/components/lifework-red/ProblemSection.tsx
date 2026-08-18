@@ -4,13 +4,10 @@ const STRESSORS = ["UV Exposure", "Blue Light", "Pollution", "Aging", "Intense E
 
 export function ProblemSection() {
   return (
-    <section className="border-t border-border bg-background py-20 sm:py-28">
+    <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div>
-          <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
-            The Problem
-          </span>
-          <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+          <h2 className="text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
             Our bodies weren&apos;t built for modern oxidative stress.
           </h2>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-secondary">
@@ -20,34 +17,24 @@ export function ProblemSection() {
           </p>
           <a
             href="#mechanism"
-            className="mt-5 inline-block cursor-pointer text-[12.5px] font-semibold tracking-[0.06em] text-foreground uppercase underline-offset-4 hover:underline"
+            className="mt-5 inline-block cursor-pointer text-[13px] font-semibold text-foreground underline decoration-border underline-offset-4 hover:decoration-accent"
           >
             Learn More
           </a>
 
-          <ul className="mt-8 flex flex-col">
-            {STRESSORS.map((s, i) => (
-              <li
+          <div className="mt-7 flex flex-wrap gap-2">
+            {STRESSORS.map((s) => (
+              <span
                 key={s}
-                className="flex items-center justify-between gap-4 border-t border-border py-3 text-[14px] text-foreground last:border-b"
+                className="rounded-full border border-border bg-card px-3.5 py-1.5 text-[12.5px] font-medium text-secondary"
               >
-                <span className="flex items-center gap-3">
-                  <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] text-muted-foreground">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {s}
-                </span>
-                <span
-                  aria-hidden
-                  className="h-px flex-1 bg-[repeating-linear-gradient(90deg,var(--border)_0,var(--border)_3px,transparent_3px,transparent_7px)]"
-                />
-                <span className="size-1.5 shrink-0 rounded-full bg-accent" />
-              </li>
+                {s}
+              </span>
             ))}
-          </ul>
+          </div>
         </div>
 
-        <Placeholder label="Cellular / oxidative stress visual" wash className="aspect-square w-full" />
+        <Placeholder label="Cellular / oxidative stress visual" photo className="aspect-square w-full" />
       </div>
     </section>
   );

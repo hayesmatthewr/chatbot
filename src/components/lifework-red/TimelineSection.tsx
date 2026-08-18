@@ -23,13 +23,10 @@ const STAGES = [
 
 export function TimelineSection() {
   return (
-    <section className="border-t border-border bg-muted py-20 sm:py-28">
+    <section className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-xl">
-          <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
-            The Timeline
-          </span>
-          <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+          <h2 className="text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
             Cellular protection builds with consistency.
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-secondary">
@@ -39,25 +36,14 @@ export function TimelineSection() {
           </p>
         </div>
 
-        <div className="relative mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <span
-            aria-hidden
-            className="absolute top-[7px] right-0 left-0 hidden h-px bg-[repeating-linear-gradient(90deg,var(--secondary)_0,var(--secondary)_3px,transparent_3px,transparent_7px)] lg:block"
-          />
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STAGES.map((stage) => (
-            <div key={stage.label} className="relative pt-6">
-              <span className="absolute top-0 left-0 flex size-3.5 items-center justify-center rounded-full bg-accent lg:left-1/2 lg:-translate-x-1/2">
-                <span className="size-1.5 rounded-full bg-card" />
-              </span>
-              <span className="font-[family-name:var(--font-lifework-red-mono)] text-[10.5px] tracking-[0.1em] text-muted-foreground uppercase lg:block lg:text-center">
+            <div key={stage.label} className="rounded-sm bg-card p-6">
+              <span className="text-[11px] font-bold tracking-[0.08em] text-secondary uppercase">
                 {stage.label}
               </span>
-              <h3 className="mt-2 font-[family-name:var(--font-lifework-red-display)] text-[17px] font-medium text-foreground lg:text-center">
-                {stage.title}
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-secondary lg:text-center">
-                {stage.body}
-              </p>
+              <h3 className="mt-2 text-[16px] font-bold text-foreground">{stage.title}</h3>
+              <p className="mt-2 text-[13.5px] leading-relaxed text-secondary">{stage.body}</p>
             </div>
           ))}
         </div>

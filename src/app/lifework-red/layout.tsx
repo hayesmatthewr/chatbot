@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo, Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./theme.css";
-
-const fraunces = Fraunces({
-  variable: "--font-lifework-red-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
 
 const archivo = Archivo({
   variable: "--font-lifework-red-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -30,8 +23,15 @@ export const metadata: Metadata = {
 export default function LifeworkRedLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={`lifework-red-theme ${fraunces.variable} ${archivo.variable} ${plexMono.variable} bg-background text-foreground`}
-      style={{ fontFamily: "var(--font-lifework-red-body), ui-sans-serif, sans-serif" }}
+      className={`lifework-red-theme ${archivo.variable} ${plexMono.variable} bg-background text-foreground`}
+      style={
+        {
+          fontFamily: "var(--font-lifework-red-body), ui-sans-serif, sans-serif",
+          // display var repointed at the same sans body font (bold weights) —
+          // the real DS-01 page runs a bold grotesk headline, not a serif.
+          "--font-lifework-red-display": "var(--font-lifework-red-body)",
+        } as React.CSSProperties
+      }
     >
       {children}
     </div>

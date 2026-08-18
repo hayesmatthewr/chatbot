@@ -27,9 +27,9 @@ export function SiteHeader() {
 
         <a
           href="#top"
-          className="font-[family-name:var(--font-lifework-red-display)] text-[22px] font-medium italic tracking-tight text-foreground"
+          className="text-[19px] font-extrabold tracking-tight text-foreground"
         >
-          Lifework
+          LIFEWORK
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">

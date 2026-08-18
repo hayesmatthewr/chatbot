@@ -18,12 +18,9 @@ export function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="border-t border-border bg-muted py-20 sm:py-28">
+    <section id="faq" className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
-          Questions
-        </span>
-        <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+        <h2 className="text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
           Questions, answered.
         </h2>
 
@@ -38,9 +35,7 @@ export function FaqAccordion() {
                   aria-expanded={isOpen}
                   className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left transition-colors duration-200 hover:text-accent"
                 >
-                  <span className="font-[family-name:var(--font-lifework-red-display)] text-[17px] font-medium text-foreground">
-                    {question}
-                  </span>
+                  <span className="text-[16px] font-bold text-foreground">{question}</span>
                   <span className="flex size-6 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground">
                     {isOpen ? <Minus className="size-3" /> : <Plus className="size-3" />}
                   </span>

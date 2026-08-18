@@ -51,13 +51,13 @@ export function ClinicalStudiesSection() {
   const tab = TABS.find((t) => t.id === active) ?? TABS[0];
 
   return (
-    <section id="studies" className="border-t border-border bg-muted py-20 sm:py-28">
+    <section id="studies" className="bg-muted py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-xl">
           <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
             Peer-Reviewed Research
           </span>
-          <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+          <h2 className="mt-3 text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
             One molecule. Multiple systems. 85+ human clinical studies.
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-secondary">
@@ -91,9 +91,7 @@ export function ClinicalStudiesSection() {
               <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] text-muted-foreground">
                 [Study {tab.code}]
               </span>
-              <h3 className="mt-2 font-[family-name:var(--font-lifework-red-display)] text-[21px] font-medium text-foreground">
-                {tab.title}
-              </h3>
+              <h3 className="mt-2 text-[21px] font-bold text-foreground">{tab.title}</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-secondary">{tab.body}</p>
 
               <span className="mt-6 block font-[family-name:var(--font-lifework-red-mono)] text-[10.5px] tracking-[0.1em] text-muted-foreground uppercase">

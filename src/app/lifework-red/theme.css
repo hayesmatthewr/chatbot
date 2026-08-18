@@ -1,27 +1,30 @@
 /*
   Scoped tokens for the "Red" PDP variant (Seed DS-01-inspired art
   direction, oxblood instead of Seed's forest green). See
-  design-system/lifework-astaxanthin/pages/pdp-red.md for rationale.
+  design-system/lifework-astaxanthin/pages/pdp-red.md for rationale —
+  corrected against the real seed.com/daily-synbiotic page: white/near-
+  white ground, sans-serif throughout, clinical-minimal (whitespace over
+  hairlines), not the warm-cream editorial-serif look of the first pass.
   Only applied inside .lifework-red-theme.
 */
 .lifework-red-theme {
-  --background: #f7f2e7;
-  --foreground: #1a1512;
-  --card: #fefcf6;
-  --card-foreground: #1a1512;
-  --popover: #fefcf6;
-  --popover-foreground: #1a1512;
+  --background: #fdfdfc;
+  --foreground: #17130f;
+  --card: #ffffff;
+  --card-foreground: #17130f;
+  --popover: #ffffff;
+  --popover-foreground: #17130f;
   --primary: #4e1712;
-  --primary-foreground: #f7f2e7;
-  --secondary: #6b6156;
+  --primary-foreground: #fdfdfc;
+  --secondary: #6e655c;
   --secondary-foreground: #ffffff;
-  --muted: #f1ded2;
-  --muted-foreground: #6b6156;
+  --muted: #faf3f1;
+  --muted-foreground: #6e655c;
   --accent: #8c2a1f;
   --accent-foreground: #ffffff;
   --destructive: #b3261e;
-  --border: #e2d6c4;
-  --input: #e2d6c4;
+  --border: #ece7e2;
+  --input: #ece7e2;
   --ring: #4e1712;
-  --radius: 0.375rem;
+  --radius: 0.25rem;
 }

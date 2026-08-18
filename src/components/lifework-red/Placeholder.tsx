@@ -3,25 +3,24 @@ import { cn } from "@/lib/utils";
 interface PlaceholderProps {
   label: string;
   className?: string;
-  wash?: boolean;
+  /** Neutral flat fill, for product-photography slots (vs. the default hatch used for diagrams/charts). */
+  photo?: boolean;
 }
 
-export function Placeholder({ label, className, wash }: PlaceholderProps) {
+export function Placeholder({ label, className, photo }: PlaceholderProps) {
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden rounded-sm border border-dashed border-border",
+        "relative flex items-center justify-center overflow-hidden rounded-sm border border-border",
+        photo ? "bg-muted" : "bg-card",
         className
       )}
       style={
-        wash
-          ? {
-              background:
-                "radial-gradient(60% 60% at 50% 42%, color-mix(in oklab, var(--muted) 85%, var(--accent) 15%) 0%, var(--muted) 70%)",
-            }
+        photo
+          ? undefined
           : {
               backgroundImage:
-                "repeating-linear-gradient(135deg, transparent, transparent 9px, color-mix(in oklab, var(--border) 65%, transparent) 9px, color-mix(in oklab, var(--border) 65%, transparent) 10px)",
+                "repeating-linear-gradient(135deg, transparent, transparent 9px, color-mix(in oklab, var(--border) 80%, transparent) 9px, color-mix(in oklab, var(--border) 80%, transparent) 10px)",
             }
       }
     >

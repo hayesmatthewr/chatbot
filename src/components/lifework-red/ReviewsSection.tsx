@@ -9,14 +9,14 @@ export function ReviewsSection() {
   const [active, setActive] = useState("All");
 
   return (
-    <section id="reviews" className="border-t border-border bg-background py-20 sm:py-28">
+    <section id="reviews" className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
               The Feedback
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+            <h2 className="mt-3 text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
               What members are noticing.
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-secondary">
@@ -49,7 +49,7 @@ export function ReviewsSection() {
 
         <div className="mt-9 grid gap-4 sm:grid-cols-3">
           {[0, 1, 2].map((i) => (
-            <Placeholder key={i} label="Video review" className="aspect-[3/4] w-full" />
+            <Placeholder key={i} label="Video review" photo className="aspect-[3/4] w-full" />
           ))}
         </div>
 

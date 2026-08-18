@@ -20,50 +20,42 @@ const STEPS = [
 
 export function MechanismSection() {
   return (
-    <section id="mechanism" className="border-t border-border bg-background py-20 sm:py-28">
-      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
-          The Mechanism
-        </span>
-        <h2 className="mx-auto mt-3 max-w-2xl font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
-          Protection starts at the cell membrane.
-        </h2>
-        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-secondary">
-          Astaxanthin&apos;s unique structure allows it to span the cell
-          membrane, helping neutralize reactive species and protect
-          vulnerable cellular structures from oxidative stress.*
-        </p>
-
-        <Placeholder
-          label="Simple cell membrane diagram"
-          wash
-          className="mx-auto mt-14 aspect-[16/9] w-full max-w-2xl"
-        />
-
-        <div className="mt-2 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          {STEPS.map((step) => (
-            <div key={step.number} className="flex flex-col items-center">
-              <span
-                aria-hidden
-                className="h-8 w-px bg-[repeating-linear-gradient(180deg,var(--border)_0,var(--border)_3px,transparent_3px,transparent_7px)]"
-              />
-              <span className="flex size-8 items-center justify-center rounded-full border border-border font-[family-name:var(--font-lifework-red-mono)] text-[11px] text-accent">
-                {step.number}
-              </span>
-              <h3 className="mt-4 font-[family-name:var(--font-lifework-red-display)] text-[17px] font-medium text-foreground">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-secondary">{step.body}</p>
-            </div>
-          ))}
+    <section id="mechanism" className="bg-background py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl">
+          <h2 className="text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
+            Protection starts at the cell membrane.
+          </h2>
+          <p className="mt-5 text-[15px] leading-relaxed text-secondary">
+            Astaxanthin&apos;s unique structure allows it to span the cell
+            membrane, helping neutralize reactive species and protect
+            vulnerable cellular structures from oxidative stress.*
+          </p>
         </div>
 
-        <a
-          href="#studies"
-          className="mt-10 inline-block cursor-pointer text-[12.5px] font-semibold tracking-[0.06em] text-foreground uppercase underline-offset-4 hover:underline"
-        >
-          Learn More
-        </a>
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <Placeholder label="Softgel cross-section diagram" className="aspect-square w-full" />
+
+          <div className="flex flex-col gap-7">
+            {STEPS.map((step) => (
+              <div key={step.number} className="flex gap-5">
+                <span className="font-[family-name:var(--font-lifework-red-mono)] text-[13px] font-medium text-accent">
+                  {step.number}
+                </span>
+                <div>
+                  <h3 className="text-[16px] font-bold text-foreground">{step.title}</h3>
+                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-secondary">{step.body}</p>
+                </div>
+              </div>
+            ))}
+            <a
+              href="#studies"
+              className="cursor-pointer text-[13px] font-semibold text-foreground underline decoration-border underline-offset-4 hover:decoration-accent"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

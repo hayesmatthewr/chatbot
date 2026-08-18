@@ -11,12 +11,12 @@ const ROWS = [
 
 export function ComparisonTable() {
   return (
-    <section className="border-t border-border bg-background py-20 sm:py-28">
+    <section className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <span className="font-[family-name:var(--font-lifework-red-mono)] text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
           The Difference
         </span>
-        <h2 className="mt-3 font-[family-name:var(--font-lifework-red-display)] text-[2rem] leading-[1.15] font-medium text-foreground sm:text-[2.3rem]">
+        <h2 className="mt-3 text-[1.9rem] leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-[2.2rem]">
           Not all astaxanthin is created equal.
         </h2>
         <p className="mt-5 text-[15px] leading-relaxed text-secondary">

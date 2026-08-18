@@ -3,9 +3,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-primary py-12 text-primary-foreground">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-5 sm:flex-row">
-          <span className="font-[family-name:var(--font-lifework-red-display)] text-[20px] font-medium italic">
-            Lifework
-          </span>
+          <span className="text-[17px] font-extrabold tracking-tight">LIFEWORK</span>
           <div className="flex items-center gap-7 font-[family-name:var(--font-lifework-red-mono)] text-[11px] tracking-[0.04em] uppercase">
             <a href="#top" className="cursor-pointer opacity-70 transition-opacity duration-200 hover:opacity-100">
               Privacy Policy
