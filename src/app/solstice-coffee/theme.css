@@ -1,0 +1,28 @@
+/*
+  Scoped design-system tokens for the Solstice Coffee Co. concept
+  (generated via the ui-ux-pro-max design system, see
+  design-system/solstice-coffee-co/MASTER.md). Only applied inside
+  .solstice-theme, so it never touches the shared site tokens in
+  src/app/globals.css.
+*/
+.solstice-theme {
+  --background: #faf9f7;
+  --foreground: #0c0a09;
+  --card: #ffffff;
+  --card-foreground: #0c0a09;
+  --popover: #ffffff;
+  --popover-foreground: #0c0a09;
+  --primary: #1c1917;
+  --primary-foreground: #ffffff;
+  --secondary: #44403c;
+  --secondary-foreground: #ffffff;
+  --muted: #efece7;
+  --muted-foreground: #57534e;
+  --accent: #a16207;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #e2ddd5;
+  --input: #e2ddd5;
+  --ring: #1c1917;
+  --radius: 0.625rem;
+}
