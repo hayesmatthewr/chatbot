@@ -1,0 +1,30 @@
+/*
+  Scoped tokens for the "Recent" PDP variant — applies the user-supplied
+  "Recent Design" system (minimalist curation-platform tokens) to the
+  Lifework PDP content/layout. See
+  design-system/lifework-astaxanthin/pages/pdp-recent.md for the full
+  token mapping and documented adaptations.
+  Only applied inside .lifework-recent-theme.
+*/
+.lifework-recent-theme {
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #202020;
+  --secondary-foreground: #ffffff;
+  --muted: #f0f0f0;
+  --muted-foreground: #b8b8b8;
+  --accent: #202020;
+  --accent-foreground: #ffffff;
+  --destructive: #d64b4b;
+  --border: #0000001f;
+  --input: #0000001f;
+  --ring: #000000;
+  --neutral: #fcfcfc;
+  --radius: 1.5rem;
+}
