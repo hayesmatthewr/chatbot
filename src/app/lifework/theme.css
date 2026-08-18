@@ -1,0 +1,27 @@
+/*
+  Scoped design-system tokens for the Lifework astaxanthin PDP concept.
+  See design-system/lifework-astaxanthin/pages/pdp.md for the rationale.
+  Only applied inside .lifework-theme, so it never touches the shared
+  site tokens in src/app/globals.css or the other concept pages.
+*/
+.lifework-theme {
+  --background: #fbfaf7;
+  --foreground: #171310;
+  --card: #ffffff;
+  --card-foreground: #171310;
+  --popover: #ffffff;
+  --popover-foreground: #171310;
+  --primary: #171310;
+  --primary-foreground: #ffffff;
+  --secondary: #57534e;
+  --secondary-foreground: #ffffff;
+  --muted: #f1eee7;
+  --muted-foreground: #57534e;
+  --accent: #c13b23;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #e4dfd3;
+  --input: #e4dfd3;
+  --ring: #171310;
+  --radius: 0.5rem;
+}
