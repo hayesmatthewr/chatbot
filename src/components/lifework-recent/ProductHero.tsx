@@ -42,16 +42,16 @@ export function ProductHero() {
             </span>
           </div>
 
-          <div className="mt-4 flex gap-1">
+          <div className="mt-4 flex gap-2 sm:gap-1">
             <a
               href="#ingredient"
-              className="flex h-7 cursor-pointer items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted"
+              className="flex h-9 cursor-pointer items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted sm:h-7"
             >
               Ingredients
             </a>
             <a
               href="#mechanism"
-              className="flex h-7 cursor-pointer items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted"
+              className="flex h-9 cursor-pointer items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted sm:h-7"
             >
               How It Works
             </a>

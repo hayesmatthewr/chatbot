@@ -26,14 +26,14 @@ export function ReviewsSection() {
           </span>
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-1.5">
+        <div className="mt-5 flex flex-wrap gap-2 sm:gap-1.5">
           {FILTERS.map((f) => (
             <button
               key={f}
               type="button"
               onClick={() => setActive(f)}
               aria-pressed={active === f}
-              className={`flex h-7 cursor-pointer items-center rounded-full px-3 text-[12px] font-medium transition-colors duration-200 ${
+              className={`flex h-9 cursor-pointer items-center rounded-full px-3 text-[12px] font-medium transition-colors duration-200 sm:h-7 ${
                 active === f ? "bg-primary text-primary-foreground" : "bg-muted text-secondary hover:bg-border"
               }`}
             >

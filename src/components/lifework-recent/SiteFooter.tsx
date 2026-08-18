@@ -5,13 +5,13 @@ export function SiteFooter() {
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <span className="text-[15px] font-medium text-foreground">Lifework</span>
           <div className="flex items-center gap-1">
-            <a href="#top" className="flex h-7 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted">
+            <a href="#top" className="flex h-9 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted sm:h-7">
               Privacy Policy
             </a>
-            <a href="#top" className="flex h-7 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted">
+            <a href="#top" className="flex h-9 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted sm:h-7">
               Terms of Service
             </a>
-            <a href="#top" className="flex h-7 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted">
+            <a href="#top" className="flex h-9 cursor-pointer items-center rounded-full px-3 text-[12px] text-secondary transition-colors duration-200 hover:bg-muted sm:h-7">
               Contact
             </a>
           </div>

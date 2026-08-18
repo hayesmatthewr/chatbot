@@ -63,7 +63,7 @@ export function ClinicalStudiesSection() {
           </p>
         </div>
 
-        <div role="tablist" aria-label="Areas of clinical research" className="mt-6 flex flex-wrap gap-1.5">
+        <div role="tablist" aria-label="Areas of clinical research" className="mt-6 flex flex-wrap gap-2 sm:gap-1.5">
           {TABS.map((t) => (
             <button
               key={t.id}
@@ -71,7 +71,7 @@ export function ClinicalStudiesSection() {
               role="tab"
               aria-selected={active === t.id}
               onClick={() => setActive(t.id)}
-              className={`flex h-7 cursor-pointer items-center rounded-full px-3 text-[12px] font-medium transition-colors duration-200 ${
+              className={`flex h-9 cursor-pointer items-center rounded-full px-3 text-[12px] font-medium transition-colors duration-200 sm:h-7 ${
                 active === t.id
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-secondary hover:bg-background"
@@ -105,7 +105,7 @@ export function ClinicalStudiesSection() {
 
               <button
                 type="button"
-                className="mt-5 flex h-7 w-fit cursor-pointer items-center rounded-full bg-muted px-2 text-[13px] text-foreground transition-opacity duration-200 hover:opacity-70"
+                className="mt-5 flex h-9 w-fit cursor-pointer sm:h-7 items-center rounded-full bg-muted px-2 text-[13px] text-foreground transition-opacity duration-200 hover:opacity-70"
               >
                 View Study
               </button>

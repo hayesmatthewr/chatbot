@@ -51,7 +51,7 @@ export function ComparisonTable() {
 
         <button
           type="button"
-          className="mt-6 flex h-7 w-fit cursor-pointer items-center rounded-full bg-muted px-2 text-[13px] text-foreground transition-opacity duration-200 hover:opacity-70"
+          className="mt-6 flex h-9 w-fit cursor-pointer sm:h-7 items-center rounded-full bg-muted px-2 text-[13px] text-foreground transition-opacity duration-200 hover:opacity-70"
         >
           Learn More
         </button>

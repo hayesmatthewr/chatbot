@@ -19,7 +19,7 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="flex size-7 cursor-pointer items-center justify-center rounded-full text-foreground transition-colors duration-200 hover:bg-muted md:hidden"
+          className="flex size-9 cursor-pointer items-center justify-center rounded-full text-foreground transition-colors duration-200 hover:bg-muted sm:size-7 md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
         >
           {menuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
@@ -59,7 +59,7 @@ export function SiteHeader() {
           <button
             type="button"
             aria-label="Cart, 0 items"
-            className="relative flex size-7 cursor-pointer items-center justify-center rounded-full text-foreground transition-colors duration-200 hover:bg-muted"
+            className="relative flex size-9 cursor-pointer items-center justify-center rounded-full text-foreground transition-colors duration-200 hover:bg-muted sm:size-7"
           >
             <ShoppingBag className="size-4" />
             <span className="absolute -top-1 -right-1 flex size-[18px] items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
@@ -76,7 +76,7 @@ export function SiteHeader() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="flex h-8 cursor-pointer items-center rounded-full px-3 text-[13px] text-secondary transition-colors duration-200 hover:bg-muted hover:text-foreground"
+              className="flex h-11 cursor-pointer items-center rounded-full px-3 text-[13px] text-secondary transition-colors duration-200 hover:bg-muted hover:text-foreground"
             >
               {link.label}
             </a>

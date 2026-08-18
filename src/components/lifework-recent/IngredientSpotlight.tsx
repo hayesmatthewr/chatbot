@@ -40,7 +40,7 @@ export function IngredientSpotlight() {
 
           <a
             href="#studies"
-            className="mt-4 flex h-7 w-fit cursor-pointer items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted"
+            className="mt-4 flex h-9 w-fit cursor-pointer sm:h-7 items-center rounded-full px-2 text-[13px] text-foreground transition-colors duration-200 hover:bg-muted"
           >
             Learn More
           </a>
