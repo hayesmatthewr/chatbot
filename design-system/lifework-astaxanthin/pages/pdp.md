@@ -62,3 +62,18 @@ fact from the copy itself ("a deep red antioxidant"):
   Value) with the 12-week option pre-selected, matching the wireframe.
 - Clinical-evidence tabs and FAQ accordion are interactive, matching the
   wireframe's implied behavior (tab switch, expand/collapse).
+
+## Micro-interactions (Amicro kit)
+
+Layered on after the initial build, sourced from `@subhanhq/amicro`
+(`src/components/amicro/`):
+
+- Every section below the hero uses `ScrollReveal` — opacity/translateY,
+  fires once on scroll-into-view.
+- The hero `<h1>` uses `FadeUp` for a load-in.
+- The primary CTA ("Start Your Lifework") is wrapped in `MagneticWrap`
+  (theme-agnostic — no color override risk, see `src/components/amicro/README.md`).
+
+The published artifact re-implements the same three effects in plain
+CSS/JS (`IntersectionObserver` + a `requestAnimationFrame` spring lerp for
+the magnetic button) since it has no framer-motion runtime.

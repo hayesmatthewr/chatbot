@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { RotateCcw, ShieldCheck, Star, Truck } from "lucide-react";
+import { FadeUp } from "@/components/amicro/fade-up";
+import { MagneticWrap } from "@/components/amicro/magnetic-wrap";
 import { Placeholder } from "./Placeholder";
 
 const PLANS = [
@@ -36,9 +38,11 @@ export function ProductHero() {
         </div>
 
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Daily Cellular Protection
-          </h1>
+          <FadeUp duration={0.7}>
+            <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              Daily Cellular Protection
+            </h1>
+          </FadeUp>
 
           <div className="mt-3 flex items-center gap-2 text-sm">
             <span className="font-semibold text-foreground">4.5</span>
@@ -123,12 +127,14 @@ export function ProductHero() {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="mt-5 w-full cursor-pointer rounded-lg bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all duration-200 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Start Your Lifework
-          </button>
+          <MagneticWrap className="mt-5 block w-full" range={80} strength={0.15}>
+            <button
+              type="button"
+              className="w-full cursor-pointer rounded-lg bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all duration-200 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              Start Your Lifework
+            </button>
+          </MagneticWrap>
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground sm:justify-start">
             <span className="flex items-center gap-1.5">

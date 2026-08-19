@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/amicro/scroll-reveal";
 import { BenefitsGrid } from "@/components/lifework/BenefitsGrid";
 import { ClinicalStudiesSection } from "@/components/lifework/ClinicalStudiesSection";
 import { ClosingCta } from "@/components/lifework/ClosingCta";
@@ -19,17 +20,17 @@ export default function LifeworkPage() {
       <SiteHeader />
       <main>
         <ProductHero />
-        <ProblemSection />
-        <BenefitsGrid />
-        <MechanismSection />
-        <ClinicalStudiesSection />
-        <ComparisonTable />
-        <TimelineSection />
-        <IngredientSpotlight />
-        <QualitySection />
-        <ReviewsSection />
-        <FaqAccordion />
-        <ClosingCta />
+        <ScrollReveal><ProblemSection /></ScrollReveal>
+        <ScrollReveal><BenefitsGrid /></ScrollReveal>
+        <ScrollReveal><MechanismSection /></ScrollReveal>
+        <ScrollReveal><ClinicalStudiesSection /></ScrollReveal>
+        <ScrollReveal><ComparisonTable /></ScrollReveal>
+        <ScrollReveal><TimelineSection /></ScrollReveal>
+        <ScrollReveal><IngredientSpotlight /></ScrollReveal>
+        <ScrollReveal><QualitySection /></ScrollReveal>
+        <ScrollReveal><ReviewsSection /></ScrollReveal>
+        <ScrollReveal><FaqAccordion /></ScrollReveal>
+        <ScrollReveal><ClosingCta /></ScrollReveal>
       </main>
       <SiteFooter />
     </>
