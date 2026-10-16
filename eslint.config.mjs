@@ -17,6 +17,9 @@ const eslintConfig = defineConfig([
     // app code, shouldn't be linted as such.
     "docs/**",
     "scripts/research-tools/**",
+    // Third-party agent skills installed via `npx skills add`.
+    ".agents/**",
+    ".claude/skills/**",
   ]),
 ]);
 
