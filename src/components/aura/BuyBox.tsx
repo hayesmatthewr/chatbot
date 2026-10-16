@@ -70,9 +70,17 @@ export function BuyBox() {
                   <span className="absolute -top-3 left-5 rounded-full bg-aura-red px-3 py-1 text-[13px] font-bold text-white">{b.tag}</span>
                 )}
                 <span className="flex items-start gap-4">
+                  <Image
+                    src={b.id === "12-week" ? "/images/aura/kit-12-week.png" : "/images/aura/pouch-cutout.png"}
+                    alt=""
+                    width={b.id === "12-week" ? 1002 : 478}
+                    height={b.id === "12-week" ? 788 : 704}
+                    sizes="72px"
+                    className="h-14 w-[72px] shrink-0 object-contain"
+                  />
                   <span
                     className={cn(
-                      "mt-1 grid h-6 w-4 shrink-0 place-items-center rounded-full",
+                      "sr-only",
                       active ? "bg-aura-red" : "bg-aura-paper",
                     )}
                     aria-hidden
