@@ -11,12 +11,12 @@ const gauss = (x: number, c: number, w: number, a: number) => a * Math.exp(-(((x
 const ecgShape = (p: number) => gauss(p, 0.15, 0.04, 0.06) + gauss(p, 0.28, 0.015, -0.06) + gauss(p, 0.31, 0.017, 0.55) + gauss(p, 0.345, 0.02, -0.2) + gauss(p, 0.56, 0.06, 0.12);
 const PERIOD = 0.9; // world units per beat
 
-const PARTICLES = Array.from({ length: 110 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 48 }, (_, i) => ({
   a: random(`pa${i}`) * Math.PI * 2,
-  r: 0.95 + random(`pr${i}`) * 0.8,
+  r: 0.9 + random(`pr${i}`) * 0.45,
   y: random(`py${i}`),
   sp: 0.15 + random(`ps${i}`) * 0.25,
-  s: 0.025 + random(`pz${i}`) * 0.035,
+  s: 0.022 + random(`pz${i}`) * 0.026,
   d: random(`pd${i}`),
 }));
 
