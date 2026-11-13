@@ -5,7 +5,7 @@ import { Placeholder } from "../components/Placeholder";
 
 const SIDE = 99;
 
-const Diamond = ({ children, x, y, scale = 1, opacity = 1 }: { children: React.ReactNode; x: number; y: number; scale?: number; opacity?: number }) => (
+export const Diamond = ({ children, x, y, scale = 1, opacity = 1 }: { children: React.ReactNode; x: number; y: number; scale?: number; opacity?: number }) => (
   <div style={{ position: "absolute", left: x - 70, top: y - 70, width: 140, height: 140, opacity, transform: `scale(${scale})` }}>
     <div
       style={{

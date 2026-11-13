@@ -6,17 +6,18 @@ const DOT = 66;
 const PILL = 199;
 const GAP = 34;
 
-type Item = { label: string; on: number; off?: number; numberAtStart: boolean };
+export type PillItem = { label: string; on: number; off?: number; numberAtStart: boolean; width?: number };
 
 // Chapter pills: each one widens into a labelled pill while its section plays.
-const ITEMS: Item[] = [
+const BORN_ITEMS: PillItem[] = [
   { label: "Less Leg Mass", on: 9.25, off: 16.6, numberAtStart: false },
   { label: "Burn Fat", on: 17.1, off: 29.8, numberAtStart: true },
   { label: "Altitude", on: 30.3, numberAtStart: true },
 ];
-const APPEAR = 8.2;
 
-export const PillNav = ({ s }: { s: number }) => {
+type NavProps = { s: number; items?: PillItem[]; appear?: number };
+
+export const PillNav = ({ s, items = BORN_ITEMS, appear: APPEAR = 8.2 }: NavProps) => {
   if (s < APPEAR) return null;
   return (
     <div
@@ -30,14 +31,14 @@ export const PillNav = ({ s }: { s: number }) => {
         gap: GAP,
       }}
     >
-      {ITEMS.map((item, i) => {
+      {items.map((item, i) => {
         const pop = prog(s, APPEAR + i * 0.1, APPEAR + i * 0.1 + 0.5);
         const grow = prog(s, item.on, item.on + 0.38, EASE_IN_OUT);
         const shrink = item.off ? prog(s, item.off + 0.15, item.off + 0.45, EASE_IN_OUT) : 0;
-        const width = lerp(DOT, PILL, grow * (1 - shrink));
+        const width = lerp(DOT, item.width ?? PILL, grow * (1 - shrink));
 
         const labelOut = item.off ? 1 - prog(s, item.off, item.off + 0.25) : 1;
-        const numIn = item.numberAtStart ? prog(s, 8.7 + i * 0.1, 9.1 + i * 0.1) : 0;
+        const numIn = item.numberAtStart ? prog(s, APPEAR + 0.5 + i * 0.1, APPEAR + 0.9 + i * 0.1) : 0;
         const numOutOnActivate = 1 - prog(s, item.on - 0.08, item.on + 0.08);
         const numBack = item.off ? prog(s, item.off + 0.4, item.off + 0.7) : 0;
         const num = Math.max(numIn * numOutOnActivate, numBack);

@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "lib": ["DOM", "ES2022"]
+    "lib": ["DOM", "ES2023"]
   },
   "include": ["src", "remotion.config.ts"]
 }

@@ -1,4 +1,18 @@
-# Born To Run? (Remotion recreation)
+# Remotion explainer videos
+
+Two compositions share one style kit: `BornToRun` and `Overridden`.
+
+## Overridden
+
+A 20s doom-scrolling explainer built only from the second voiceover (`public/audio2`). It reuses the pill nav,
+diamonds, bands and caption style. Word-level Whisper timings in `src/overridden/words.ts` drive both the karaoke
+captions and every animation cue (`at("word")`). The citation card is a placeholder until the real study details are added.
+
+```bash
+npx remotion render Overridden out/overridden.mp4 --scale=1.5
+```
+
+## Born To Run? (Remotion recreation)
 
 A Remotion rebuild of the 38s vertical explainer. It uses the original voiceover, and placeholder art stands in for the photos and clips.
 
