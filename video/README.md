@@ -1,6 +1,16 @@
 # Remotion explainer videos
 
-Two compositions share one style kit: `BornToRun` and `Overridden`.
+Three compositions: `BornToRun` and `Overridden` share the grey editorial kit; `FieldNotes` has its own city ⇄ forest style.
+
+## Field Notes
+
+A 29s piece built from `public/audio3`. A world value (0 = concrete city grid, 1 = moss forest with generative
+contour lines) drives every colour, and one morphing line runs through it all: knot → nerve pulse → walking routes →
+heart-rate trace → calm wave. Timings live in `src/fieldnotes/words.ts`; the world timeline is in `src/fieldnotes/theme.ts`.
+
+```bash
+npx remotion render FieldNotes out/field-notes.mp4 --scale=1.5
+```
 
 ## Overridden
 
