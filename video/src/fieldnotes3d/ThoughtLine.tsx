@@ -13,7 +13,7 @@ const knot = (i: number): V => {
 };
 
 const wave = (i: number, bump: number): V => {
-  const x = -1.75 + (3.5 * i) / (N - 1);
+  const x = -1.25 + (2.5 * i) / (N - 1);
   const d = 0.32 * Math.exp(-(((x - bump) / 0.28) ** 2));
   return [x, 0.6 + d, 0];
 };
@@ -21,6 +21,7 @@ const wave = (i: number, bump: number): V => {
 /** Opening: a clay knot (overthinking) that slowly untangles into a calm line with one nerve pulse. */
 export const ThoughtLine = ({ s }: { s: number }) => {
   if (s > 5.4) return null;
+  // frame zero is a finished picture: the knot is already there and only settles in
   const grow = prog(s, 0, 1.4, EASE_OUT);
   const tighten = prog(s, at("stress") - 0.1, at("stress") + 0.7, EASE_IN_OUT);
   const unravel = prog(s, 1.8, 3.6, EASE_IN_OUT);
@@ -32,13 +33,13 @@ export const ThoughtLine = ({ s }: { s: number }) => {
     const b = wave(i, bump);
     return [lerp(a[0], b[0], unravel), lerp(a[1], b[1], unravel), lerp(a[2], b[2], unravel)];
   });
-  const scale = lerp(0.6, 1, grow) * (1 - 0.18 * tighten * (1 - unravel));
+  const scale = lerp(0.94, 1, grow) * (1 - 0.18 * tighten * (1 - unravel));
   const spin = (1 - unravel) * s * 0.18;
 
   return (
     <group position={[0, 0.6, 0]} scale={scale} rotation={[0, spin, 0]}>
       <group position={[0, -0.6, 0]}>
-        <Tube points={pts} radius={0.075 * (1 - thin)} color={P.clay} />
+        <Tube points={pts} radius={0.085 * (1 - thin)} color={P.clay} />
       </group>
     </group>
   );

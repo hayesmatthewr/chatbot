@@ -4,18 +4,21 @@ import { worldAt } from "../fieldnotes/theme";
 export { worldAt };
 export const INTER = "Inter, sans-serif";
 
+// Bright in both worlds (card: start bright). Text is always ink.
 export const P = {
-  cityTop: "#eceeef",
-  cityBottom: "#d1d5d7",
-  forestTop: "#22362a",
-  forestBottom: "#111c15",
-  ink: "#141618",
-  paper: "#efede8",
-  clay: "#f2f0ea",
-  stress: "#e8572a",
-  calm: "#a9c7a2",
-  neutral: "#9c9fa1",
+  cityTop: "#c6cbce",
+  cityBottom: "#9aa1a4",
+  forestTop: "#c3cebe",
+  forestBottom: "#98a893",
+  ink: "#15171a",
+  clay: "#f3f1ec",
+  stress: "#e2552a",
+  stressText: "#5c1a08",
+  calm: "#5f8c63",
+  calmLight: "#9dbf98",
+  neutral: "#a3a6a8",
+  pending: "#2b2f33",
 };
 
-export const fg = (w: number) => interpolateColors(w, [0, 1], [P.ink, P.paper]);
+export const fg = (_w: number) => P.ink;
 export const accent = (w: number) => interpolateColors(w, [0, 1], [P.neutral, P.calm]);

@@ -3,13 +3,15 @@ import { GROUPS, at } from "../fieldnotes/words";
 import { project } from "./camera";
 import { cityMode, VIAL_X } from "./Vials";
 import { INTER, P, fg } from "./theme";
+import { CONFIG } from "./config";
 import { WALK_ANCHORS } from "./Walks3D";
+import { STREAM_END } from "./Core";
 
 type HeadlineProps = { s: number; w: number; text: string; t0: number; t1: number; size?: number; top?: number; color?: string };
 
 /** One quiet line of type at a time. Long fades, no bounce. */
 const Headline = ({ s, w, text, t0, t1, size = 76, top = 190, color }: HeadlineProps) => {
-  const p = prog(s, t0 - 0.1, t0 + 0.7) * (1 - prog(s, t1 - 0.4, t1));
+  const p = prog(s, t0 - 0.15, t0 + 0.35) * (1 - prog(s, t1 - 0.35, t1));
   if (p <= 0) return null;
   return (
     <div
@@ -25,7 +27,7 @@ const Headline = ({ s, w, text, t0, t1, size = 76, top = 190, color }: HeadlineP
         lineHeight: 1.08,
         letterSpacing: "-0.045em",
         color: color ?? fg(w),
-        ...reveal(p, 14, 10),
+        ...reveal(p, 10, 5),
       }}
     >
       {text}
@@ -34,7 +36,7 @@ const Headline = ({ s, w, text, t0, t1, size = 76, top = 190, color }: HeadlineP
 };
 
 const Label = ({ x, y, text, p, color, align = "center" }: { x: number; y: number; text: string; p: number; color: string; align?: "center" | "left" }) =>
-  p > 0 ? (
+  CONFIG.labels && p > 0 ? (
     <div
       style={{
         position: "absolute",
@@ -44,8 +46,8 @@ const Label = ({ x, y, text, p, color, align = "center" }: { x: number; y: numbe
         textAlign: align,
         fontFamily: INTER,
         fontWeight: 500,
-        fontSize: 13,
-        letterSpacing: "0.24em",
+        fontSize: 15,
+        letterSpacing: "0.22em",
         color,
         whiteSpace: "nowrap",
         ...reveal(p, 6, 6),
@@ -61,6 +63,7 @@ export const Overlay = ({ s, w }: { s: number; w: number }) => {
   const cityLabel = project(s, WALK_ANCHORS.city);
   const forestLabel = project(s, WALK_ANCHORS.forest);
   const walkLabels = 1 - prog(s, 9.2, 9.7);
+  const cityLabelOut = 1;
 
   return (
     <div style={{ position: "absolute", inset: 0 }}>
@@ -73,9 +76,9 @@ export const Overlay = ({ s, w }: { s: number; w: number }) => {
       <Headline s={s} w={w} text="Only the forest." t0={at("forest", 19)} t1={20.5} size={52} />
       <Headline s={s} w={w} text="reset." t0={at("reset")} t1={40} size={124} top={170} />
 
-      <Label x={360} y={760} text="12 PARTICIPANTS" p={prog(s, at("men"), at("men") + 0.6) * (1 - prog(s, 5.9, 6.4))} color={col} />
-      <Label x={cityLabel.x} y={cityLabel.y - 18} text="CITY STREETS" align="left" p={prog(s, 6.4, 7.0) * walkLabels} color={col} />
-      <Label x={forestLabel.x} y={forestLabel.y - 18} text="QUIET FOREST" align="left" p={prog(s, 7.9, 8.5) * walkLabels} color={col} />
+      <Label x={360} y={840} text="12 PARTICIPANTS" p={prog(s, at("men"), at("men") + 0.6) * (1 - prog(s, 5.9, 6.4))} color={col} />
+      <Label x={cityLabel.x} y={cityLabel.y - 24} text="CITY STREETS" p={prog(s, 6.4, 7.0) * walkLabels * cityLabelOut} color={col} />
+      <Label x={forestLabel.x} y={forestLabel.y - 4} text="QUIET FOREST" p={prog(s, 7.9, 8.5) * walkLabels} color={col} />
 
       {["TENSION", "DEPRESSION", "VIGOR"].map((name, i) => {
         const pt = project(s, [VIAL_X[i], 0, 0.75]);
@@ -85,17 +88,20 @@ export const Overlay = ({ s, w }: { s: number; w: number }) => {
       })}
 
       {(() => {
-        const hr = project(s, [-1.05, 2.05, 0.95]);
-        const co = project(s, [1.15, 2.3, 0]);
+        const hr = project(s, [-0.7, 0.28, 0.95]);
+        const co = project(s, [STREAM_END[0] - 0.1, STREAM_END[1] + 0.22, STREAM_END[2]]);
         return (
           <>
-            <Label x={hr.x} y={hr.y} text="HEART RATE" p={prog(s, at("heart"), at("heart") + 0.7) * (1 - prog(s, 26.6, 27.2))} color={P.stress} />
-            <Label x={co.x} y={co.y} text="CORTISOL" align="left" p={prog(s, at("cortisol"), at("cortisol") + 0.7) * (1 - prog(s, 26.4, 27.0))} color={P.stress} />
+            <Label x={hr.x} y={hr.y} text="HEART RATE" p={prog(s, at("heart"), at("heart") + 0.7) * (1 - prog(s, 26.6, 27.2))} color={P.stressText} />
+            <Label x={co.x} y={co.y} text="CORTISOL" p={prog(s, at("cortisol"), at("cortisol") + 0.7) * (1 - prog(s, 26.4, 27.0))} color={P.stressText} />
           </>
         );
       })()}
 
-      <Captions s={s} color={col} />
+      {CONFIG.citationTag && (
+        <Label x={360} y={1060} text="STUDY CITATION PENDING" p={prog(s, 5.0, 5.6) * (1 - prog(s, 20.0, 20.5))} color={P.ink} />
+      )}
+      {CONFIG.captions && <Captions s={s} color={col} />}
     </div>
   );
 };
@@ -120,7 +126,7 @@ const Captions = ({ s, color }: { s: number; color: string }) => {
       }}
     >
       {GROUPS[idx].map((x, i, arr) => (
-        <span key={i} style={{ opacity: 0.3 + 0.7 * prog(s, x.t - 0.04, x.t + 0.16) }}>
+        <span key={i} style={{ color: prog(s, x.t - 0.06, x.t + 0.14) > 0.5 ? color : P.pending }}>
           {x.w}
           {i < arr.length - 1 ? " " : ""}
         </span>
