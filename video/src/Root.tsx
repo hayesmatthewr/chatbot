@@ -4,6 +4,7 @@ import { DURATION_S, FPS, HEIGHT, WIDTH } from "./lib/constants";
 import { OVERRIDDEN_DURATION_S, Overridden } from "./overridden/Overridden";
 import { AURA_DURATION_S, AuraShowcase } from "./aura/AuraShowcase";
 import { AURA_SCROLL_DURATION_S, AuraScroll } from "./aura/AuraScroll";
+import { STUDY_STACK_DURATION_S, StudyStack } from "./aura/StudyStack";
 import { FIELD_NOTES_3D_DURATION_S, FieldNotes3D } from "./fieldnotes3d/FieldNotes3D";
 import { FIELD_NOTES_DURATION_S, FieldNotes } from "./fieldnotes/FieldNotes";
 
@@ -43,5 +44,6 @@ export const Root = () => (
     />
     <Composition id="AuraShowcase" component={AuraShowcase} durationInFrames={AURA_DURATION_S * FPS} fps={FPS} width={1920} height={1080} />
     <Composition id="AuraScroll" component={AuraScroll} durationInFrames={AURA_SCROLL_DURATION_S * FPS} fps={FPS} width={1080} height={1920} />
+    <Composition id="StudyStack" component={StudyStack} durationInFrames={STUDY_STACK_DURATION_S * 60} fps={60} width={1080} height={1920} />
   </>
 );
