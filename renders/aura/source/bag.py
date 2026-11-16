@@ -3,7 +3,7 @@ from common import *
 import argparse, numpy as np
 ap = argparse.ArgumentParser(); ap.add_argument('--samples', type=int, default=48); ap.add_argument('--pct', type=int, default=50)
 ap.add_argument('--out', default='out/bag.png'); ap.add_argument('--blend'); ap.add_argument('--nx', type=int, default=170)
-ap.add_argument('--frames', type=int, default=45); ap.add_argument('--thick', type=float, default=0.42); ap.add_argument('--crease', type=float, default=0.035)
+ap.add_argument('--frames', type=int, default=45); ap.add_argument('--thick', type=float, default=0.9); ap.add_argument('--crease', type=float, default=0.035)
 a = ap.parse_args()
 s = reset()
 W, H = 6.42, 9.3
@@ -50,7 +50,8 @@ def shape(x, z, side):
     if d <= 0: return 0.0
     q = (z-z0)/(z1-z0)
     m = ramp(x-x0, 1.5)*ramp(x1-x, 1.5)*ramp(z-z0, 1.1)*ramp(z1-z, 2.6)
-    t = a.thick*m*(0.72+0.28*(1-q))
+    t = a.thick*m*(0.6+0.4*(1-q)**1.3)
+    lump = (noise.noise(Vector((x*2.1, z*2.1, 11.3*side)))*0.035 + noise.noise(Vector((x*3.4, z*3.4, 4.2*side)))*0.015)*min(1.0, m*1.6)*(0.4+0.6*(1-q))
     edge = ramp(d, 0.5)
     n = noise.noise(Vector((x*0.55, z*0.4, 3.1*side)))*0.05 + noise.noise(Vector((x*1.6, z*1.1, 7.7*side)))*0.018
     cr = 0.0
@@ -58,19 +59,22 @@ def shape(x, z, side):
         dx, dz = x-cx, z-cz
         along = dx*ux + dz*uz; across = -dx*uz + dz*ux
         cr += amp*math.exp(-(across/sig)**2)*math.exp(-(along/ln)**2)
-    return t + edge*(n + cr)*(1.0 if side < 0 else 0.6)
+    return t + lump + edge*(n + cr)*(1.0 if side < 0 else 0.6)
 me = bag.data
 for v in me.vertices:
     x, y, z = v.co
     side = -1 if y < 0 else 1
     t = shape(x, z, side)
     vq = z/H
-    pinch = 1 - 0.022*math.sin(math.pi*min(1, vq/(1-ST)))*(1 if z < z1 else 0)
+    pinch = 1 - 0.05*math.sin(math.pi*min(1, vq/(1-ST)))*(1 if z < z1 else 0)
     bow = 0.16*(x/(W/2))**2 - 0.10*(vq-0.5)**2
     v.co = (x*pinch, side*(0.004+t) + bow, z)
 newme = me
 co = np.array([v.co[:] for v in newme.vertices])
 print('BBOX', co.min(0), co.max(0))
+import bmesh as _b; _bm=_b.new(); _bm.from_mesh(newme)
+_v=sum(shape(x0+(x1-x0)*(i+.5)/60, z0+(z1-z0)*(j+.5)/80, -1)+shape(x0+(x1-x0)*(i+.5)/60, z0+(z1-z0)*(j+.5)/80, 1) for i in range(60) for j in range(80))*(x1-x0)/60*(z1-z0)/80
+print('VOLUME', round(_v,1), 'need', round(90*4/3*math.pi*0.475*0.32*0.32/0.55,1))
 # recentre: bottom on z=0, centred x/y
 off = Vector(((co[:, 0].min()+co[:, 0].max())/2, (co[:, 1].min()+co[:, 1].max())/2, co[:, 2].min()))
 for v in newme.vertices: v.co -= off
