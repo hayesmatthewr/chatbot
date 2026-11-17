@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AURA 3D models</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+  body{margin:0;font-family:system-ui,sans-serif;background:#f3f1f0;color:#1d1213}
+  .row{display:flex;flex-wrap:wrap;gap:16px;padding:16px;justify-content:center}
+  model-viewer{width:min(100%,420px);height:520px;background:#faf9f8;border-radius:14px}
+</style>
+</head>
+<body>
+<div class="row">
+  <!-- drag to rotate, pinch or scroll to zoom; auto-rotate spins it until touched -->
+  <model-viewer src="aura-bag.glb" alt="AURA Cellular Protection pouch" camera-controls auto-rotate
+    shadow-intensity="0.9" exposure="1" camera-orbit="-20deg 80deg auto"></model-viewer>
+  <model-viewer src="aura-travel-vial.glb" alt="AURA travel vial" camera-controls auto-rotate
+    shadow-intensity="0.9" exposure="1" camera-orbit="-20deg 80deg auto"></model-viewer>
+</div>
+</body>
+</html>
