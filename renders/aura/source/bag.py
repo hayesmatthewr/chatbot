@@ -51,7 +51,7 @@ def shape(x, z, side):
     q = (z-z0)/(z1-z0)
     m = ramp(x-x0, 1.5)*ramp(x1-x, 1.5)*ramp(z-z0, 1.1)*ramp(z1-z, 2.6)
     t = a.thick*m*(0.6+0.4*(1-q)**1.3)
-    lump = (noise.noise(Vector((x*2.1, z*2.1, 11.3*side)))*0.035 + noise.noise(Vector((x*3.4, z*3.4, 4.2*side)))*0.015)*min(1.0, m*1.6)*(0.4+0.6*(1-q))
+    lump = (noise.noise(Vector((x*1.15, z*1.15, 11.3*side)))*0.07 + noise.noise(Vector((x*2.2, z*2.2, 4.2*side)))*0.02)*min(1.0, m*1.6)*(0.4+0.6*(1-q))
     edge = ramp(d, 0.5)
     n = noise.noise(Vector((x*0.55, z*0.4, 3.1*side)))*0.05 + noise.noise(Vector((x*1.6, z*1.1, 7.7*side)))*0.018
     cr = 0.0

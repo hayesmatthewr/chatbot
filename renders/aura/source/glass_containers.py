@@ -3,7 +3,7 @@ from common import *
 from mathutils import noise
 import argparse
 ap = argparse.ArgumentParser(); ap.add_argument('which'); ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=45)
-ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--smooth-cap', action='store_true'); ap.add_argument('--aura', action='store_true')
+ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--smooth-cap', action='store_true'); ap.add_argument('--aura', action='store_true'); ap.add_argument('--real', action='store_true')
 a = ap.parse_args()
 s = reset()
 s.cycles.max_bounces = 16; s.cycles.transmission_bounces = 12; s.cycles.glossy_bounces = 6
@@ -81,10 +81,12 @@ else:
     import numpy as np, random
     rng = np.random.default_rng(4); random.seed(4)
     SA, SB = 1.01, 0.68           # softgel half-length and half-width
+    SC = SB
+    if a.real: SA, SB, SC = 7.5/4.375, 4.0/4.588, 3.5/4.588   # real 15 x 8 x 7 mm softgel, in vial units (vial = 76 x 19.5 mm)
     MAXN = 120 if a.which == 'jar' else 30
     r = 0.78; lim = ci - r - 0.02; ztop = floor + (H-floor)*0.9
     P = np.zeros((0, 3)); misses = 0
-    while misses < 25 and len(P) < MAXN:
+    while (not a.real) and misses < 25 and len(P) < MAXN:
         K = 48; rad = lim*np.sqrt(rng.random(K)); ang = rng.random(K)*2*math.pi
         c = np.stack([rad*np.cos(ang), rad*np.sin(ang)], 1); z = np.full(K, floor + r)
         if len(P):
@@ -93,19 +95,34 @@ else:
         i = int(z.argmin())
         if z[i] > ztop - r: misses += 1; continue
         P = np.vstack([P, [c[i, 0], c[i, 1], z[i]]])
+    ROT = None
+    if a.real:
+        # too long to tumble in this vial: they stand upright, three per layer, each layer turned to nest into the last
+        rho = ci - SC - 0.03; pts = []; ROT = []
+        for k in range(4):
+            for j in range(3):
+                ang = math.radians(120*j + 60*k + 15)
+                pts.append([rho*math.cos(ang), rho*math.sin(ang), floor + SA + 0.02 + k*2.95])
+                ROT.append((math.radians(random.uniform(-5, 5)), math.radians(random.uniform(-5, 5)), ang + math.pi/2))
+        # one more lies flat across the top of the stack
+        pts.append([0.0, 0.0, floor + 2*SA + 3*2.95 + SC + 0.06]); ROT.append((math.pi/2, 0.0, math.radians(35)))
+        P = np.array(pts)
     print('SOFTGELS', len(P), 'top', round(float(P[:, 2].max()+r), 2), 'of', round(H, 2))
-    bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=20, v_segments=10, radius=1.0)
-    for v in bm.verts: v.co = (v.co.x*SB, v.co.y*SB, v.co.z*SA)
+    bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=28, v_segments=18, radius=1.0)
+    for v in bm.verts:
+        t = max(-1.0, min(1.0, v.co.z)); q = math.sqrt(max(1e-9, 1-t*t))
+        f = ((1-abs(t)**2.15)**(1/2.15))/q if (a.real and abs(t) < 0.9999) else 1.0   # blunter, fuller ends like a real oblong softgel
+        v.co = (v.co.x*f*SB, v.co.y*f*SC, v.co.z*SA)
     for f in bm.faces: f.smooth = True
     gm = bpy.data.meshes.new('softgel'); bm.to_mesh(gm); bm.free()
     g = bpy.data.materials.new('softgel'); g.use_nodes = True; gb = g.node_tree.nodes['Principled BSDF']
-    gb.inputs['Base Color'].default_value = (0.62, 0.008, 0.014, 1); gb.inputs['Transmission Weight'].default_value = 0.3; gb.inputs['Coat Weight'].default_value = 1.0; gb.inputs['Coat Roughness'].default_value = 0.04
+    gb.inputs['Base Color'].default_value = ((0.5, 0.004, 0.008, 1) if a.real else (0.62, 0.008, 0.014, 1)); gb.inputs['Transmission Weight'].default_value = 0.3; gb.inputs['Coat Weight'].default_value = 1.0; gb.inputs['Coat Roughness'].default_value = 0.04
     gb.inputs['Roughness'].default_value = 0.08; gb.inputs['IOR'].default_value = 1.45
     gm.materials.append(g)
     contents = []
     for n, p in enumerate(P):
         o = bpy.data.objects.new(f'{a.which}_softgel_{n:04d}', gm); bpy.context.collection.objects.link(o)
-        o.location = p; o.rotation_euler = (random.uniform(0, math.pi), random.uniform(0, math.pi), random.uniform(0, 2*math.pi)); contents.append(o)
+        o.location = p; o.rotation_euler = ROT[n] if ROT else (random.uniform(0, math.pi), random.uniform(0, math.pi), random.uniform(0, 2*math.pi)); contents.append(o)
     pivot = bpy.data.objects.new(a.which+'_contents', None); bpy.context.collection.objects.link(pivot)
     for o in contents: o.parent = pivot
     cont = pivot
