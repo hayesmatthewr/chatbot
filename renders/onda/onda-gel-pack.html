@@ -94,7 +94,8 @@
 
 <div class="controls">
   <div class="controls-inner">
-    <button type="button" id="btn-loop" aria-pressed="true">Trio loop</button>
+    <button type="button" id="btn-shoot" aria-pressed="true">Shoot</button>
+    <button type="button" id="btn-loop" aria-pressed="false">Trio loop</button>
     <button type="button" id="btn-front">Front</button>
     <button type="button" id="btn-back">Back</button>
     <button type="button" id="btn-foil" aria-pressed="true">Foil</button>
@@ -388,7 +389,8 @@ Object.assign(key.shadow.camera, { left: -12, right: 12, top: 14, bottom: -6, ne
 const rim = new THREE.DirectionalLight(0xffffff, 1.3); rim.position.set(10, 9, -12);
 const fill = new THREE.DirectionalLight(0xffffff, 0.55); fill.position.set(11, 5, 12);
 const hemi = new THREE.HemisphereLight(0xffffff, 0x000000, 0.38);
-scene.add(key, rim, fill, hemi);
+const sweep = new THREE.DirectionalLight(0xffffff, 0);   // the moving highlight in the shoot
+scene.add(key, rim, fill, hemi, sweep);
 
 // studio environment for reflections: a tinted room with softboxes, baked through PMREM
 const pmrem = new THREE.PMREMGenerator(renderer);
@@ -433,10 +435,13 @@ const LOOKS = {
   blue: { top: '#0a4fc0', horizon: '#08298a', edge: null, floor: '#0c50c4', room: '#0a2a8c', glow: '#cfe2ff', soft: false,
           tint: 0xbcd6ff, sky: 0x4d8dff, ground: 0x0b2f9a, exposure: 1.0, key: 2.4, rim: 1.3, fill: 0.55, hemi: 0.38, shadow: 0.5 },
 };
+// tone-on-tone set for the shoot: backdrop in the pack's own blue, no floor, moodier light
+LOOKS.tone = { top: '#1146ba', horizon: '#0a2f90', edge: 'rgba(2,8,40,0.5)', floor: '#0a2f90', room: '#05185a', glow: '#dfeaff', soft: true,
+               tint: 0xffffff, sky: 0x6f9dff, ground: 0x051a5c, exposure: 1.0, key: 1.2, rim: 1.2, fill: 0.15, hemi: 0.25, shadow: 0, seamless: true };
 const built = {};
 let look = 'grey';
-function setLook(name) {
-  look = name;
+const setLook = name => { look = name; applyLook(view.mode === 'shoot' ? 'tone' : name); };
+function applyLook(name) {
   const L = LOOKS[name];
   const b = built[name] || (built[name] = { env: makeEnv(L.room, L.glow, L.soft), bg: backdrop(L.top, L.horizon, L.edge) });
   scene.environment = b.env; scene.background = b.bg;
@@ -446,21 +451,22 @@ function setLook(name) {
   key.intensity = L.key; rim.intensity = L.rim; fill.intensity = L.fill; hemi.intensity = L.hemi;
   hemi.color.set(L.sky); hemi.groundColor.set(L.ground);
   renderer.toneMappingExposure = L.exposure;
-  if (name === 'grey') delete document.documentElement.dataset.look; else document.documentElement.dataset.look = name;
+  if (name === 'grey') delete document.documentElement.dataset.look; else document.documentElement.dataset.look = 'blue';
 }
 
 // ---------- view state + controls ----------
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const LOOP = 4;                    // seconds; every motion below is periodic in it, so the loop is seamless
-const view = { mode: 'trio', yaw: 0, pitch: 0.045, zoom: 1, vyaw: 0, target: null, fit: { trio: 40, single: 30 } };
-const FRAME = { trio: { w: 19.5, h: 21, y: 8.0 }, single: { w: W * 2.3, h: H * 1.55, y: H * 0.47 } };
+const view = { mode: 'shoot', yaw: 0, pitch: 0.045, zoom: 1, vyaw: 0, target: null, fit: { trio: 40, single: 30, shoot: 30 } };
+const SHOOT = 9.5;                 // seconds: three shots, then it cuts back to the first
+const FRAME = { trio: { w: 19.5, h: 21, y: 8.0 }, single: { w: W * 2.3, h: H * 1.55, y: H * 0.47 }, shoot: { w: W * 2.9, h: H * 1.7, y: 9 } };
 
 function resize() {
   const w = stage.clientWidth || 1, h = stage.clientHeight || 1;
   renderer.setSize(w, h, false);
   camera.aspect = w / h; camera.updateProjectionMatrix();
   const half = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-  for (const k of ['trio', 'single']) view.fit[k] = Math.max((FRAME[k].h / 2) / half, (FRAME[k].w / 2) / (half * camera.aspect));
+  for (const k of ['trio', 'single', 'shoot']) view.fit[k] = Math.max((FRAME[k].h / 2) / half, (FRAME[k].w / 2) / (half * camera.aspect));
 }
 new ResizeObserver(resize).observe(stage);
 
@@ -501,12 +507,13 @@ canvas.addEventListener('keydown', e => {
   view.target = null; e.preventDefault();
 });
 
-const loopBtn = document.getElementById('btn-loop'), studioBtn = document.getElementById('btn-studio'), foilBtn = document.getElementById('btn-foil');
+const shootBtn = document.getElementById('btn-shoot'), loopBtn = document.getElementById('btn-loop'), studioBtn = document.getElementById('btn-studio'), foilBtn = document.getElementById('btn-foil');
 function setMode(mode) {
   if (view.mode === mode) return;
   view.mode = mode; view.target = null; view.vyaw = 0; view.zoom = 1;
-  view.yaw = mode === 'trio' ? 0 : -0.5; view.pitch = mode === 'trio' ? 0.045 : 0.1;
-  loopBtn.setAttribute('aria-pressed', String(mode === 'trio'));
+  view.yaw = mode === 'single' ? -0.5 : 0; view.pitch = mode === 'single' ? 0.1 : 0.045;
+  loopBtn.setAttribute('aria-pressed', String(mode === 'trio')); shootBtn.setAttribute('aria-pressed', String(mode === 'shoot'));
+  setLook(look);
 }
 const turnTo = yaw => {     // shortest way round to the requested face of the single pack
   setMode('single');
@@ -516,18 +523,51 @@ const turnTo = yaw => {     // shortest way round to the requested face of the s
 document.getElementById('btn-front').addEventListener('click', () => turnTo(0));
 document.getElementById('btn-back').addEventListener('click', () => turnTo(Math.PI));
 loopBtn.addEventListener('click', () => setMode(view.mode === 'trio' ? 'single' : 'trio'));
+shootBtn.addEventListener('click', () => setMode(view.mode === 'shoot' ? 'single' : 'shoot'));
+let foilOn = true;
 foilBtn.addEventListener('click', () => {
-  foil.uFoilAmt.value = foil.uFoilAmt.value ? 0 : 1; foilBtn.setAttribute('aria-pressed', String(!!foil.uFoilAmt.value));
+  foilOn = !foilOn; foilBtn.setAttribute('aria-pressed', String(foilOn));
 });
 studioBtn.addEventListener('click', () => { setLook(look === 'grey' ? 'blue' : 'grey'); studioBtn.setAttribute('aria-pressed', String(look === 'blue')); });
 
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+// the shoot: one floating pack, three camera set-ups, a highlight travelling across the film
+function shoot(seconds) {
+  const t = reduced && window.__fixedT == null ? 8 : ((seconds % SHOOT) + SHOOT) % SHOOT;
+  packs.forEach((p, i) => { p.g.visible = i === 0; p.blob.visible = false; });
+  const g = packs[0].g, cy = FRAME.shoot.y, d = view.fit.shoot * view.zoom;
+  for (const m of packs[0].meshes) m.castShadow = false;
+  g.rotation.order = 'ZXY';        // spin about the pack's own long axis, inside the tilt
+  let cam, k;
+  if (t < 2.6) {                   // 1: tilted, close, turning toward camera
+    k = t / 2.6;
+    g.position.set(0.2, cy, 0); g.rotation.set(0.3, -1.05 + 0.6 * k, 0.6);
+    cam = [0, cy - 1.5, d * (0.86 - 0.05 * k)];
+  } else if (t < 5.2) {            // 2: low angle looking up the pack
+    k = (t - 2.6) / 2.6;
+    g.position.set(0, cy + 0.25 * k, 0); g.rotation.set(-0.1, 0.8 - 0.65 * k, 0.16 - 0.12 * k);
+    cam = [0, cy - 10, d * 0.7];
+  } else {                         // 3: upright hero, settling to front
+    k = (t - 5.2) / (SHOOT - 5.2);
+    g.position.set(0, cy + 0.2 * Math.sin(k * Math.PI), 0); g.rotation.set(0, 0.5 * (1 - easeOut(k)), 0);
+    cam = [0, cy + 0.3, d * (0.88 - 0.06 * k)];
+  }
+  sweep.intensity = (t < 2.6 || t >= 5.2 ? 1.3 : 0.7) * Math.sin(k * Math.PI); sweep.position.set(-18 + 36 * k, 7, 13);
+  foil.uFoilAmt.value = 0;
+  rig.rotation.y = view.yaw;
+  camera.position.set(cam[0], cam[1], cam[2]); camera.lookAt(0, cy, 0);
+}
 function pose(seconds) {
+  floor.visible = view.mode !== 'shoot';
+  if (view.mode === 'shoot') return shoot(seconds);
+  sweep.intensity = 0; foil.uFoilAmt.value = foilOn ? 1 : 0;
   const trio = view.mode === 'trio', L = LOOKS[look];
   const ph = (reduced && window.__fixedT == null ? 0 : seconds / LOOP) * Math.PI * 2;
   foil.uFoil.value = ph / (Math.PI * 2);
   packs.forEach(({ g, blob, meshes }, i) => {
     const on = trio || i === 0;
     g.visible = blob.visible = on; if (!on) return;
+    g.rotation.order = 'XYZ';
     for (const m of meshes) m.castShadow = !trio;
     if (trio) {
       const P = POSES[i], a = ph + P.ph;
