@@ -4,23 +4,23 @@
 <style>
   /* Layout: one full-bleed studio stage; a quiet caption top-left, a single control strip bottom-centre. */
   :root {
-    color-scheme: dark;
-    --stage: #0a2f8f;          /* studio wall, also the ground behind the canvas */
-    --ink: #f3f7ff;            /* text on the stage */
-    --ink-soft: rgba(243, 247, 255, 0.72);
-    --panel: rgba(5, 16, 54, 0.62);
-    --panel-line: rgba(243, 247, 255, 0.2);
-    --ink-inverse: #06143f;    /* text on a pressed control */
-    --hover: rgba(243, 247, 255, 0.12);
-    --accent: #58b4ff;         /* the flavour-bar blue from the pack */
+    color-scheme: light;
+    --stage: #d3d4d7;          /* seamless grey studio, also the ground behind the canvas */
+    --ink: #101a3a;            /* text on the stage */
+    --ink-soft: rgba(16, 26, 58, 0.66);
+    --panel: rgba(255, 255, 255, 0.66);
+    --panel-line: rgba(16, 26, 58, 0.16);
+    --ink-inverse: #f3f7ff;    /* text on a pressed control */
+    --hover: rgba(16, 26, 58, 0.09);
+    --accent: #1557d0;         /* the pack's film blue */
     --font-ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
     --font-data: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   }
-  :root[data-look="neutral"] {
-    color-scheme: light;
-    --stage: #c9cdd4; --ink: #0b1b4d; --ink-soft: rgba(11, 27, 77, 0.7);
-    --panel: rgba(255, 255, 255, 0.7); --panel-line: rgba(11, 27, 77, 0.18);
-    --ink-inverse: #f3f7ff; --hover: rgba(11, 27, 77, 0.1); --accent: #1557d0;
+  :root[data-look="blue"] {
+    color-scheme: dark;
+    --stage: #08298a; --ink: #f3f7ff; --ink-soft: rgba(243, 247, 255, 0.72);
+    --panel: rgba(5, 16, 54, 0.62); --panel-line: rgba(243, 247, 255, 0.2);
+    --ink-inverse: #06143f; --hover: rgba(243, 247, 255, 0.12); --accent: #58b4ff;
   }
   html, body { height: 100%; }
   body {
@@ -65,7 +65,7 @@
     padding: 5px;
     background: var(--panel);
     border: 1px solid var(--panel-line);
-    border-radius: 999px;
+    border-radius: 26px;
     -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   }
   .controls button {
@@ -85,19 +85,20 @@
   }
 </style>
 
-<div id="stage" aria-label="Rotatable 3D model of the ONDA gel pack"></div>
+<div id="stage" aria-label="Rotatable 3D scene of ONDA gel packs"></div>
 
 <div class="caption">
-  <h1>ONDA gel pack</h1>
+  <h1>ONDA gel packs</h1>
   <p id="hint">Drag to rotate · scroll or pinch to zoom</p>
 </div>
 
 <div class="controls">
   <div class="controls-inner">
+    <button type="button" id="btn-loop" aria-pressed="true">Trio loop</button>
     <button type="button" id="btn-front">Front</button>
     <button type="button" id="btn-back">Back</button>
-    <button type="button" id="btn-spin" aria-pressed="true">Spin</button>
-    <button type="button" id="btn-studio" aria-pressed="true">Blue studio</button>
+    <button type="button" id="btn-foil" aria-pressed="true">Foil</button>
+    <button type="button" id="btn-studio" aria-pressed="false">Blue studio</button>
   </div>
 </div>
 
@@ -309,14 +310,14 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const canvas = renderer.domElement;
 canvas.tabIndex = 0;
 canvas.setAttribute('role', 'img');
-canvas.setAttribute('aria-label', 'ONDA gel pack. Drag or use arrow keys to rotate.');
+canvas.setAttribute('aria-label', 'ONDA gel packs. Drag or use arrow keys to rotate.');
 stage.appendChild(canvas);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(26, 1, 0.5, 400);
 
-const pack = new THREE.Group();
-scene.add(pack);
+const rig = new THREE.Group();
+scene.add(rig);
 
 function tex(c) {
   const t = new THREE.CanvasTexture(c);
@@ -326,28 +327,59 @@ function tex(c) {
 }
 const bump = new THREE.CanvasTexture(drawBump());
 bump.anisotropy = 4;
-const film = (map) => new THREE.MeshPhysicalMaterial({
-  map, bumpMap: bump, bumpScale: 1.4,
-  roughness: 0.36, metalness: 0.15, clearcoat: 0.45, clearcoatRoughness: 0.28, envMapIntensity: 1.15,
-});
+// holographic foil on the white ink: hue follows viewing angle and the loop clock
+const foil = { uFoil: { value: 0 }, uFoilAmt: { value: 1 } };
+const film = (map) => {
+  const m = new THREE.MeshPhysicalMaterial({
+    map, bumpMap: bump, bumpScale: 1.4,
+    roughness: 0.36, metalness: 0.15, clearcoat: 0.45, clearcoatRoughness: 0.28, envMapIntensity: 1.15,
+  });
+  m.onBeforeCompile = sh => {
+    Object.assign(sh.uniforms, foil);
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform float uFoil;\nuniform float uFoilAmt;')
+      .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
+      {
+        float ink = smoothstep(0.55, 0.85, min(diffuseColor.r, min(diffuseColor.g, diffuseColor.b)));
+        float facing = dot(normal, normalize(vViewPosition));
+        float h = facing * 1.7 + vMapUv.y * 1.3 + vMapUv.x * 0.7 + uFoil;
+        vec3 holo = 0.5 + 0.5 * cos(6.28318 * (h + vec3(0.0, 0.33, 0.67)));
+        diffuseColor.rgb = mix(diffuseColor.rgb, mix(vec3(1.0), holo, 0.5), ink * uFoilAmt);
+      }`);
+  };
+  return m;
+};
 const frontMat = film(tex(drawFront())), backMat = film(tex(drawBack()));
-const front = new THREE.Mesh(buildSide(1), frontMat), back = new THREE.Mesh(buildSide(-1), backMat);
-for (const m of [front, back]) { m.castShadow = true; pack.add(m); }
-pack.position.y = 0.02;
+const geoF = buildSide(1), geoB = buildSide(-1);
 
-// floor + soft contact shadow
-const floorMat = new THREE.MeshStandardMaterial({ roughness: 0.95, metalness: 0, envMapIntensity: 0 });
-const floor = new THREE.Mesh(new THREE.CircleGeometry(260, 64), floorMat);
-floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
-const blob = (() => {
+const blobTex = (() => {
   const c = document.createElement('canvas'); c.width = c.height = 256; const x = c.getContext('2d');
   const g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
-  g.addColorStop(0, 'rgba(0,0,0,0.55)'); g.addColorStop(0.5, 'rgba(0,0,0,0.18)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+  g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(0.45, 'rgba(0,0,0,0.42)'); g.addColorStop(1, 'rgba(0,0,0,0)');
   x.fillStyle = g; x.fillRect(0, 0, 256, 256);
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false }));
-  m.rotation.x = -Math.PI / 2; m.position.y = 0.012; m.scale.set(W * 1.5, 1.6, 1); return m;
+  return new THREE.CanvasTexture(c);
 })();
-pack.add(blob); blob.position.y = 0;   // turns with the pack so it stays under the footprint
+// three packs; each group's origin is the pack centre so it tumbles about its middle
+const packs = [0, 1, 2].map(i => {
+  const g = new THREE.Group(), inner = new THREE.Group();
+  inner.position.y = -H / 2;
+  const meshes = [new THREE.Mesh(geoF, frontMat), new THREE.Mesh(geoB, backMat)];
+  inner.add(...meshes); g.add(inner); rig.add(g);
+  const blob = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: blobTex, transparent: true, depthWrite: false }));
+  blob.rotation.x = -Math.PI / 2; blob.renderOrder = -1 + i * 0.1; rig.add(blob);
+  return { g, blob, meshes };
+});
+// floating poses for the trio: position, tilt, and a phase so they never move in step
+const POSES = [
+  { p: [0.5, 10.9, -1.6], r: [-0.22, -0.38, -0.5], ph: 0.0 },
+  { p: [-5.3, 6.6, 1.2],  r: [0.2, 0.55, 0.36],    ph: 2.1 },
+  { p: [5.5, 6.1, 0.4],   r: [0.14, Math.PI - 0.5, -0.3], ph: 4.2 },
+];
+
+const floorMat = new THREE.MeshStandardMaterial({ roughness: 0.95, metalness: 0, envMapIntensity: 0 });
+const floor = new THREE.Mesh(new THREE.CircleGeometry(260, 64), floorMat);
+const coveMat = new THREE.ShadowMaterial({ opacity: 0.26 });
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
 
 const key = new THREE.DirectionalLight(0xffffff, 2.4);
 key.position.set(-9, 17, 14); key.castShadow = true;
@@ -360,58 +392,75 @@ scene.add(key, rim, fill, hemi);
 
 // studio environment for reflections: a tinted room with softboxes, baked through PMREM
 const pmrem = new THREE.PMREMGenerator(renderer);
-function makeEnv(room, glow) {
+function makeEnv(room, glow, soft) {
   const s = new THREE.Scene();
   s.add(new THREE.Mesh(new THREE.BoxGeometry(60, 40, 60), new THREE.MeshBasicMaterial({ color: room, side: THREE.BackSide })));
   const panel = (w, h, x, y, z, i) => {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(glow).multiplyScalar(i), side: THREE.DoubleSide }));
     m.position.set(x, y, z); m.lookAt(0, 0, 0); s.add(m);
   };
-  panel(26, 14, 0, 19, 4, 9);       // overhead softbox
-  panel(5, 26, -22, 3, 12, 14);     // left strip
-  panel(4, 22, 24, 2, 4, 7);        // right strip
-  panel(14, 8, 6, 6, -26, 5);       // back kicker
-  panel(18, 6, 0, -6, 26, 2.5);     // low front fill
+  if (soft) {                        // big wrap-around softboxes, the look of a white product cove
+    panel(44, 30, 0, 19.5, 0, 2.6);
+    panel(30, 30, -29, 4, 8, 2.4);
+    panel(30, 30, 29, 4, 8, 1.2);
+    panel(40, 24, 0, 4, 29, 0.9);
+    panel(20, 10, 4, 8, -29, 1.6);
+  } else {
+    panel(26, 14, 0, 19, 4, 9);      // overhead softbox
+    panel(5, 26, -22, 3, 12, 14);    // left strip
+    panel(4, 22, 24, 2, 4, 7);       // right strip
+    panel(14, 8, 6, 6, -26, 5);      // back kicker
+    panel(18, 6, 0, -6, 26, 2.5);    // low front fill
+  }
   const t = pmrem.fromScene(s, 0.035).texture;
   s.traverse(o => { if (o.geometry) { o.geometry.dispose(); o.material.dispose(); } });
   return t;
 }
-function backdrop(top, horizon) {
-  const c = document.createElement('canvas'); c.width = 4; c.height = 256; const x = c.getContext('2d');
+function backdrop(top, horizon, edge) {
+  const c = document.createElement('canvas'); c.width = c.height = 256; const x = c.getContext('2d');
   const g = x.createLinearGradient(0, 0, 0, 256); g.addColorStop(0, top); g.addColorStop(0.62, horizon); g.addColorStop(1, horizon);
-  x.fillStyle = g; x.fillRect(0, 0, 4, 256);
+  x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+  if (edge) {                        // the cove falls off toward the corners
+    const v = x.createRadialGradient(128, 110, 60, 128, 128, 190);
+    v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, edge);
+    x.fillStyle = v; x.fillRect(0, 0, 256, 256);
+  }
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 const LOOKS = {
-  blue:    { top: '#0a4fc0', horizon: '#08298a', floor: '#0c50c4', room: '#0a2a8c', glow: '#cfe2ff', tint: 0xbcd6ff, sky: 0x4d8dff, ground: 0x0b2f9a, exposure: 1.0 },
-  neutral: { top: '#eef0f3', horizon: '#c9cdd4', floor: '#e3e6ea', room: '#8d9199', glow: '#ffffff', tint: 0xffffff, sky: 0xffffff, ground: 0x9a9da3, exposure: 0.92 },
+  grey: { top: '#e3e4e6', horizon: '#d3d4d7', edge: 'rgba(120,122,128,0.2)', floor: '#d6d7da', room: '#6f7177', glow: '#ffffff', soft: true,
+          tint: 0xffffff, sky: 0xffffff, ground: 0xb4b6bb, exposure: 1.0, key: 1.25, rim: 0.6, fill: 0.25, hemi: 0.3, shadow: 0.3, seamless: true },
+  blue: { top: '#0a4fc0', horizon: '#08298a', edge: null, floor: '#0c50c4', room: '#0a2a8c', glow: '#cfe2ff', soft: false,
+          tint: 0xbcd6ff, sky: 0x4d8dff, ground: 0x0b2f9a, exposure: 1.0, key: 2.4, rim: 1.3, fill: 0.55, hemi: 0.38, shadow: 0.5 },
 };
 const built = {};
+let look = 'grey';
 function setLook(name) {
+  look = name;
   const L = LOOKS[name];
-  const b = built[name] || (built[name] = { env: makeEnv(L.room, L.glow), bg: backdrop(L.top, L.horizon) });
+  const b = built[name] || (built[name] = { env: makeEnv(L.room, L.glow, L.soft), bg: backdrop(L.top, L.horizon, L.edge) });
   scene.environment = b.env; scene.background = b.bg;
   scene.fog = new THREE.Fog(L.horizon, 42, 150);
-  floorMat.color.set(L.floor);
+  floorMat.color.set(L.floor); floor.material = L.seamless ? coveMat : floorMat;
   key.color.set(L.tint); rim.color.set(L.tint); fill.color.set(L.tint);
+  key.intensity = L.key; rim.intensity = L.rim; fill.intensity = L.fill; hemi.intensity = L.hemi;
   hemi.color.set(L.sky); hemi.groundColor.set(L.ground);
   renderer.toneMappingExposure = L.exposure;
-  document.documentElement.dataset.look = name;
+  if (name === 'grey') delete document.documentElement.dataset.look; else document.documentElement.dataset.look = name;
 }
 
 // ---------- view state + controls ----------
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const view = { yaw: -0.5, pitch: 0.11, zoom: 1, vyaw: 0, spin: !reduced, target: null, fit: 30 };
-const TARGET_Y = H * 0.47;
+const LOOP = 4;                    // seconds; every motion below is periodic in it, so the loop is seamless
+const view = { mode: 'trio', yaw: 0, pitch: 0.045, zoom: 1, vyaw: 0, target: null, fit: { trio: 40, single: 30 } };
+const FRAME = { trio: { w: 19.5, h: 21, y: 8.0 }, single: { w: W * 2.3, h: H * 1.55, y: H * 0.47 } };
 
 function resize() {
   const w = stage.clientWidth || 1, h = stage.clientHeight || 1;
   renderer.setSize(w, h, false);
   camera.aspect = w / h; camera.updateProjectionMatrix();
-  const half = THREE.MathUtils.degToRad(camera.fov / 2);
-  const fitH = (H * 1.55 / 2) / Math.tan(half);
-  const fitW = (W * 2.3 / 2) / (Math.tan(half) * camera.aspect);
-  view.fit = Math.max(fitH, fitW);
+  const half = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+  for (const k of ['trio', 'single']) view.fit[k] = Math.max((FRAME[k].h / 2) / half, (FRAME[k].w / 2) / (half * camera.aspect));
 }
 new ResizeObserver(resize).observe(stage);
 
@@ -452,21 +501,51 @@ canvas.addEventListener('keydown', e => {
   view.target = null; e.preventDefault();
 });
 
-const spinBtn = document.getElementById('btn-spin'), studioBtn = document.getElementById('btn-studio');
-const setSpin = on => { view.spin = on; spinBtn.setAttribute('aria-pressed', String(on)); };
-const turnTo = yaw => {     // shortest way round to the requested face
+const loopBtn = document.getElementById('btn-loop'), studioBtn = document.getElementById('btn-studio'), foilBtn = document.getElementById('btn-foil');
+function setMode(mode) {
+  if (view.mode === mode) return;
+  view.mode = mode; view.target = null; view.vyaw = 0; view.zoom = 1;
+  view.yaw = mode === 'trio' ? 0 : -0.5; view.pitch = mode === 'trio' ? 0.045 : 0.1;
+  loopBtn.setAttribute('aria-pressed', String(mode === 'trio'));
+}
+const turnTo = yaw => {     // shortest way round to the requested face of the single pack
+  setMode('single');
   const tau = Math.PI * 2; let d = (yaw - view.yaw) % tau; if (d > Math.PI) d -= tau; if (d < -Math.PI) d += tau;
-  view.target = { yaw: view.yaw + d, pitch: 0.06 }; view.vyaw = 0; setSpin(false);
+  view.target = { yaw: view.yaw + d, pitch: 0.06 }; view.vyaw = 0;
 };
 document.getElementById('btn-front').addEventListener('click', () => turnTo(0));
 document.getElementById('btn-back').addEventListener('click', () => turnTo(Math.PI));
-spinBtn.addEventListener('click', () => { view.target = null; setSpin(!view.spin); });
-let look = 'blue';
-studioBtn.addEventListener('click', () => {
-  look = look === 'blue' ? 'neutral' : 'blue'; setLook(look);
-  studioBtn.setAttribute('aria-pressed', String(look === 'blue'));
+loopBtn.addEventListener('click', () => setMode(view.mode === 'trio' ? 'single' : 'trio'));
+foilBtn.addEventListener('click', () => {
+  foil.uFoilAmt.value = foil.uFoilAmt.value ? 0 : 1; foilBtn.setAttribute('aria-pressed', String(!!foil.uFoilAmt.value));
 });
-spinBtn.setAttribute('aria-pressed', String(view.spin));
+studioBtn.addEventListener('click', () => { setLook(look === 'grey' ? 'blue' : 'grey'); studioBtn.setAttribute('aria-pressed', String(look === 'blue')); });
+
+function pose(seconds) {
+  const trio = view.mode === 'trio', L = LOOKS[look];
+  const ph = (reduced && window.__fixedT == null ? 0 : seconds / LOOP) * Math.PI * 2;
+  foil.uFoil.value = ph / (Math.PI * 2);
+  packs.forEach(({ g, blob, meshes }, i) => {
+    const on = trio || i === 0;
+    g.visible = blob.visible = on; if (!on) return;
+    for (const m of meshes) m.castShadow = !trio;
+    if (trio) {
+      const P = POSES[i], a = ph + P.ph;
+      g.position.set(P.p[0], P.p[1] + 0.32 * Math.sin(a), P.p[2]);
+      g.rotation.set(P.r[0] + 0.07 * Math.sin(a + 1.3), P.r[1] + 0.3 * Math.sin(a + 0.4), P.r[2] + 0.06 * Math.cos(a));
+      const lift = 1 + 0.05 * Math.sin(a);
+      blob.position.set(P.p[0], 0.012 + i * 0.002, P.p[2] + 0.5); blob.scale.set(9.5 * lift, 3.4 * lift, 1);
+      blob.material.opacity = L.shadow * (i === 0 ? 0.75 : 1) / lift;
+    } else {
+      g.position.set(0, H / 2 + 0.02, 0); g.rotation.set(0, 0, 0);
+      blob.position.set(0, 0.012, 0); blob.scale.set(W * 1.5, 1.6, 1); blob.material.opacity = 0.55;
+    }
+  });
+  rig.rotation.y = view.yaw;
+  const F = FRAME[view.mode], d = view.fit[view.mode] * view.zoom;
+  camera.position.set(0, F.y + Math.sin(view.pitch) * d, Math.cos(view.pitch) * d);
+  camera.lookAt(0, F.y - (trio ? 0 : 0.25), 0);
+}
 
 let last = performance.now();
 function frame(now) {
@@ -475,14 +554,8 @@ function frame(now) {
     const k = 1 - Math.exp(-dt * 6);
     view.yaw += (view.target.yaw - view.yaw) * k; view.pitch += (view.target.pitch - view.pitch) * k;
     if (Math.abs(view.target.yaw - view.yaw) < 0.001) { view.yaw = view.target.yaw; view.target = null; }
-  } else if (!pointers.size) {
-    if (Math.abs(view.vyaw) > 0.0004) { view.yaw += view.vyaw * dt * 60; view.vyaw *= Math.exp(-dt * 3.2); }
-    else if (view.spin) view.yaw += dt * 0.42;
-  }
-  pack.rotation.y = view.yaw;
-  const d = view.fit * view.zoom;
-  camera.position.set(0, TARGET_Y + Math.sin(view.pitch) * d, Math.cos(view.pitch) * d);
-  camera.lookAt(0, TARGET_Y - 0.25, 0);
+  } else if (!pointers.size && Math.abs(view.vyaw) > 0.0004) { view.yaw += view.vyaw * dt * 60; view.vyaw *= Math.exp(-dt * 3.2); }
+  pose(window.__fixedT != null ? window.__fixedT : now / 1000);
   renderer.render(scene, camera);
   requestAnimationFrame(frame);
 }
@@ -495,6 +568,8 @@ if (document.fonts && document.fonts.load) {
   Promise.all([document.fonts.load(font(FONT_TAG, 40)), document.fonts.load(font(FONT_DATA, 40))]).then(redrawArt).catch(() => {});
 }
 
-window.__view = view;
+// hooks for offline frame capture: fix the clock, pick the mode, draw one frame synchronously
+window.__view = view; window.__setMode = setMode;
+window.__draw = t => { window.__fixedT = t; pose(t); renderer.render(scene, camera); };
 setLook(look); resize(); requestAnimationFrame(frame);
 </script>
