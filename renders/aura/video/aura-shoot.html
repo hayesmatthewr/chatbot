@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AURA shoot</title>
+<style>html,body{margin:0;background:#fff;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="cv"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+// AURA travel vial + softgel: three shots on white, modelled on the ONDA shoot (9.5 s loop).
+const P = new URLSearchParams(location.search), W = +(P.get('w') || 1620), H = +(P.get('h') || 1080), SS = +(P.get('ss') || 1);
+const cv = document.getElementById('cv'); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(SS); renderer.setSize(W, H, false);
+renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.LinearToneMapping; renderer.toneMappingExposure = 0.92;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0xffffff);
+const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 400);
+
+// studio the products reflect: white room, bright strip lights, two dark cards for edge contrast
+const env = new THREE.Scene();
+const card = (w, h, v, pos, look) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(v, v, v), side: THREE.DoubleSide })); m.position.set(...pos); m.lookAt(...(look || [0, 0, 0])); env.add(m); return m; };
+env.add(new THREE.Mesh(new THREE.SphereGeometry(60, 32, 16), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.55, 0.55, 0.55), side: THREE.BackSide })));
+card(5, 46, 14, [-26, 6, 16]); card(3, 40, 10, [22, 4, 20]); card(30, 12, 7, [0, 34, 6]); card(9, 30, 5, [-8, 0, 40]);
+card(14, 50, 0.02, [-40, 0, -6]); card(12, 50, 0.02, [38, 0, 2]); card(40, 10, 0.05, [0, -34, 10]);
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(env, 0.01).texture;
+const key = new THREE.DirectionalLight(0xffffff, 0.4); key.position.set(-6, 10, 12); scene.add(key);
+const sweep = new THREE.PointLight(0xffffff, 0, 0, 2); scene.add(sweep);   // the highlight that travels across each shot
+
+const tl = new THREE.TextureLoader(); let pending = 0;
+const tex = (u, srgb) => { pending++; const t = tl.load(u, () => pending--); t.flipY = false; t.anisotropy = 8; if (srgb) t.encoding = THREE.sRGBEncoding; return t; };
+const lin = h => new THREE.Color(h).convertSRGBToLinear();
+const glass = new THREE.MeshPhysicalMaterial({ map: tex('vial_color.png', true), transmissionMap: tex('vial_trans.png'), transmission: 1, roughness: 0.62, ior: 1.33, thickness: 0.4, specularIntensity: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.4, color: new THREE.Color(0.78, 0.62, 0.62) });
+const plastic = new THREE.MeshStandardMaterial({ color: lin(0xa00a12), roughness: 0.55 });
+const gelIn = new THREE.MeshPhysicalMaterial({ color: lin(0x6a050b), roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.08 });
+
+// softgel: 15 x 8 x 7 mm oval (1 unit = 1 cm), clear ruby shell around a darker fill
+const shellMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, transmission: 1, roughness: 0.03, ior: 1.5, thickness: 0.55, attenuationColor: new THREE.Color(0.92, 0.0, 0.02), attenuationDistance: 0.15, clearcoat: 1, clearcoatRoughness: 0.02, specularIntensity: 1 });
+const fillMat = new THREE.MeshPhysicalMaterial({ color: lin(0x5e0409), roughness: 0.22, clearcoat: 0.6, clearcoatRoughness: 0.1 });
+function ovoid(k) { const g = new THREE.SphereGeometry(1, 96, 64); g.scale(0.4 * k[0], 0.75 * k[1], 0.35 * k[2]); return g; }
+const gel = new THREE.Group(); const shell = new THREE.Mesh(ovoid([1, 1, 1]), shellMat); shell.renderOrder = 3;
+gel.add(new THREE.Mesh(ovoid([0.86, 0.93, 0.84]), fillMat), shell);
+const gelRig = new THREE.Group(); gelRig.add(gel); scene.add(gelRig);
+
+const vial = new THREE.Group(), vialRig = new THREE.Group(); vialRig.add(vial); scene.add(vialRig); let ready = false, VH = 7.6;
+fetch('geo-tvial.glb').then(r => r.arrayBuffer()).then(b => new Promise((res, rej) => new THREE.GLTFLoader().parse(b, '', res, rej))).then(gl => {
+  const root = gl.scene; root.scale.setScalar(100);                       // metres -> centimetres
+  root.traverse(o => { if (o.isMesh) { const n = o.name + (o.parent ? o.parent.name : ''); o.material = /glass/.test(n) ? glass : /softgel|contents/.test(n) ? gelIn : plastic; if (/glass/.test(n)) o.renderOrder = 2; } });
+  const box = new THREE.Box3().setFromObject(root), c = box.getCenter(new THREE.Vector3()); VH = box.max.y - box.min.y;
+  root.position.set(-c.x, -c.y, -c.z); vial.add(root); ready = true;
+});
+
+const SHOOT = 9.5, easeOut = x => 1 - Math.pow(1 - x, 3), ease = x => x * x * (3 - 2 * x);
+const half = Math.tan(THREE.MathUtils.degToRad(15));
+const fit = (w, h) => Math.max((h / 2) / half, (w / 2) / (half * camera.aspect));
+function pose(seconds) {
+  const t = ((seconds % SHOOT) + SHOOT) % SHOOT; let k, cam, look = [0, 0, 0];
+  vialRig.rotation.order = 'ZXY'; gelRig.rotation.order = 'ZXY'; vialRig.visible = true; gelRig.visible = true;
+  if (t < 2.6) {                    // 1: vial tilted and close, turning toward camera; softgel drifting past in front
+    k = t / 2.6; const d = fit(VH * 1.7, VH * 1.3);
+    vialRig.position.set(0.5, 0, 0); vialRig.rotation.set(0.3, -1.05 + 0.6 * k, 0.6);
+    gelRig.position.set(-3.3 + 0.5 * k, -1.7 + 0.5 * k, 2.0); gelRig.rotation.set(0.5 + 1.3 * k, 0.4 + 1.0 * k, -0.5);
+    cam = [0, -0.4, d * (0.86 - 0.05 * k)];
+  } else if (t < 5.2) {             // 2: the softgel alone, low angle, turning in the light
+    k = (t - 2.6) / 2.6; const d = fit(3.4, 2.5);
+    vialRig.visible = false;
+    gelRig.position.set(0, 0.05 * Math.sin(k * Math.PI), 0); gelRig.rotation.set(0.12, -0.9 + 1.5 * k, 0.5 - 0.22 * k);
+    cam = [0, -0.55, d * (0.98 - 0.06 * k)];
+  } else {                          // 3: upright hero settling to front, softgel beside it at true scale
+    k = (t - 5.2) / (SHOOT - 5.2); const d = fit(VH * 1.9, VH * 1.55);
+    vialRig.position.set(-1.1, 0.12 * Math.sin(k * Math.PI), 0); vialRig.rotation.set(0, 0.5 * (1 - easeOut(k)), 0);
+    gelRig.position.set(1.75, -VH / 2 + 1.5 + 0.16 * Math.sin(k * Math.PI + 0.8), 0.3); gelRig.rotation.set(0.05, 1.3 * (1 - easeOut(k)) + 0.25, -0.12);
+    cam = [0, 0.25, d * (0.9 - 0.06 * k)];
+  }
+  sweep.intensity = (t >= 2.6 && t < 5.2 ? 3 : 9) * Math.sin(k * Math.PI); sweep.position.set(-14 + 28 * k, 5, 11);
+  camera.position.set(cam[0], cam[1], cam[2]); camera.lookAt(look[0], look[1], look[2]);
+}
+window.isReady = () => ready && pending === 0;
+window.renderAt = s => { pose(s); renderer.render(scene, camera); };
+if (!P.has('still')) { const t0 = performance.now(); (function loop() { if (window.isReady()) window.renderAt((performance.now() - t0) / 1000); requestAnimationFrame(loop); })(); }
+</script></body></html>
