@@ -2,12 +2,13 @@ import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *
 from mathutils import noise
 import argparse, random
-ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup'])
+ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome'])
 ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend')
 a = ap.parse_args(); s = reset(); random.seed(11)
 STAND = a.style == 'standup'
 W, H = 6.2, 9.3                       # 100 x 150 mm; 1 unit = 16.13 mm
-nx = 230; ny = round(nx*H/W)
+GLOSS = a.style in ('mirror', 'satin', 'laminate', 'chrome')   # smooth-fronted: contents do not show through
+nx = 170 if GLOSS else 230; ny = round(nx*H/W)
 SL = SR = 0.07; SB = 0.0 if STAND else 0.03; ST = 0.2
 ZZ = 0.835*H                          # zipper track height
 x0, x1 = (SL-0.5)*W, (0.5-SR)*W; z0, z1 = SB*H, (1-ST)*H
@@ -53,13 +54,14 @@ def shape(x, z, side):
         m = ramp(x-x0, 1.5)*ramp(x1-x, 1.5)*ramp(z-z0, 1.1)*ramp(z1-z, 2.6)
         t = 0.88*m*(0.6+0.4*(1-q)**1.3); d = min(x-x0, x1-x, z-z0, z1-z)
     # softgels pressing through the film, low in the pouch
-    lump = (noise.noise(Vector((x*1.15, z*1.15, 11.3*side)))*0.07 + noise.noise(Vector((x*2.3, z*2.3, 4.2*side)))*0.028)*min(1.0, m*1.6)*(0.35+0.65*(1-q))
+    lump = 0.0 if GLOSS else (noise.noise(Vector((x*1.15, z*1.15, 11.3*side)))*0.07 + noise.noise(Vector((x*2.3, z*2.3, 4.2*side)))*0.028)*min(1.0, m*1.6)*(0.35+0.65*(1-q))
     edge = ramp(d, 0.5)
     n = noise.noise(Vector((x*0.55, z*0.4, 3.1*side)))*0.05 + noise.noise(Vector((x*1.6, z*1.1, 7.7*side)))*0.02
     cr = sum(amp*math.exp(-((-(x-cx)*uz + (z-cz)*ux)/sig)**2)*math.exp(-(((x-cx)*ux + (z-cz)*uz)/ln)**2) for cx, cz, ux, uz, sig, amp, ln in creases)
     # puckers where the full body meets the side seals, and gathers hanging under the zipper
     pk = 0.032*(math.sin(z*8.5 + ph[0])*math.exp(-(x-x0)/0.42) + math.sin(z*7.7 + ph[1])*math.exp(-(x1-x)/0.42))*min(1.0, q*4)*min(1.0, (1-q)*3)
     ga = 0.026*math.sin(x*6.3 + ph[2] + 0.6*math.sin(x*2.1))*math.exp(-(z1-z)/0.75)*ramp(x-x0, 0.5)*ramp(x1-x, 0.5)
+    if GLOSS: n *= 0.45; cr *= 0.35; pk *= 0.6; ga *= 0.6
     return t + lump + edge*(n + cr) + (pk + ga)*(1.0 if side < 0 else 0.7)
 for v in me.vertices:
     x, y, z = v.co; side = -1 if y < 0 else 1; t = shape(x, z, side); vq = z/H
@@ -74,28 +76,38 @@ for v in me.vertices:
 zs = [v.co.z for v in me.vertices]; ys = [v.co.y for v in me.vertices]
 for v in me.vertices: v.co.z -= min(zs); v.co.y -= (min(ys)+max(ys))/2
 sub = bag.modifiers.new('sub', 'SUBSURF'); sub.levels = 1; sub.render_levels = 1
-T = os.path.join(HERE, 'tex/'); kind = 'standup' if STAND else 'flat'
+T = os.path.join(HERE, 'tex/'); kind = 'standup' if (STAND or GLOSS) else 'flat'   # the 'standup' cut-out has no hang hole
 def film(name, front_face):
     m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; N = nt.nodes; L = nt.links; b = N['Principled BSDF']
-    foil = a.style == 'foil'
-    b.inputs['Roughness'].default_value = 0.2 if foil else (0.46 if STAND else 0.56)
-    b.inputs['Metallic'].default_value = 0.88 if foil else 0.0
-    b.inputs['Specular IOR Level'].default_value = 0.5 if foil else 0.32
-    b.inputs['Sheen Weight'].default_value = 0.0 if foil else 0.35; b.inputs['Sheen Roughness'].default_value = 0.4
-    if foil: b.inputs['Coat Weight'].default_value = 0.6; b.inputs['Coat Roughness'].default_value = 0.08
-    base = srgb('c00c16') if foil else RED
-    nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 26 if foil else 180; nz.inputs['Detail'].default_value = 8; nz.inputs['Roughness'].default_value = 0.62
-    bp2 = N.new('ShaderNodeBump'); bp2.inputs['Strength'].default_value = 0.22 if foil else 0.06; bp2.inputs['Distance'].default_value = 0.03
+    #            metallic rough  coat  crinkle scale  base colour
+    P = {'matte':    (0.0,  0.56, 0.0, 0.06, 180, RED),
+         'standup':  (0.0,  0.46, 0.0, 0.06, 180, RED),
+         'foil':     (0.88, 0.20, 0.6, 0.22, 26,  srgb('c00c16')),
+         'mirror':   (0.94, 0.10, 0.5, 0.035, 9,  srgb('c40b15')),     # smooth mirror foil, broad clean highlights
+         'satin':    (0.88, 0.30, 0.0, 0.03, 12,  srgb('be0c15')),     # brushed metallic sheen, softer reflections
+         'laminate': (0.0,  0.30, 1.0, 0.03, 10,  srgb('a8080f')),     # deep lacquer red under a wet clear gloss
+         'chrome':   (1.0,  0.12, 0.0, 0.03, 9,   (0.66, 0.66, 0.68, 1))}[a.style]
+    metal, rough, coat, crk, crs, base = P; foil = metal > 0
+    b.inputs['Roughness'].default_value = rough; b.inputs['Metallic'].default_value = metal
+    b.inputs['Specular IOR Level'].default_value = 0.5 if (foil or coat) else 0.32
+    b.inputs['Sheen Weight'].default_value = 0.0 if (foil or coat) else 0.35; b.inputs['Sheen Roughness'].default_value = 0.4
+    b.inputs['Coat Weight'].default_value = coat; b.inputs['Coat Roughness'].default_value = 0.05
+    nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = crs; nz.inputs['Detail'].default_value = 8; nz.inputs['Roughness'].default_value = 0.62
+    bp2 = N.new('ShaderNodeBump'); bp2.inputs['Strength'].default_value = crk; bp2.inputs['Distance'].default_value = 0.03
     L.new(nz.outputs['Fac'], bp2.inputs['Height'])
     if front_face:
-        tex = N.new('ShaderNodeTexImage'); tex.image = bpy.data.images.load(T+'label.png'); tex.extension = 'CLIP'
+        tex = N.new('ShaderNodeTexImage'); tex.image = bpy.data.images.load(T+('label_black.png' if a.style == 'chrome' else 'label.png')); tex.extension = 'CLIP'
         mix = N.new('ShaderNodeMix'); mix.data_type = 'RGBA'; mix.inputs['A'].default_value = base
         L.new(tex.outputs['Alpha'], mix.inputs['Factor']); L.new(tex.outputs['Color'], mix.inputs['B']); L.new(mix.outputs['Result'], b.inputs['Base Color'])
         if foil:                       # printed white ink is matte, not mirror foil
-            inv = N.new('ShaderNodeMath'); inv.operation = 'MULTIPLY'; inv.inputs[1].default_value = -0.88
-            add = N.new('ShaderNodeMath'); add.operation = 'ADD'; add.inputs[1].default_value = 0.88
+            inv = N.new('ShaderNodeMath'); inv.operation = 'MULTIPLY'; inv.inputs[1].default_value = -metal
+            add = N.new('ShaderNodeMath'); add.operation = 'ADD'; add.inputs[1].default_value = metal
             L.new(tex.outputs['Alpha'], inv.inputs[0]); L.new(inv.outputs[0], add.inputs[0]); L.new(add.outputs[0], b.inputs['Metallic'])
-        bt = N.new('ShaderNodeTexImage'); bt.image = bpy.data.images.load(T+f'bump_{kind}.png'); bt.image.colorspace_settings.name = 'Non-Color'
+            rmix = N.new('ShaderNodeMapRange'); rmix.inputs['To Min'].default_value = rough; rmix.inputs['To Max'].default_value = 0.7
+            L.new(tex.outputs['Alpha'], rmix.inputs['Value']); L.new(rmix.outputs['Result'], b.inputs['Roughness'])
+            smix = N.new('ShaderNodeMapRange'); smix.inputs['To Min'].default_value = 0.5; smix.inputs['To Max'].default_value = 0.12
+            L.new(tex.outputs['Alpha'], smix.inputs['Value']); L.new(smix.outputs['Result'], b.inputs['Specular IOR Level'])
+        bt = N.new('ShaderNodeTexImage'); bt.image = bpy.data.images.load(T+('bump_flat.png' if GLOSS else f'bump_{kind}.png')); bt.image.colorspace_settings.name = 'Non-Color'
         bp = N.new('ShaderNodeBump'); bp.inputs['Strength'].default_value = 0.55; bp.inputs['Distance'].default_value = 0.02
         L.new(bt.outputs['Color'], bp.inputs['Height']); L.new(bp2.outputs['Normal'], bp.inputs['Normal']); L.new(bp.outputs['Normal'], b.inputs['Normal'])
         ct = N.new('ShaderNodeTexImage'); ct.image = bpy.data.images.load(T+f'cut_{kind}.png'); ct.image.colorspace_settings.name = 'Non-Color'
@@ -108,6 +120,11 @@ bag.rotation_euler = (0 if STAND else math.radians(-5), 0, math.radians(-24 if S
 studio(scale=4.0)
 for o in bpy.data.objects:            # more shape: weaker fill, stronger edge lights
     if o.type == 'LIGHT': o.data.energy *= {'fill': 0.45, 'rimL': 1.5, 'rimR': 1.4, 'key': 1.1}.get(o.name, 1.0)
+if a.style == 'chrome':               # chrome only reads as chrome with dark shapes to reflect: black cards the camera cannot see
+    for nm, loc, rot, sz in (('cardL', (-9, -6, 6), (0, math.radians(90), 0), (9, 16)), ('cardR', (10, -3, 5), (0, math.radians(90), 0), (7, 14)), ('cardF', (2, -30, -4), (math.radians(70), 0, 0), (26, 10))):
+        cb = bmesh.new(); bmesh.ops.create_grid(cb, x_segments=1, y_segments=1, size=0.5); cm = bpy.data.meshes.new(nm); cb.to_mesh(cm); cb.free()
+        co = bpy.data.objects.new(nm, cm); bpy.context.collection.objects.link(co); co.location = loc; co.rotation_euler = rot; co.scale = (sz[0], sz[1], 1)
+        cm.materials.append(plain_material(nm, (0.004, 0.004, 0.004, 1), 0.9)); co.visible_camera = False; co.visible_shadow = False; co.visible_diffuse = False
 camera((-7, -52, 15 if STAND else 13), (0, 0, 4.55), lens=135)
 if a.blend: bpy.ops.file.pack_all(); bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(a.blend))
 render(os.path.abspath(a.out), a.samples, a.pct)
