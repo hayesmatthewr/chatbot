@@ -3,7 +3,7 @@ from common import *
 from mathutils import noise
 import argparse, random
 ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome'])
-ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend')
+ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true')
 a = ap.parse_args(); s = reset(); random.seed(11)
 STAND = a.style == 'standup'
 W, H = 6.2, 9.3                       # 100 x 150 mm; 1 unit = 16.13 mm
@@ -125,6 +125,26 @@ if a.style == 'chrome':               # chrome only reads as chrome with dark sh
         cb = bmesh.new(); bmesh.ops.create_grid(cb, x_segments=1, y_segments=1, size=0.5); cm = bpy.data.meshes.new(nm); cb.to_mesh(cm); cb.free()
         co = bpy.data.objects.new(nm, cm); bpy.context.collection.objects.link(co); co.location = loc; co.rotation_euler = rot; co.scale = (sz[0], sz[1], 1)
         cm.materials.append(plain_material(nm, (0.004, 0.004, 0.004, 1), 0.9)); co.visible_camera = False; co.visible_shadow = False; co.visible_diffuse = False
-camera((-7, -52, 15 if STAND else 13), (0, 0, 4.55), lens=135)
+if a.gel:                             # one softgel beside the bag at true scale: 15 x 8 x 7 mm, clear ruby shell around a dark fill
+    s.cycles.max_bounces = 20; s.cycles.transmission_bounces = 16; s.cycles.volume_bounces = 2
+    MMU = 1/16.13
+    def ovoid(name, k, mat):
+        gb = bmesh.new(); bmesh.ops.create_uvsphere(gb, u_segments=96, v_segments=64, radius=1.0)
+        for v in gb.verts: v.co = (v.co.x*7.5*MMU*k[0], v.co.y*4.0*MMU*k[1], v.co.z*3.5*MMU*k[2])
+        for f in gb.faces: f.smooth = True
+        gm = bpy.data.meshes.new(name); gb.to_mesh(gm); gb.free(); gm.materials.append(mat)
+        o = bpy.data.objects.new(name, gm); bpy.context.collection.objects.link(o)
+        o.location = (W/2 + 1.25, -1.5, 3.5*MMU); o.rotation_euler = (math.radians(6), 0, math.radians(28)); return o
+    def gelmat(name, color, absorb, density, ior, rough):
+        m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; b = nt.nodes['Principled BSDF']
+        b.inputs['Base Color'].default_value = color; b.inputs['Transmission Weight'].default_value = 1.0
+        b.inputs['Roughness'].default_value = rough; b.inputs['IOR'].default_value = ior
+        va = nt.nodes.new('ShaderNodeVolumeAbsorption'); va.inputs['Color'].default_value = absorb; va.inputs['Density'].default_value = density
+        nt.links.new(va.outputs['Volume'], nt.nodes['Material Output'].inputs['Volume']); return m
+    ovoid('softgel_shell', (1, 1, 1), gelmat('gelatin', (1.0, 0.12, 0.12, 1), (0.9, 0.03, 0.04, 1), 1.45, 1.5, 0.015))
+    ovoid('softgel_fill', (0.92, 0.9, 0.86), gelmat('oil', (0.9, 0.03, 0.04, 1), (0.6, 0.006, 0.01, 1), 5.4, 1.47, 0.0))
+    camera((-7, -60, 15), (0.75, 0, 4.4), lens=135)
+else:
+    camera((-7, -52, 15 if STAND else 13), (0, 0, 4.55), lens=135)
 if a.blend: bpy.ops.file.pack_all(); bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(a.blend))
 render(os.path.abspath(a.out), a.samples, a.pct)
