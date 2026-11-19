@@ -2,12 +2,12 @@ import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *
 from mathutils import noise
 import argparse, random
-ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome'])
+ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl'])
 ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true')
 a = ap.parse_args(); s = reset(); random.seed(11)
 STAND = a.style == 'standup'
 W, H = 6.2, 9.3                       # 100 x 150 mm; 1 unit = 16.13 mm
-GLOSS = a.style in ('mirror', 'satin', 'laminate', 'chrome')   # smooth-fronted: contents do not show through
+GLOSS = a.style in ('mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl')   # smooth-fronted: contents do not show through
 nx = 170 if GLOSS else 230; ny = round(nx*H/W)
 SL = SR = 0.07; SB = 0.0 if STAND else 0.03; ST = 0.2
 ZZ = 0.835*H                          # zipper track height
@@ -86,6 +86,9 @@ def film(name, front_face):
          'mirror':   (0.94, 0.10, 0.5, 0.035, 9,  srgb('c40b15')),     # smooth mirror foil, broad clean highlights
          'satin':    (0.88, 0.30, 0.0, 0.03, 12,  srgb('be0c15')),     # brushed metallic sheen, softer reflections
          'laminate': (0.0,  0.30, 1.0, 0.03, 10,  srgb('a8080f')),     # deep lacquer red under a wet clear gloss
+         'softtouch':  (0.0,  0.78, 0.0, 0.05, 160, RED),                # fully matte soft-touch film, only a faint velvet sheen
+         'satinmatte': (0.22, 0.52, 0.0, 0.04, 120, srgb('b80b14')),     # matte with a soft, broad band of light across it
+         'pearl':      (0.62, 0.56, 0.0, 0.04, 90,  srgb('bc0c15')),     # matte metallic: a gentle glow, no mirror reflections
          'chrome':   (1.0,  0.12, 0.0, 0.03, 9,   (0.66, 0.66, 0.68, 1))}[a.style]
     metal, rough, coat, crk, crs, base = P; foil = metal > 0
     b.inputs['Roughness'].default_value = rough; b.inputs['Metallic'].default_value = metal
