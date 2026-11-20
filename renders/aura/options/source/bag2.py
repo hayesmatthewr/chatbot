@@ -2,10 +2,10 @@ import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *
 from mathutils import noise
 import argparse, random
-ap = argparse.ArgumentParser(); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl'])
-ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true')
+ap = argparse.ArgumentParser(); ap.add_argument('--solid', action='store_true'); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl'])
+ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true'); ap.add_argument('--real', action='store_true'); ap.add_argument('--pose', default='stand', choices=['stand', 'standup', 'flatlay'])
 a = ap.parse_args(); s = reset(); random.seed(11)
-STAND = a.style == 'standup'
+STAND = a.style == 'standup' or a.pose == 'standup'; REAL = a.real; LAY = a.pose == 'flatlay'
 W, H = 6.2, 9.3                       # 100 x 150 mm; 1 unit = 16.13 mm
 GLOSS = a.style in ('mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl')   # smooth-fronted: contents do not show through
 nx = 170 if GLOSS else 230; ny = round(nx*H/W)
@@ -43,6 +43,8 @@ for k in range(11):
 for sx, cxn in ((1, x0), (-1, x1)):   # tension creases running in from the lower corners
     creases.append((cxn + sx*0.9, z0 + 0.9, sx*0.7, 0.7, 0.11, -0.045, 1.5))
 ph = [random.uniform(0, 6.28) for _ in range(8)]
+sharp = [(random.uniform(x0+0.6, x1-0.6), random.uniform(z0+0.8, z1-0.8), math.cos(an), math.sin(an), random.uniform(0.035, 0.06), random.choice((-1, 1))*random.uniform(0.02, 0.036), random.uniform(0.9, 2.0)) for an in [random.uniform(-1.3, 1.3) for _ in range(4)]]
+dents = [(random.uniform(x0+1.0, x1-1.0), random.uniform(z0+1.2, z1-1.5), random.uniform(0.4, 0.6), random.uniform(0.05, 0.08)) for _ in range(2)]
 def shape(x, z, side):
     if not (x0 < x < x1 and z < z1 and (STAND or z > z0)): return 0.0
     q = max(0.0, (z-z0)/(z1-z0)); u = (x-(x0+x1)/2)/((x1-x0)/2)
@@ -62,6 +64,12 @@ def shape(x, z, side):
     pk = 0.032*(math.sin(z*8.5 + ph[0])*math.exp(-(x-x0)/0.42) + math.sin(z*7.7 + ph[1])*math.exp(-(x1-x)/0.42))*min(1.0, q*4)*min(1.0, (1-q)*3)
     ga = 0.026*math.sin(x*6.3 + ph[2] + 0.6*math.sin(x*2.1))*math.exp(-(z1-z)/0.75)*ramp(x-x0, 0.5)*ramp(x1-x, 0.5)
     if GLOSS: n *= 0.45; cr *= 0.35; pk *= 0.6; ga *= 0.6
+    if REAL:
+        t *= 1 + 0.16*noise.noise(Vector((x*0.35, z*0.3, 5.0*side)))
+        cr += sum(amp*math.exp(-((-(x-cx)*uz + (z-cz)*ux)/sig)**2)*math.exp(-(((x-cx)*ux + (z-cz)*uz)/ln)**2) for cx, cz, ux, uz, sig, amp, ln in sharp)*(1.0 if side < 0 else 0.5)
+        cr -= sum(dp*math.exp(-((x-cx)**2 + (z-cz)**2)/(r*r)) for cx, cz, r, dp in dents)*(1.0 if side < 0 else 0.0)
+        pk *= 1.5; ga *= 1.4
+    if LAY: t *= 1.3 if side < 0 else 0.15
     return t + lump + edge*(n + cr) + (pk + ga)*(1.0 if side < 0 else 0.7)
 for v in me.vertices:
     x, y, z = v.co; side = -1 if y < 0 else 1; t = shape(x, z, side); vq = z/H
@@ -72,9 +80,17 @@ for v in me.vertices:
         lean = 0.0
     else:
         pinch = 1 - 0.05*math.sin(math.pi*min(1, vq/(1-ST)))*(1 if z < z1 else 0); bow = 0.16*(x/(W/2))**2 - 0.10*(vq-0.5)**2
-    v.co = (x*pinch, side*(0.004+t) - (zip_ridge if side < 0 or front else 0) + bow, z)
+    warp = 0.0
+    if REAL:                          # nothing on a real pouch is dead straight: seals wave, corners curl
+        warp = 0.03*math.sin(x*1.1 + 0.5)*math.sin(z*0.6) + 0.016*math.sin(x*2.3 + z*1.1)
+        for cx, cz, amp in ((-W/2, H, 0.11), (W/2, H, -0.07), (-W/2, 0, -0.05), (W/2, 0, 0.06)):
+            warp += amp*math.exp(-((x-cx)**2 + (z-cz)**2)/1.3**2)*(0.4 if STAND and cz == 0 else 1.0)
+        x += 0.012*math.sin(z*2.7 + 1.0)
+    v.co = (x*pinch, side*(0.004+t) - (zip_ridge*(0.5 if REAL else 1.0) if side < 0 or front else 0) + bow + warp, z)
 zs = [v.co.z for v in me.vertices]; ys = [v.co.y for v in me.vertices]
 for v in me.vertices: v.co.z -= min(zs); v.co.y -= (min(ys)+max(ys))/2
+YBACK = max(ys) - (min(ys)+max(ys))/2
+if REAL and '--solid' in sys.argv: so = bag.modifiers.new('solid', 'SOLIDIFY'); so.thickness = 0.018; so.offset = 0
 sub = bag.modifiers.new('sub', 'SUBSURF'); sub.levels = 1; sub.render_levels = 1
 T = os.path.join(HERE, 'tex/'); kind = 'standup' if (STAND or GLOSS) else 'flat'   # the 'standup' cut-out has no hang hole
 def film(name, front_face):
@@ -96,7 +112,7 @@ def film(name, front_face):
     b.inputs['Sheen Weight'].default_value = 0.0 if (foil or coat) else 0.35; b.inputs['Sheen Roughness'].default_value = 0.4
     b.inputs['Coat Weight'].default_value = coat; b.inputs['Coat Roughness'].default_value = 0.05
     nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = crs; nz.inputs['Detail'].default_value = 8; nz.inputs['Roughness'].default_value = 0.62
-    bp2 = N.new('ShaderNodeBump'); bp2.inputs['Strength'].default_value = crk; bp2.inputs['Distance'].default_value = 0.03
+    bp2 = N.new('ShaderNodeBump'); bp2.inputs['Strength'].default_value = crk*(2.2 if REAL else 1.0); bp2.inputs['Distance'].default_value = 0.03
     L.new(nz.outputs['Fac'], bp2.inputs['Height'])
     if front_face:
         tex = N.new('ShaderNodeTexImage'); tex.image = bpy.data.images.load(T+('label_black.png' if a.style == 'chrome' else 'label.png')); tex.extension = 'CLIP'
@@ -110,9 +126,13 @@ def film(name, front_face):
             L.new(tex.outputs['Alpha'], rmix.inputs['Value']); L.new(rmix.outputs['Result'], b.inputs['Roughness'])
             smix = N.new('ShaderNodeMapRange'); smix.inputs['To Min'].default_value = 0.5; smix.inputs['To Max'].default_value = 0.12
             L.new(tex.outputs['Alpha'], smix.inputs['Value']); L.new(smix.outputs['Result'], b.inputs['Specular IOR Level'])
-        bt = N.new('ShaderNodeTexImage'); bt.image = bpy.data.images.load(T+('bump_flat.png' if GLOSS else f'bump_{kind}.png')); bt.image.colorspace_settings.name = 'Non-Color'
-        bp = N.new('ShaderNodeBump'); bp.inputs['Strength'].default_value = 0.55; bp.inputs['Distance'].default_value = 0.02
-        L.new(bt.outputs['Color'], bp.inputs['Height']); L.new(bp2.outputs['Normal'], bp.inputs['Normal']); L.new(bp.outputs['Normal'], b.inputs['Normal'])
+        bt = N.new('ShaderNodeTexImage'); bt.image = bpy.data.images.load(T+(('bump_real_standup.png' if STAND else 'bump_real_flat.png') if REAL else ('bump_flat.png' if GLOSS else f'bump_{kind}.png'))); bt.image.colorspace_settings.name = 'Non-Color'
+        bp = N.new('ShaderNodeBump'); bp.inputs['Strength'].default_value = 0.85 if REAL else 0.55; bp.inputs['Distance'].default_value = 0.03 if REAL else 0.02
+        L.new(bt.outputs['Color'], bp.inputs['Height']); L.new(bp2.outputs['Normal'], bp.inputs['Normal'])
+        if REAL:                       # printed ink sits very slightly proud of the film
+            bp3 = N.new('ShaderNodeBump'); bp3.inputs['Strength'].default_value = 0.18; bp3.inputs['Distance'].default_value = 0.004
+            L.new(tex.outputs['Alpha'], bp3.inputs['Height']); L.new(bp.outputs['Normal'], bp3.inputs['Normal']); L.new(bp3.outputs['Normal'], b.inputs['Normal'])
+        else: L.new(bp.outputs['Normal'], b.inputs['Normal'])
         ct = N.new('ShaderNodeTexImage'); ct.image = bpy.data.images.load(T+f'cut_{kind}.png'); ct.image.colorspace_settings.name = 'Non-Color'
         L.new(ct.outputs['Color'], b.inputs['Alpha'])
     else:
@@ -120,9 +140,11 @@ def film(name, front_face):
     return m
 bag.data.materials.append(film('film_front', True)); bag.data.materials.append(film('film_back', False))
 bag.rotation_euler = (0 if STAND else math.radians(-5), 0, math.radians(-24 if STAND else -20)); bag.location = (0, 0, 0.02)
+if LAY: bag.rotation_euler = (math.radians(-90), 0, math.radians(13)); bag.location = (0.4, -H/2 + 0.2, YBACK + 0.02)   # resting on its back
 studio(scale=4.0)
 for o in bpy.data.objects:            # more shape: weaker fill, stronger edge lights
-    if o.type == 'LIGHT': o.data.energy *= {'fill': 0.45, 'rimL': 1.5, 'rimR': 1.4, 'key': 1.1}.get(o.name, 1.0)
+    if o.type == 'LIGHT': o.data.energy *= ({'fill': 0.28, 'rimL': 0.9, 'rimR': 0.8, 'key': 1.7, 'top': 0.75} if REAL else {'fill': 0.45, 'rimL': 1.5, 'rimR': 1.4, 'key': 1.1}).get(o.name, 1.0)
+if REAL: s.world.node_tree.nodes['Background'].inputs[1].default_value = 0.13   # deeper, more directional shadows
 if a.style == 'chrome':               # chrome only reads as chrome with dark shapes to reflect: black cards the camera cannot see
     for nm, loc, rot, sz in (('cardL', (-9, -6, 6), (0, math.radians(90), 0), (9, 16)), ('cardR', (10, -3, 5), (0, math.radians(90), 0), (7, 14)), ('cardF', (2, -30, -4), (math.radians(70), 0, 0), (26, 10))):
         cb = bmesh.new(); bmesh.ops.create_grid(cb, x_segments=1, y_segments=1, size=0.5); cm = bpy.data.meshes.new(nm); cb.to_mesh(cm); cb.free()
@@ -147,6 +169,8 @@ if a.gel:                             # one softgel beside the bag at true scale
     ovoid('softgel_shell', (1, 1, 1), gelmat('gelatin', (1.0, 0.12, 0.12, 1), (0.9, 0.03, 0.04, 1), 1.45, 1.5, 0.015))
     ovoid('softgel_fill', (0.92, 0.9, 0.86), gelmat('oil', (0.9, 0.03, 0.04, 1), (0.6, 0.006, 0.01, 1), 5.4, 1.47, 0.0))
     camera((-7, -60, 15), (0.75, 0, 4.4), lens=135)
+elif LAY:
+    camera((-4, -30, 46), (0.2, 0.2, 0), lens=135)
 else:
     camera((-7, -52, 15 if STAND else 13), (0, 0, 4.55), lens=135)
 if a.blend: bpy.ops.file.pack_all(); bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(a.blend))
