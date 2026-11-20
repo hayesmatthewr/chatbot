@@ -176,7 +176,7 @@ elif TOP:
     area('key', (-21, 18, 8.5), (0, 0, 0), 7.5, 9600)
     area('overhead', (0, 0, 30), (0, 0, 0), 26, 3400)
     s.world.node_tree.nodes['Background'].inputs[1].default_value = 0.17
-    camera((1.0, -1.3, 73), (1.0, -1.3, 0), lens=135, res=(1600, 2400))   # 2:3, pulled back a little
+    camera((0, 0, 80), (0, 0, 0), lens=135, res=(2400, 1600))   # landscape 3:2, bag dead centre
 elif LAY:
     camera((-4, -30, 46), (0.2, 0.2, 0), lens=135)
 else:
