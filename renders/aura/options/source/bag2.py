@@ -3,9 +3,9 @@ from common import *
 from mathutils import noise
 import argparse, random
 ap = argparse.ArgumentParser(); ap.add_argument('--solid', action='store_true'); ap.add_argument('style', choices=['matte', 'foil', 'standup', 'mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl'])
-ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true'); ap.add_argument('--real', action='store_true'); ap.add_argument('--pose', default='stand', choices=['stand', 'standup', 'flatlay'])
+ap.add_argument('--samples', type=int, default=64); ap.add_argument('--pct', type=int, default=62); ap.add_argument('--out'); ap.add_argument('--blend'); ap.add_argument('--gel', action='store_true'); ap.add_argument('--real', action='store_true'); ap.add_argument('--pose', default='stand', choices=['stand', 'standup', 'flatlay', 'topdown'])
 a = ap.parse_args(); s = reset(); random.seed(11)
-STAND = a.style == 'standup' or a.pose == 'standup'; REAL = a.real; LAY = a.pose == 'flatlay'
+STAND = a.style == 'standup' or a.pose == 'standup'; REAL = a.real; LAY = a.pose in ('flatlay', 'topdown'); TOP = a.pose == 'topdown'
 W, H = 6.2, 9.3                       # 100 x 150 mm; 1 unit = 16.13 mm
 GLOSS = a.style in ('mirror', 'satin', 'laminate', 'chrome', 'softtouch', 'satinmatte', 'pearl')   # smooth-fronted: contents do not show through
 nx = 170 if GLOSS else 230; ny = round(nx*H/W)
@@ -140,6 +140,7 @@ def film(name, front_face):
 bag.data.materials.append(film('film_front', True)); bag.data.materials.append(film('film_back', False))
 bag.rotation_euler = (0 if STAND else math.radians(-5), 0, math.radians(-24 if STAND else -20)); bag.location = (0, 0, 0.02)
 if LAY: bag.rotation_euler = (math.radians(-90), 0, math.radians(13)); bag.location = (0.4, -H/2 + 0.2, YBACK + 0.02)   # resting on its back
+if TOP: bag.rotation_euler = (math.radians(-90), 0, 0); bag.location = (0, -H/2, YBACK + 0.02)
 studio(scale=4.0)
 for o in bpy.data.objects:            # more shape: weaker fill, stronger edge lights
     if o.type == 'LIGHT': o.data.energy *= ({'fill': 0.28, 'rimL': 0.9, 'rimR': 0.8, 'key': 1.7, 'top': 0.75} if REAL else {'fill': 0.45, 'rimL': 1.5, 'rimR': 1.4, 'key': 1.1}).get(o.name, 1.0)
@@ -168,9 +169,17 @@ if a.gel:                             # one softgel beside the bag at true scale
     ovoid('softgel_shell', (1, 1, 1), gelmat('gelatin', (1.0, 0.12, 0.12, 1), (0.9, 0.03, 0.04, 1), 1.45, 1.5, 0.015))
     ovoid('softgel_fill', (0.92, 0.9, 0.86), gelmat('oil', (0.9, 0.03, 0.04, 1), (0.6, 0.006, 0.01, 1), 5.4, 1.47, 0.0))
     camera((-7, -60, 15), (0.75, 0, 4.4), lens=135)
+elif TOP:
+    # straight-down shot on pure white: one soft light from the upper left throws a long, soft shadow down and to the right
+    for o in list(bpy.data.objects):
+        if o.type == 'LIGHT': bpy.data.objects.remove(o)
+    area('key', (-21, 18, 8.5), (0, 0, 0), 7.5, 9600)
+    area('overhead', (0, 0, 30), (0, 0, 0), 26, 3400)
+    s.world.node_tree.nodes['Background'].inputs[1].default_value = 0.17
+    camera((0.9, -0.9, 62), (0.9, -0.9, 0), lens=135)
 elif LAY:
     camera((-4, -30, 46), (0.2, 0.2, 0), lens=135)
 else:
     camera((-7, -52, 15 if STAND else 13), (0, 0, 4.55), lens=135)
 if a.blend: bpy.ops.file.pack_all(); bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(a.blend))
-render(os.path.abspath(a.out), a.samples, a.pct)
+render(os.path.abspath(a.out), a.samples, a.pct, bg=(255, 255, 255) if TOP else (246, 246, 246))
