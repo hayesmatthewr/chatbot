@@ -66,9 +66,8 @@ def shape(x, z, side):
     if GLOSS: n *= 0.45; cr *= 0.35; pk *= 0.6; ga *= 0.6
     if REAL:
         t *= 1 + 0.16*noise.noise(Vector((x*0.35, z*0.3, 5.0*side)))
-        cr += sum(amp*math.exp(-((-(x-cx)*uz + (z-cz)*ux)/sig)**2)*math.exp(-(((x-cx)*ux + (z-cz)*uz)/ln)**2) for cx, cz, ux, uz, sig, amp, ln in sharp)*(1.0 if side < 0 else 0.5)
-        cr -= sum(dp*math.exp(-((x-cx)**2 + (z-cz)**2)/(r*r)) for cx, cz, r, dp in dents)*(1.0 if side < 0 else 0.0)
-        pk *= 1.5; ga *= 1.4
+        cr *= 0.1; n *= 0.5           # smooth front: no creases or dents across the face, only puckers along the side seals
+        pk *= 1.35; ga *= 0.35
     if LAY: t *= 1.3 if side < 0 else 0.15
     return t + lump + edge*(n + cr) + (pk + ga)*(1.0 if side < 0 else 0.7)
 for v in me.vertices:
